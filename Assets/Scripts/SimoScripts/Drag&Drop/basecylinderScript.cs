@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class baseScript : MonoBehaviour
+public class basecylinderScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform _basecylinder;
+    private Transform basecylinder_s;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -44,10 +44,10 @@ public class baseScript : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - _basecylinder.position.x) <= 1.0f
-            && Mathf.Abs(transform.position.y - _basecylinder.position.y) <= 1.0f)
+        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 1.0f
+            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 1.0f)
         {
-            transform.position = new Vector2(_basecylinder.position.x, _basecylinder.position.y);
+            transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
             locked = true;
         }
         else
