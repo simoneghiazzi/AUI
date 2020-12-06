@@ -44,8 +44,8 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 1.0f
-            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 1.0f)
+        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 60.0f
+            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 30.0f)
         {
             transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
             locked = true;
