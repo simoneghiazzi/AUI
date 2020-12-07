@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuizzManager : MonoBehaviour
 {
-    public List<QuestionsAndAnswers> QnA;
+    public List<QuestionAndAnswers> QnA;
     public GameObject[] options;
     public int currentQuestion;
 
-    public LeoText QuestionTxt;
+    public Text QuestionTxt;
 
     private void Start()
     {
@@ -26,7 +28,7 @@ public class QuizzManager : MonoBehaviour
         for(int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<AnswerYellowBalloon1>().text = QnA[currentQuestion].Answers[i];
+            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
 
             if(QnA[currentQuestion].CorrectAnswer == i+1)
             {

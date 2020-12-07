@@ -1,26 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
-    public QuizzManager quizzManager;
+    public QuizzManager QuizzManager;
 
     public void Answer()
     {
         if(isCorrect)
         {
-            Debug.log("Correct Answer");
-            quizzManager.correct();
+            Debug.Log("Correct Answer");
+            QuizzManager.correct();
         }
 
         else
         {
-            Debug.log("Wrong Answer");
-            quizzManager.correct();
+            Debug.Log("Wrong Answer");
+            QuizzManager.correct();
         }
 
-    
+
     }
 }

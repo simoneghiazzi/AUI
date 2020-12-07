@@ -1,9 +1,9 @@
+
 ﻿[System.Serializable]
 
-public class QuestionsAndAnswers : MonoBehaviour 
+public class QuestionAndAnswers
 {
     public string Question;
     public string[] Answers;
     public int CorrectAnswer;
-
 }
