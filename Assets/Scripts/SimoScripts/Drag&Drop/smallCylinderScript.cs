@@ -5,50 +5,46 @@ using UnityEngine;
 public class smallCylinderScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform smallcylinder_s;
+    private Transform smallcylinder_s, smallcylinder_f;
+    private GameObject smalcylinderObject;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
+    private SpriteRenderer sr;
+
     private float deltaX, deltaY;
 
-    public static bool locked;
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        smalcylinderObject = smallcylinder_s.gameObject;
     }
 
     private void onMouseDown()
     {
-        if (!locked)
-        {
-            deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-            deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
-        }
+        deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
     private void OnMouseDrag()
     {
-        if (!locked)
-        {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-        }
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
     }
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - smallcylinder_s.position.x) <= 40.0f
-            && Mathf.Abs(transform.position.y - smallcylinder_s.position.y) <= 40.0f)
+        if (Mathf.Abs(transform.position.x - smallcylinder_s.position.x) <= 30.0f
+            && Mathf.Abs(transform.position.y - smallcylinder_s.position.y) <= 80.0f)
         {
             transform.position = new Vector2(smallcylinder_s.position.x, smallcylinder_s.position.y);
-            locked = true;
+
+            gameObject.SetActive(false);
+            smalcylinderObject.SetActive(false);
+
+            sr = smallcylinder_f.GetComponent<SpriteRenderer>();
+            sr.color = new Color(1f, 1f, 1f, 1f);
         }
         else
         {
@@ -56,4 +52,3 @@ public class smallCylinderScript : MonoBehaviour
         }
     }
 }
-

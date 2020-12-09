@@ -5,50 +5,46 @@ using UnityEngine;
 public class basecylinderScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform basecylinder_s;
+    private Transform basecylinder_s, basecylinder_f;
+    private GameObject mastObject;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
+    private SpriteRenderer sr;
+
     private float deltaX, deltaY;
 
-    public bool locked;
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        mastObject = basecylinder_s.gameObject;
     }
 
     private void onMouseDown()
     {
-        if (!locked)
-        {
-            deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-            deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
-        }
+        deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
     private void OnMouseDrag()
     {
-        if (!locked)
-        {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-        }
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
     }
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 60.0f
-            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 30.0f)
+        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 30.0f
+            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 80.0f)
         {
             transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
-            locked = true;
+
+            gameObject.SetActive(false);
+            mastObject.SetActive(false);
+
+            sr = basecylinder_f.GetComponent<SpriteRenderer>();
+            sr.color = new Color(1f, 1f, 1f, 1f);
         }
         else
         {

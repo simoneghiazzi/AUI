@@ -5,50 +5,46 @@ using UnityEngine;
 public class handlebarScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform handlebar_s;
+    private Transform handlebar_s, handlebar_f;
+    private GameObject handlebarObject;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
+    private SpriteRenderer sr;
+
     private float deltaX, deltaY;
 
-    public static bool locked;
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        handlebarObject = handlebar_s.gameObject;
     }
 
     private void onMouseDown()
     {
-        if (!locked)
-        {
-            deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-            deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
-        }
+        deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
     private void OnMouseDrag()
     {
-        if (!locked)
-        {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-        }
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
     }
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - handlebar_s.position.x) <= 70.0f
-            && Mathf.Abs(transform.position.y - handlebar_s.position.y) <= 30.0f)
+        if (Mathf.Abs(transform.position.x - handlebar_s.position.x) <= 30.0f
+            && Mathf.Abs(transform.position.y - handlebar_s.position.y) <= 80.0f)
         {
             transform.position = new Vector2(handlebar_s.position.x, handlebar_s.position.y);
-            locked = true;
+
+            gameObject.SetActive(false);
+            handlebarObject.SetActive(false);
+
+            sr = handlebar_f.GetComponent<SpriteRenderer>();
+            sr.color = new Color(1f, 1f, 1f, 1f);
         }
         else
         {
@@ -56,4 +52,3 @@ public class handlebarScript : MonoBehaviour
         }
     }
 }
-
