@@ -6,7 +6,7 @@ public class basecylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform basecylinder_s, basecylinder_f;
-    private GameObject mastObject;
+    private GameObject basecylinderObject;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -18,7 +18,7 @@ public class basecylinderScript : MonoBehaviour
     void Start()
     {
         initialPosition = transform.position;
-        mastObject = basecylinder_s.gameObject;
+        basecylinderObject = basecylinder_s.gameObject;
     }
 
     private void onMouseDown()
@@ -41,7 +41,7 @@ public class basecylinderScript : MonoBehaviour
             transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
 
             gameObject.SetActive(false);
-            mastObject.SetActive(false);
+            basecylinderObject.SetActive(false);
 
             sr = basecylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);

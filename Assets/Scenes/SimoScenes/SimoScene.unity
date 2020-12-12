@@ -1169,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallcylinder_s: {fileID: 769699550}
+  smallcylinder_f: {fileID: 1347084716}
 --- !u!4 &682916377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2874558641226841560, guid: e76a71a0256234546a334e26edfd201f,
@@ -1338,6 +1339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainmast_s: {fileID: 1482548162}
+  mainmast_f: {fileID: 946580921}
 --- !u!1 &714334961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7caa7c8fc99be064eb46a77e30fe93ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fabric1_s: {fileID: 6138378}
+  fabric_s: {fileID: 6138378}
+  fabric_f: {fileID: 2030301679}
 --- !u!1 &1191653584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,7 +2447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basecylinder_s: {fileID: 63208166}
-  locked: 0
+  basecylinder_f: {fileID: 2099615426}
 --- !u!60 &1318357780
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2805,7 +2808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bcfc63cbc5d8848b11b9d47fb4d22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traingle_s: {fileID: 1809869206}
+  triangle_s: {fileID: 1809869206}
+  triangle_f: {fileID: 377929537}
 --- !u!1 &1419716685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,6 +3644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bigcylinder_s: {fileID: 24714874}
+  bigcylinder_f: {fileID: 1441643243}
 --- !u!1 &1985202627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4104,3 +4109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handlebar_s: {fileID: 1060443686}
+  handlebar_f: {fileID: 1419716686}
