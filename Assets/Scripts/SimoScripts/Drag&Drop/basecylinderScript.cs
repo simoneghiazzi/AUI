@@ -6,7 +6,7 @@ public class basecylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform basecylinder_s, basecylinder_f;
-    private GameObject basecylinderObject;
+    private GameObject basecylinderObject, gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -19,6 +19,7 @@ public class basecylinderScript : MonoBehaviour
     {
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
+        gameManager = GameObject.Find("GameManager");
     }
 
     private void onMouseDown()
@@ -49,6 +50,7 @@ public class basecylinderScript : MonoBehaviour
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            gameManager.GetComponent<GameManager>().WrongPosition();
         }
     }
 }
