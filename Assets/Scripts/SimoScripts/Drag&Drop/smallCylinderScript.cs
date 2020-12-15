@@ -6,7 +6,7 @@ public class smallCylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform smallcylinder_s, smallcylinder_f;
-    private GameObject smalcylinderObject;
+    private GameObject smalcylinderObject, gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -14,11 +14,16 @@ public class smallCylinderScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    public bool active;
+
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         smalcylinderObject = smallcylinder_s.gameObject;
+
+        gameManager = GameObject.Find("GameManager");
+        active = false;
     }
 
     private void onMouseDown()
@@ -29,8 +34,19 @@ public class smallCylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        if (active)
+        {
+            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.SMALL)
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().WrongObject();
+                active = false;
+            }
+        }
     }
 
     private void OnMouseUp()
@@ -49,6 +65,7 @@ public class smallCylinderScript : MonoBehaviour
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            gameManager.GetComponent<GameManager>().WrongPosition();
         }
     }
 }

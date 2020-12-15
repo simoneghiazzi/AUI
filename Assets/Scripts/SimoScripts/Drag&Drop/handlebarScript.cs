@@ -6,7 +6,7 @@ public class handlebarScript : MonoBehaviour
 {
     [SerializeField]
     private Transform handlebar_s, handlebar_f;
-    private GameObject handlebarObject;
+    private GameObject handlebarObject, gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -14,11 +14,15 @@ public class handlebarScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    public bool active; 
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         handlebarObject = handlebar_s.gameObject;
+
+        gameManager = GameObject.Find("GameManager");
+        active = false;
     }
 
     private void onMouseDown()
@@ -29,8 +33,19 @@ public class handlebarScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        if (active)
+        {
+            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.HANDLE)
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().WrongObject();
+                active = false;
+            }
+        }
     }
 
     private void OnMouseUp()
@@ -49,6 +64,7 @@ public class handlebarScript : MonoBehaviour
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            gameManager.GetComponent<GameManager>().WrongPosition();
         }
     }
 }

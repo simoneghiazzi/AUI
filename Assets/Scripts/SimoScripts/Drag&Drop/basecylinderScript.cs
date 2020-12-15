@@ -14,12 +14,14 @@ public class basecylinderScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    public bool active; 
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
         gameManager = GameObject.Find("GameManager");
+        active = false;
     }
 
     private void onMouseDown()
@@ -30,8 +32,19 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        if (active)
+        {
+            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BASE)
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().WrongObject();
+                active = false;
+            }
+        }
     }
 
     private void OnMouseUp()

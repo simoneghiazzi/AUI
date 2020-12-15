@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
 {
     //enum TextState { INTRO, BASE, BIG, SMALL, BEAM, TRIANGLE, FABRIC, HANDLE };
     public enum TextState { INTRO, BASE, BASE_DONE, BIG, BIG_DONE, SMALL, SMALL_DONE, BEAM, BEAM_DONE, TRIANGLE,
-        TRIANGLE_DONE, FABRIC,FABRIC_DONE, HANDLE, HANDLE_DONE, WRONG_OBJ, WRONG_POS };
+        TRIANGLE_DONE, MAST, MAST_DONE, FABRIC,FABRIC_DONE, HANDLE, HANDLE_DONE, WRONG_OBJ, WRONG_POS };
 
     //saveState needed to retrieve the current state after an error message
     public TextState state, savedState;
 
     private Text txt;
+
+    private GameObject components;
 
     private Timer timer = new Timer();
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         state = TextState.INTRO;
         txt = GameObject.Find("TextLeo").GetComponent<Text>();
+        components = GameObject.Find("Components");
         timer.Interval = 5000f;
         timer.Elapsed += NextIntro;
         toUpdate = txt.text;
@@ -55,10 +58,14 @@ public class GameManager : MonoBehaviour
                 case TextState.HANDLE:
                     break;
                 case TextState.WRONG_POS:
-                    timer.Elapsed += PositionError;
+                    timer.Elapsed += WrongPick;
                     toUpdate = "È un'idea carina ma non penso potrebbe funzionare. Prova a riposizionarlo!";
                     timer.Start();
-                    Debug.Log("funziona plis");
+                    break;
+                case TextState.WRONG_OBJ:
+                    timer.Elapsed += WrongPick;
+                    toUpdate = "Non sono sicuro che questo vada bene...prova a prendere un altro oggetto!";
+                    timer.Start();
                     break;
                 default:
                     break;
@@ -80,18 +87,35 @@ public class GameManager : MonoBehaviour
     {
         timer.Stop();
         state = TextState.BASE;
+        activateObjects();
     }
 
-    void PositionError(object o, System.EventArgs e)
+    void WrongPick(object o, System.EventArgs e)
     {
         timer.Stop();
         state = savedState;
-        Debug.Log(state);
     }
 
     public void WrongPosition()
     {
         savedState = state;
         state = TextState.WRONG_POS;
+    }
+
+    public void WrongObject()
+    {
+        savedState = state;
+        state = TextState.WRONG_OBJ;
+    }
+
+    public void NextStep(TextState newState)
+    {
+        state = newState;
+    }
+
+    //This functions is used to set the boolean that determines whether the objects are draggable or not
+    private void activateObjects()
+    {
+        
     }
 }

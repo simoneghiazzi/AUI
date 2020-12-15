@@ -6,7 +6,7 @@ public class fabricScript : MonoBehaviour
 {
     [SerializeField]
     private Transform fabric_s, fabric_f;
-    private GameObject fabricObject;
+    private GameObject fabricObject, gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -14,11 +14,16 @@ public class fabricScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    public bool active;
+
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         fabricObject = fabric_s.gameObject;
+
+        gameManager = GameObject.Find("GameManager");
+        active = false;
     }
 
     private void onMouseDown()
@@ -29,8 +34,19 @@ public class fabricScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        if (active)
+        {
+            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.FABRIC)
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().WrongObject();
+                active = false;
+            }
+        }
     }
 
     private void OnMouseUp()
@@ -49,6 +65,7 @@ public class fabricScript : MonoBehaviour
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            gameManager.GetComponent<GameManager>().WrongPosition();
         }
     }
 }
