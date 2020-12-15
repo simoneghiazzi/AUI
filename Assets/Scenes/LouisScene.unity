@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 53763338}
   - component: {fileID: 53763340}
   - component: {fileID: 53763339}
+  - component: {fileID: 53763341}
   m_Layer: 0
   m_Name: TextTimeRemaining
   m_TagString: Untagged
@@ -355,7 +356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11999512, y: -0.059936523}
+  m_AnchoredPosition: {x: -0.12011719, y: -0.060058594}
   m_SizeDelta: {x: 136.2689, y: 118.7825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53763339
@@ -399,6 +400,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53763337}
   m_CullTransparentMesh: 0
+--- !u!114 &53763341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53763337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042fc4b3ee13a488999015ea6d2d5d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 10
+  timerIsRunning: 1
+  timeText: {fileID: 53763339}
 --- !u!1 &101564717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41851044, y: 0.06655555}
   m_AnchorMax: {x: 0.597, y: 0.411}
-  m_AnchoredPosition: {x: 0, y: 5.1000977}
+  m_AnchoredPosition: {x: 0, y: 5.0996094}
   m_SizeDelta: {x: -382.41916, y: -364.48337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &491293868
@@ -1516,7 +1532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0009765625, y: -0.49804688}
+  m_AnchoredPosition: {x: -0.001953125, y: -0.49804688}
   m_SizeDelta: {x: -794.04846, y: -394.52496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &561557839
@@ -2466,6 +2482,9 @@ MonoBehaviour:
   QuestionTxt: {fileID: 564293365}
   ScoreTxt: {fileID: 891710562}
   scoreTeam1: 0
+  scoreTeam2: 0
+  scoreTeam3: 0
+  scoreTeam4: 0
 --- !u!222 &710645646
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -22,6 +22,9 @@ public class QuizzManager : MonoBehaviour
 
     int totalQuestions = 0; //total number of questions
     public int scoreTeam1 = 0;
+    public int scoreTeam2 = 0;
+    public int scoreTeam3 = 0;
+    public int scoreTeam4 = 0;
 
 
     /* METHODS */
@@ -45,6 +48,7 @@ public class QuizzManager : MonoBehaviour
         ScoreTxt.text = (scoreTeam1).ToString();
     }
 
+    //ANSWER
     //When an answer is correct
     public void correct()
     {
@@ -62,6 +66,7 @@ public class QuizzManager : MonoBehaviour
         StartCoroutine(waitForNext());
     }
 
+
     //Wait for next question
     IEnumerator waitForNext()
     {
@@ -72,14 +77,14 @@ public class QuizzManager : MonoBehaviour
     //Method used to manage the answers from the Unity Inspector
     void SetAnswers()
     {
-      for(int j = 0; j < 4 ; j==)
+      for(int j = 0; j < 4 ; j++)
       {
         for(int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false; //
+            options[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
             options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
 
-            if(QnA[currentQuestion].CorrectAnswer == i+1)
+            if(QnA[currentQuestion].CorrectAnswer == i+1)   // if the right button is clicked (if the chosen option is in the correct index)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
