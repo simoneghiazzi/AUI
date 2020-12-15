@@ -72,26 +72,30 @@ public class QuizzManager : MonoBehaviour
     //Method used to manage the answers from the Unity Inspector
     void SetAnswers()
     {
+      for(int j = 0; j < 4 ; j==)
+      {
         for(int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
+            options[i].GetComponent<AnswerScript>().isCorrect = false; //
+            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
 
             if(QnA[currentQuestion].CorrectAnswer == i+1)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
         }
+      }
     }
+
 
     //Method used to generate a question from the Unity Inspector
     void generateQuestion()
     {
         if(QnA.Count > 0) //when there are questions available
         {
-          currentQuestion = Random.Range(0, QnA.Count);
+          currentQuestion = Random.Range(0, QnA.Count); // generate a random question from the list of questions provided
 
-          QuestionTxt.text = QnA[currentQuestion].Question;
+          QuestionTxt.text = QnA[currentQuestion].Question; // set the current question text
           SetAnswers();
           QuestionsPanel.SetActive(true);
           PartialResultsPanel.SetActive(false);
