@@ -19,7 +19,7 @@ public class AnswerScript : MonoBehaviour
         else
         {
             Debug.Log("Wrong Answer");
-            QuizzManager.correct();
+            QuizzManager.wrong();
         }
 
 
