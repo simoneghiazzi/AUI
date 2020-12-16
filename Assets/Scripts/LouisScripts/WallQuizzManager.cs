@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class QuizzManager : MonoBehaviour
+public class WallQuizzManager : MonoBehaviour
 {
     // VARIABLES DECLARATION AND INITIALIZATION
 
@@ -12,11 +12,14 @@ public class QuizzManager : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion = 0;
 
+    public GameObject QuestionsPanel;
+    public GameObject PartialResultsPanel;
+    public GameObject FinalResultsPanel;
+    public GameObject UIElements;
+
     public Text QuestionTxt;
-    public Text ScoreTxt;
 
     int totalQuestions = 0; //total number of questions
-    public int score = 0;
 
 
     // METHODS
@@ -26,12 +29,17 @@ public class QuizzManager : MonoBehaviour
     private void Start()
     {
         totalQuestions = QnA.Count;
+        PartialResultsPanel.SetActive(false);
+        FinalResultsPanel.SetActive(false);
         generateQuestion();
     }
 
     //End of the game = display the final results
     void GameOver()
     {
+        QuestionsPanel.SetActive(false);
+        PartialResultsPanel.SetActive(false);
+        FinalResultsPanel.SetActive(true);
         ScoreTxt.text = (score).ToString();
     }
 
@@ -39,8 +47,9 @@ public class QuizzManager : MonoBehaviour
     //When an answer is correct
     public void correct()
     {
-        score += 1;
         QnA.RemoveAt(currentQuestion);
+        IntermediateResults();
+        StartCoroutine(waitForNext());
     }
 
     //When an answer is wrong
@@ -48,8 +57,16 @@ public class QuizzManager : MonoBehaviour
     {
         QnA.RemoveAt(currentQuestion);
         IntermediateResults();
+        StartCoroutine(waitForNext());
     }
 
+
+    //Wait for next question
+    IEnumerator waitForNext()
+    {
+        yield return new WaitForSeconds(10);
+        generateQuestion();
+    }
 
     //Method used to manage the answers from the Unity Inspector
     void SetAnswers()
@@ -75,6 +92,8 @@ public class QuizzManager : MonoBehaviour
         {
           QuestionTxt.text = QnA[currentQuestion].Question; // set the current question text
           SetAnswers();
+          QuestionsPanel.SetActive(true);
+          PartialResultsPanel.SetActive(false);
           currentQuestion += 1; // to generate the next question
         }
         else //when there are no more questions
@@ -89,6 +108,8 @@ public class QuizzManager : MonoBehaviour
     void IntermediateResults()
     {
         ScoreTxt.text = (score).ToString();
+        QuestionsPanel.SetActive(false);
+        PartialResultsPanel.SetActive(true);
     }
 
 }
