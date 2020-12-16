@@ -2469,11 +2469,31 @@ MonoBehaviour:
     - Venus
     - Nobody knows
     CorrectAnswer: 1
-  options:
+  optionsTeam1:
   - {fileID: 1937381607}
   - {fileID: 1317802587}
   - {fileID: 139585414}
   - {fileID: 593467518}
+  optionsTeam2:
+  - {fileID: 401690352}
+  - {fileID: 2146775822}
+  - {fileID: 1655512569}
+  - {fileID: 857628450}
+  optionsTeam3:
+  - {fileID: 1459376546}
+  - {fileID: 605616558}
+  - {fileID: 1521342576}
+  - {fileID: 212230137}
+  optionsTeam4:
+  - {fileID: 859274285}
+  - {fileID: 185512613}
+  - {fileID: 2076648121}
+  - {fileID: 1978442812}
+  optionsWall:
+  - {fileID: 717483846}
+  - {fileID: 1422695134}
+  - {fileID: 1471748794}
+  - {fileID: 1584404349}
   currentQuestion: 0
   QuestionsPanel: {fileID: 1472045687}
   PartialResultsPanel: {fileID: 625862654}

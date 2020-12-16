@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class QuizzManager : MonoBehaviour
 {
-    /* VARIABLES DECLARATION AND INITIALIZATION*/
+    // VARIABLES DECLARATION AND INITIALIZATION
 
     public List<QuestionAndAnswers> QnA;
-    public GameObject[] options;
+    public GameObject[] optionsTeam1;
     public int currentQuestion = 0;
 
     public GameObject QuestionsPanel;
@@ -22,12 +22,9 @@ public class QuizzManager : MonoBehaviour
 
     int totalQuestions = 0; //total number of questions
     public int scoreTeam1 = 0;
-    public int scoreTeam2 = 0;
-    public int scoreTeam3 = 0;
-    public int scoreTeam4 = 0;
 
 
-    /* METHODS */
+    // METHODS
 
     //Beginning of the Quizz game = set the question panel + UI elements
     //                              (= background, Leo character, ...)
@@ -77,19 +74,18 @@ public class QuizzManager : MonoBehaviour
     //Method used to manage the answers from the Unity Inspector
     void SetAnswers()
     {
-      for(int j = 0; j < 4 ; j++)
-      {
-        for(int i = 0; i < options.Length; i++)
+        //TEAM1
+        for(int i = 0; i < optionsTeam1.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
+            optionsTeam1[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
+            optionsTeam1[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
 
             if(QnA[currentQuestion].CorrectAnswer == i+1)   // if the right button is clicked (if the chosen option is in the correct index)
             {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
+                optionsTeam1[i].GetComponent<AnswerScript>().isCorrect = true;
             }
         }
-      }
+
     }
 
 
