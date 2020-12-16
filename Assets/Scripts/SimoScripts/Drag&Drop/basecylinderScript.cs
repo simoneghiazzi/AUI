@@ -6,7 +6,7 @@ public class basecylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform basecylinder_s, basecylinder_f;
-    private GameObject mastObject;
+    private GameObject basecylinderObject, gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -14,11 +14,14 @@ public class basecylinderScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    public bool active; 
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
-        mastObject = basecylinder_s.gameObject;
+        basecylinderObject = basecylinder_s.gameObject;
+        gameManager = GameObject.Find("GameManager");
+        active = false;
     }
 
     private void onMouseDown()
@@ -29,8 +32,19 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        if (active)
+        {
+            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BASE)
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().WrongObject();
+                active = false;
+            }
+        }
     }
 
     private void OnMouseUp()
@@ -41,7 +55,7 @@ public class basecylinderScript : MonoBehaviour
             transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
 
             gameObject.SetActive(false);
-            mastObject.SetActive(false);
+            basecylinderObject.SetActive(false);
 
             sr = basecylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
@@ -49,6 +63,7 @@ public class basecylinderScript : MonoBehaviour
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            gameManager.GetComponent<GameManager>().WrongPosition();
         }
     }
 }

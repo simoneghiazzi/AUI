@@ -6,19 +6,24 @@ public class mainmastScript : MonoBehaviour
 {
     [SerializeField]
     private Transform mainmast_s, mainmast_f;
-    private GameObject mastObject;
+    private GameObject mastObject, gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
+
+    public bool active;
     
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         mastObject = mainmast_s.gameObject;
+
+        gameManager = GameObject.Find("GameManager");
+        active = false;
     }
 
     private void onMouseDown()
@@ -29,8 +34,19 @@ public class mainmastScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        if (active)
+        {
+            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.MAST)
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().WrongObject();
+                active = false;
+            }
+        }
     }
 
     private void OnMouseUp()
@@ -49,6 +65,7 @@ public class mainmastScript : MonoBehaviour
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            gameManager.GetComponent<GameManager>().WrongPosition();
         }
     }
 }

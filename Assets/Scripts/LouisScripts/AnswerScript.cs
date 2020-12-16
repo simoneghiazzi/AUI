@@ -8,7 +8,7 @@ public class AnswerScript : MonoBehaviour
     public bool isCorrect = false;
     public QuizzManager QuizzManager;
 
-    public void Answer()
+    public void Answer() // method called when the player clicks on the button
     {
         if(isCorrect)
         {
@@ -19,9 +19,8 @@ public class AnswerScript : MonoBehaviour
         else
         {
             Debug.Log("Wrong Answer");
-            QuizzManager.correct();
+            QuizzManager.wrong();
         }
-
 
     }
 }
