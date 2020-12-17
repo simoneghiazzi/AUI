@@ -21,7 +21,7 @@ public class basecylinderScript : MonoBehaviour
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
         gameManager = GameObject.Find("GameManager");
-        active = false;
+        //active = false
     }
 
     private void onMouseDown()
@@ -32,8 +32,8 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (active)
-        {
+        //if (active)
+        //{
             if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BASE)
             {
                 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -42,9 +42,9 @@ public class basecylinderScript : MonoBehaviour
             else
             {
                 gameManager.GetComponent<GameManager>().WrongObject();
-                active = false;
+                //active = false;
             }
-        }
+        //}
     }
 
     private void OnMouseUp()
