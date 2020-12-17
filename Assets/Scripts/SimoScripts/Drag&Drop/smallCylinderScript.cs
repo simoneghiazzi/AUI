@@ -39,7 +39,6 @@ public class smallCylinderScript : MonoBehaviour
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
-            active = false;
         }
     }
 
