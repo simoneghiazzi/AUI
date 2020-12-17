@@ -1170,6 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallcylinder_s: {fileID: 769699550}
   smallcylinder_f: {fileID: 1347084716}
+  active: 0
 --- !u!4 &682916377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2874558641226841560, guid: e76a71a0256234546a334e26edfd201f,
@@ -1340,6 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainmast_s: {fileID: 1482548162}
   mainmast_f: {fileID: 946580921}
+  active: 0
 --- !u!1 &714334961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fabric_s: {fileID: 6138378}
   fabric_f: {fileID: 2030301679}
+  active: 0
 --- !u!1 &1191653584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basecylinder_s: {fileID: 63208166}
   basecylinder_f: {fileID: 2099615426}
+  active: 0
 --- !u!60 &1318357780
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2456,7 +2460,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318357777}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2811,6 +2815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triangle_s: {fileID: 1809869206}
   triangle_f: {fileID: 377929537}
+  active: 0
 --- !u!1 &1419716685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,7 +3595,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967039162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -3691,6 +3696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bigcylinder_s: {fileID: 24714874}
   bigcylinder_f: {fileID: 1441643243}
+  active: 0
 --- !u!1 &1985202627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,3 +4162,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handlebar_s: {fileID: 1060443686}
   handlebar_f: {fileID: 1419716686}
+  active: 0

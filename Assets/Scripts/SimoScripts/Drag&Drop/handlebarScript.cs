@@ -14,7 +14,6 @@ public class handlebarScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
-    public bool active; 
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,6 @@ public class handlebarScript : MonoBehaviour
         handlebarObject = handlebar_s.gameObject;
 
         gameManager = GameObject.Find("GameManager");
-        active = false;
     }
 
     private void onMouseDown()
@@ -33,18 +31,14 @@ public class handlebarScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (active)
+        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.HANDLE)
         {
-            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.HANDLE)
-            {
-                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-            }
-            else
-            {
-                gameManager.GetComponent<GameManager>().WrongObject();
-                active = false;
-            }
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        }
+        else
+        {
+            gameManager.GetComponent<GameManager>().WrongObject();
         }
     }
 

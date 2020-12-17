@@ -12,9 +12,8 @@ public class beamScript : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    public bool active;
-
     private float deltaX, deltaY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +23,6 @@ public class beamScript : MonoBehaviour
         beamObject3 = beam3_s.gameObject;
 
         gameManager = GameObject.Find("GameManager");
-        active = false;
     }
 
     private void onMouseDown()
@@ -35,18 +33,14 @@ public class beamScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (active)
+        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BEAM)
         {
-            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BEAM)
-            {
-                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-            }
-            else
-            {
-                gameManager.GetComponent<GameManager>().WrongObject();
-                active = false;
-            }
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        }
+        else
+        {
+            gameManager.GetComponent<GameManager>().WrongObject();
         }
     }
 

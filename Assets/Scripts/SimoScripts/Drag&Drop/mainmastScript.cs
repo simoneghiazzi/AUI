@@ -13,8 +13,6 @@ public class mainmastScript : MonoBehaviour
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
-
-    public bool active;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +21,6 @@ public class mainmastScript : MonoBehaviour
         mastObject = mainmast_s.gameObject;
 
         gameManager = GameObject.Find("GameManager");
-        active = false;
     }
 
     private void onMouseDown()
@@ -34,18 +31,14 @@ public class mainmastScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (active)
+        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.MAST)
         {
-            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.MAST)
-            {
-                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-            }
-            else
-            {
-                gameManager.GetComponent<GameManager>().WrongObject();
-                active = false;
-            }
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        }
+        else
+        {
+            gameManager.GetComponent<GameManager>().WrongObject();
         }
     }
 
