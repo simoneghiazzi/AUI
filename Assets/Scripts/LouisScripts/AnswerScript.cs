@@ -10,13 +10,18 @@ public class AnswerScript : MonoBehaviour
 
     public void Answer() // method called when the player clicks on the button
     {
-        if(isCorrect)
+        if( (isCorrect == true) && (TimeLeft.GetTimerIsRunning() == true) )
         {
             Debug.Log("Correct Answer");
             QuizzManager.correct();
         }
+        if(TimeLeft.GetTimerIsRunning() == false)
+        {
+          Debug.Log("Time is out, you cannot answer anymore");
+          QuizzManager.TimeIsOut();
+        }
 
-        else
+        if( (isCorrect == false) && (TimeLeft.GetTimerIsRunning() == true) )
         {
             Debug.Log("Wrong Answer");
             QuizzManager.wrong();

@@ -7,7 +7,7 @@ public class TimeLeft : MonoBehaviour
 {
 
     public float timeRemaining;
-    public bool timerIsRunning = false;
+    public static bool timerIsRunning = false;
     public Text timeText;
 
     private void Start()
@@ -24,15 +24,22 @@ public class TimeLeft : MonoBehaviour
           {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
+            QuizzManager.ColorChange();
           }
           else
           {
-            Debug.Log("Time has run out !");
             timeRemaining = 0;
+            Debug.Log("Time has run out !");
             timerIsRunning = false;
           }
         }
     }
+
+    public static bool GetTimerIsRunning()
+    {
+        return timerIsRunning;
+    }
+
 
     void DisplayTime(float timeToDisplay)
     {

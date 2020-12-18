@@ -12,6 +12,11 @@ public class QuizzManager : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion = 0;
 
+    public GameObject QuestionsPanel;
+    public GameObject PartialResultsPanel;
+    public GameObject FinalResultsPanel;
+    public GameObject UIElements;
+
     public Text QuestionTxt;
     public Text ScoreTxt;
 
@@ -26,12 +31,17 @@ public class QuizzManager : MonoBehaviour
     private void Start()
     {
         totalQuestions = QnA.Count;
+        PartialResultsPanel.SetActive(false);
+        FinalResultsPanel.SetActive(false);
         generateQuestion();
     }
 
     //End of the game = display the final results
     void GameOver()
     {
+        QuestionsPanel.SetActive(false);
+        PartialResultsPanel.SetActive(false);
+        FinalResultsPanel.SetActive(true);
         ScoreTxt.text = (score).ToString();
     }
 
@@ -41,6 +51,8 @@ public class QuizzManager : MonoBehaviour
     {
         score += 1;
         QnA.RemoveAt(currentQuestion);
+        IntermediateResults();
+        StartCoroutine(waitForNext());
     }
 
     //When an answer is wrong
@@ -48,25 +60,40 @@ public class QuizzManager : MonoBehaviour
     {
         QnA.RemoveAt(currentQuestion);
         IntermediateResults();
+        StartCoroutine(waitForNext());
+    }
+
+    public void TimeIsOut()
+    {
+        QnA.RemoveAt(currentQuestion);
+        IntermediateResults();
+        StartCoroutine(waitForNext());
+    }
+
+    //Wait for next question
+    IEnumerator waitForNext()
+    {
+        yield return new WaitForSeconds(5);
+        generateQuestion();
     }
 
 
     //Method used to manage the answers from the Unity Inspector
-    void SetAnswers()
+    public void SetAnswers()
     {
         for(int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
             options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
 
-            if(QnA[currentQuestion].CorrectAnswer == i+1)   // if the right button is clicked (if the chosen option is in the correct index)
+            if( (QnA[currentQuestion].CorrectAnswer == i+1) && (TimeLeft.GetTimerIsRunning() == true))   // if the right button is clicked (if the chosen option is in the correct index)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
+
         }
 
     }
-
 
     //Method used to generate a question from the Unity Inspector
     void generateQuestion()
@@ -75,6 +102,8 @@ public class QuizzManager : MonoBehaviour
         {
           QuestionTxt.text = QnA[currentQuestion].Question; // set the current question text
           SetAnswers();
+          QuestionsPanel.SetActive(true);
+          PartialResultsPanel.SetActive(false);
           currentQuestion += 1; // to generate the next question
         }
         else //when there are no more questions
@@ -88,7 +117,14 @@ public class QuizzManager : MonoBehaviour
     //After each question = display the intermediate results
     void IntermediateResults()
     {
+        QuestionsPanel.SetActive(false);
+        PartialResultsPanel.SetActive(true);
         ScoreTxt.text = (score).ToString();
+    }
+
+    public void ColorChange()
+    {
+        GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, Time.time);
     }
 
 }
