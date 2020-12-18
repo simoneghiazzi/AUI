@@ -41,6 +41,7 @@ public class beamScript : MonoBehaviour
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
+            SetCollider(false);
         }
     }
 
@@ -83,6 +84,12 @@ public class beamScript : MonoBehaviour
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
+            SetCollider(false);
         }
+    }
+
+    private void SetCollider(bool active)
+    {
+        gameObject.GetComponent<PolygonCollider2D>().enabled = active;
     }
 }
