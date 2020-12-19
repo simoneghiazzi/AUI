@@ -122,9 +122,11 @@ public class QuizzManager : MonoBehaviour
         ScoreTxt.text = (score).ToString();
     }
 
+/*
     public void ColorChange()
     {
         GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, Time.time);
     }
+*/
 
 }
