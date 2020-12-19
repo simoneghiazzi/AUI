@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &148163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &160984711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2013219042}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &212230137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 1713626618}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &254302192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254710123}
   - component: {fileID: 254710121}
-  - component: {fileID: 254710122}
+  - component: {fileID: 254710124}
   m_Layer: 0
   m_Name: QuizzManagerWall
   m_TagString: Untagged
@@ -1260,53 +1260,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254710120}
   m_CullTransparentMesh: 0
---- !u!114 &254710122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254710120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QnA:
-  - Question: What does this machine do ?
-    Answers:
-    - Slice Tomatoes
-    - Fly
-    - Something else
-    - Nobody knows
-    CorrectAnswer: 2
-  - Question: What is my name ?
-    Answers:
-    - Di Caprio
-    - Tom Cruise
-    - Da Vinci
-    - Nobody knows
-    CorrectAnswer: 3
-  - Question: What planet are we on ?
-    Answers:
-    - Earth
-    - Mars
-    - Venus
-    - Nobody knows
-    CorrectAnswer: 1
-  options:
-  - {fileID: 717483846}
-  - {fileID: 1422695134}
-  - {fileID: 1471748794}
-  - {fileID: 1584404349}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 891710562}
-  score: 0
 --- !u!224 &254710123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1326,6 +1279,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &254710124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254710120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57004177d00cb489cbf6048f906bd83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QnA:
+  - Question: What is my name ?
+    Answers:
+    - Da Vinci
+    - Di Caprio
+    - Tom Cruise
+    - Nobody knows
+    CorrectAnswer: 1
+  - Question: 'What is this machine used for ? '
+    Answers:
+    - Slice tomatoes
+    - Fly
+    - Play guitar
+    - Nobody knows
+    CorrectAnswer: 2
+  options:
+  - {fileID: 717483846}
+  - {fileID: 1422695134}
+  - {fileID: 1471748794}
+  - {fileID: 1584404349}
+  currentQuestion: 0
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  QuestionTxt: {fileID: 564293365}
+  quizzManagerTeam: {fileID: 0}
 --- !u!1 &324885102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2115034705}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &401690356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,7 +2400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &593467522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 1713626618}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &605616562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2953,8 +2945,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 710645647}
-  - component: {fileID: 710645645}
   - component: {fileID: 710645646}
+  - component: {fileID: 710645648}
   m_Layer: 0
   m_Name: QuizzManagerTeam1
   m_TagString: Untagged
@@ -2962,53 +2954,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &710645645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710645644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QnA:
-  - Question: What does this machine do ?
-    Answers:
-    - Slice Tomatoes
-    - Fly
-    - Something else
-    - Nobody knows
-    CorrectAnswer: 2
-  - Question: What is my name ?
-    Answers:
-    - Di Caprio
-    - Tom Cruise
-    - Da Vinci
-    - Nobody knows
-    CorrectAnswer: 3
-  - Question: What planet are we on ?
-    Answers:
-    - Earth
-    - Mars
-    - Venus
-    - Nobody knows
-    CorrectAnswer: 1
-  options:
-  - {fileID: 1937381607}
-  - {fileID: 1317802587}
-  - {fileID: 139585414}
-  - {fileID: 593467518}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 891710562}
-  score: 0
 --- !u!222 &710645646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3036,6 +2981,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &710645648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710645644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreTxt: {fileID: 891710562}
+  score: 0
+  QnATeam:
+  - Question: What is my name ?
+    Answers:
+    - Da Vinci
+    - Di Caprio
+    - Tom Cruise
+    - Nobody knows
+    CorrectAnswer: 1
+  - Question: What is this machine used for ?
+    Answers:
+    - Slice tomatoes
+    - Fly
+    - something else
+    - Nobody knows
+    CorrectAnswer: 2
+  currentQuestionTeam: 0
+  optionsTeam:
+  - {fileID: 1937381607}
+  - {fileID: 1317802587}
+  - {fileID: 139585414}
+  - {fileID: 593467518}
 --- !u!1 &717483846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,7 +3118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &718641879
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,7 +3505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2115034705}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &859274285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,7 +3604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2013219042}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &859274289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3724,7 +3704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &891710560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,7 +4068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &1065972375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4955,7 +4935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1335306517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5079,7 +5059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1347845852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5370,7 +5350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1458734753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,7 +5396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1459376546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,7 +5549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 1713626618}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1470436284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5750,7 +5730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1472045687
 GameObject:
   m_ObjectHideFlags: 0
@@ -6007,7 +5987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 1713626618}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1527164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6389,7 +6369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1647591910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6682,7 +6662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2115034705}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &1655512573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6782,7 +6762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!1 &1713626616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,8 +6772,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1713626619}
-  - component: {fileID: 1713626618}
   - component: {fileID: 1713626617}
+  - component: {fileID: 1713626618}
   m_Layer: 0
   m_Name: QuizzManagerTeam3
   m_TagString: Untagged
@@ -6818,44 +6798,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1713626616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: What does this machine do ?
-    Answers:
-    - Slice Tomatoes
-    - Fly
-    - Something else
-    - Nobody knows
-    CorrectAnswer: 2
+  ScoreTxt: {fileID: 891710562}
+  score: 0
+  QnATeam:
   - Question: What is my name ?
     Answers:
+    - Da Vinci
     - Di Caprio
     - Tom Cruise
-    - Da Vinci
-    - Nobody knows
-    CorrectAnswer: 3
-  - Question: What planet are we on ?
-    Answers:
-    - Earth
-    - Mars
-    - Venus
     - Nobody knows
     CorrectAnswer: 1
-  options:
-  - {fileID: 1459376546}
-  - {fileID: 605616558}
-  - {fileID: 1521342576}
-  - {fileID: 212230137}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 959046991}
-  score: 0
+  - Question: What is this machine used for ?
+    Answers:
+    - Slice tomatoes
+    - Fly
+    - something else
+    - Nobody knows
+    CorrectAnswer: 2
+  currentQuestionTeam: 0
+  optionsTeam:
+  - {fileID: 1937381607}
+  - {fileID: 1317802587}
+  - {fileID: 139585414}
+  - {fileID: 593467518}
 --- !u!224 &1713626619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7652,7 +7620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &1937381611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7805,7 +7773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2013219042}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &1978442816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7903,8 +7871,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2013219043}
-  - component: {fileID: 2013219042}
   - component: {fileID: 2013219041}
+  - component: {fileID: 2013219042}
   m_Layer: 0
   m_Name: QuizzManagerTeam4
   m_TagString: Untagged
@@ -7929,44 +7897,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 2013219040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: What does this machine do ?
-    Answers:
-    - Slice Tomatoes
-    - Fly
-    - Something else
-    - Nobody knows
-    CorrectAnswer: 2
+  ScoreTxt: {fileID: 891710562}
+  score: 0
+  QnATeam:
   - Question: What is my name ?
     Answers:
+    - Da Vinci
     - Di Caprio
     - Tom Cruise
-    - Da Vinci
-    - Nobody knows
-    CorrectAnswer: 3
-  - Question: What planet are we on ?
-    Answers:
-    - Earth
-    - Mars
-    - Venus
     - Nobody knows
     CorrectAnswer: 1
-  options:
-  - {fileID: 859274285}
-  - {fileID: 185512613}
-  - {fileID: 2076648121}
-  - {fileID: 1978442812}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 324885104}
-  score: 0
+  - Question: What is this machine used for ?
+    Answers:
+    - Slice tomatoes
+    - Fly
+    - something else
+    - Nobody knows
+    CorrectAnswer: 2
+  currentQuestionTeam: 0
+  optionsTeam:
+  - {fileID: 1937381607}
+  - {fileID: 1317802587}
+  - {fileID: 139585414}
+  - {fileID: 593467518}
 --- !u!224 &2013219043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8264,7 +8220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2013219042}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &2076648125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8435,44 +8391,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115034703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: What does this machine do ?
-    Answers:
-    - Slice Tomatoes
-    - Fly
-    - Something else
-    - Nobody knows
-    CorrectAnswer: 2
+  ScoreTxt: {fileID: 891710562}
+  score: 0
+  QnATeam:
   - Question: What is my name ?
     Answers:
+    - Da Vinci
     - Di Caprio
     - Tom Cruise
-    - Da Vinci
-    - Nobody knows
-    CorrectAnswer: 3
-  - Question: What planet are we on ?
-    Answers:
-    - Earth
-    - Mars
-    - Venus
     - Nobody knows
     CorrectAnswer: 1
-  options:
-  - {fileID: 401690352}
-  - {fileID: 2146775822}
-  - {fileID: 1655512569}
-  - {fileID: 857628450}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 1786705621}
-  score: 0
+  - Question: What is this machine used for ?
+    Answers:
+    - Slice tomatoes
+    - Fly
+    - something else
+    - Nobody knows
+    CorrectAnswer: 2
+  currentQuestionTeam: 0
+  optionsTeam:
+  - {fileID: 1937381607}
+  - {fileID: 1317802587}
+  - {fileID: 139585414}
+  - {fileID: 593467518}
 --- !u!224 &2115034706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8546,7 +8490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 710645645}
+  QuizzManagerTeam: {fileID: 0}
 --- !u!114 &2137089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8868,4 +8812,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 2115034705}
+  QuizzManagerTeam: {fileID: 0}
