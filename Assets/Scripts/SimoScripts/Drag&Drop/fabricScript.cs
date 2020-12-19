@@ -14,8 +14,6 @@ public class fabricScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
-    public bool active;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +21,6 @@ public class fabricScript : MonoBehaviour
         fabricObject = fabric_s.gameObject;
 
         gameManager = GameObject.Find("GameManager");
-        active = false;
     }
 
     private void onMouseDown()
@@ -34,18 +31,15 @@ public class fabricScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (active)
+        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.FABRIC)
         {
-            if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.FABRIC)
-            {
-                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
-            }
-            else
-            {
-                gameManager.GetComponent<GameManager>().WrongObject();
-                active = false;
-            }
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        }
+        else
+        {
+            gameManager.GetComponent<GameManager>().WrongObject();
+            SetCollider(false);
         }
     }
 
@@ -66,6 +60,12 @@ public class fabricScript : MonoBehaviour
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
+            SetCollider(false);
         }
+    }
+
+    private void SetCollider(bool active)
+    {
+        gameObject.GetComponent<PolygonCollider2D>().enabled = active;
     }
 }

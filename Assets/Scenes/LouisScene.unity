@@ -413,7 +413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRemaining: 10
-  timerIsRunning: 1
   timeText: {fileID: 53763339}
 --- !u!1 &101564717
 GameObject:
@@ -1245,6 +1244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254710123}
   - component: {fileID: 254710121}
+  - component: {fileID: 254710122}
   m_Layer: 0
   m_Name: QuizzManagerWall
   m_TagString: Untagged
@@ -1260,6 +1260,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254710120}
   m_CullTransparentMesh: 0
+--- !u!114 &254710122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254710120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QnA:
+  - Question: What does this machine do ?
+    Answers:
+    - Slice Tomatoes
+    - Fly
+    - Something else
+    - Nobody knows
+    CorrectAnswer: 2
+  - Question: What is my name ?
+    Answers:
+    - Di Caprio
+    - Tom Cruise
+    - Da Vinci
+    - Nobody knows
+    CorrectAnswer: 3
+  - Question: What planet are we on ?
+    Answers:
+    - Earth
+    - Mars
+    - Venus
+    - Nobody knows
+    CorrectAnswer: 1
+  options:
+  - {fileID: 717483846}
+  - {fileID: 1422695134}
+  - {fileID: 1471748794}
+  - {fileID: 1584404349}
+  currentQuestion: 0
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  QuestionTxt: {fileID: 564293365}
+  ScoreTxt: {fileID: 891710562}
+  score: 0
 --- !u!224 &254710123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4558,8 +4605,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225814019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5339198, y: -186.87659, z: 316.74}
-  m_LocalScale: {x: 62.209496, y: 62.209496, z: 62.209496}
+  m_LocalPosition: {x: -5.3, y: 0.8, z: 316.74}
+  m_LocalScale: {x: 60.477795, y: 46.17717, z: 62.209496}
   m_Children: []
   m_Father: {fileID: 1020884395}
   m_RootOrder: 0
@@ -7256,8 +7303,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818566675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -3.05, z: 27.5}
-  m_LocalScale: {x: 0.619929, y: 1.1874436, z: 0.619929}
+  m_LocalPosition: {x: 0.054, y: 0.513, z: 27.5}
+  m_LocalScale: {x: 0.59980416, y: 0.8786923, z: 0.619929}
   m_Children: []
   m_Father: {fileID: 516466391}
   m_RootOrder: 0

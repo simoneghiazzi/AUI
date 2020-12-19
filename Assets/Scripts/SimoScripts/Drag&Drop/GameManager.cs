@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
                     timer.Start();
                     break;
                 case TextState.BASE:
-                    toUpdate = "Innazitutto avrei bisogno di ";
+                    toUpdate = "Innazitutto avrei bisogno di...";
                     break;
                 case TextState.BIG:
                     break;
