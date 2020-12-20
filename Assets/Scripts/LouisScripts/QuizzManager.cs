@@ -10,7 +10,7 @@ public class QuizzManager : MonoBehaviour
     // VARIABLES DECLARATION AND INITIALIZATION
 
     public List<QuestionAndAnswers> QnA;
-    public GameObject[] options;
+    public GameObject[] optionsTeam1;
     public int currentQuestion = 0;
 
     public GameObject QuestionsPanel;
@@ -22,7 +22,7 @@ public class QuizzManager : MonoBehaviour
     public Text ScoreTxt;
 
     int totalQuestions = 0; //total number of questions
-    public int score = 0;
+    public int scoreTeam1 = 0;
 
 
     // METHODS
@@ -43,14 +43,18 @@ public class QuizzManager : MonoBehaviour
         QuestionsPanel.SetActive(false);
         PartialResultsPanel.SetActive(false);
         FinalResultsPanel.SetActive(true);
+<<<<<<< HEAD
         ScoreTxt.text = (score).ToString();
+=======
+        ScoreTxt.text = (scoreTeam1).ToString();
+>>>>>>> parent of 4382270... Multiplayer partially works
     }
 
     //ANSWER
     //When an answer is correct
     public void correct()
     {
-        score += 1;
+        scoreTeam1 += 1;
         QnA.RemoveAt(currentQuestion);
         IntermediateResults();
         StartCoroutine(waitForNext());
@@ -62,6 +66,7 @@ public class QuizzManager : MonoBehaviour
         QnA.RemoveAt(currentQuestion);
         IntermediateResults();
         StartCoroutine(waitForNext());
+<<<<<<< HEAD
     }
 
     public void TimeIsOut()
@@ -76,20 +81,30 @@ public class QuizzManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         generateQuestion();
+=======
+>>>>>>> parent of 4382270... Multiplayer partially works
     }
 
+
+    //Wait for next question
+    IEnumerator waitForNext()
+    {
+        yield return new WaitForSeconds(5);
+        generateQuestion();
+    }
 
     //Method used to manage the answers from the Unity Inspector
     public void SetAnswers()
     {
-        for(int i = 0; i < options.Length; i++)
+        //TEAM1
+        for(int i = 0; i < optionsTeam1.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
+            optionsTeam1[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
+            optionsTeam1[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; // get the text component of the button
 
             if( (QnA[currentQuestion].CorrectAnswer == i+1) && (TimeLeft.GetTimerIsRunning() == true))   // if the right button is clicked (if the chosen option is in the correct index)
             {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
+                optionsTeam1[i].GetComponent<AnswerScript>().isCorrect = true;
             }
 
         }
@@ -101,11 +116,16 @@ public class QuizzManager : MonoBehaviour
     {
         if(QnA.Count > 0) //when there are questions available
         {
+          currentQuestion = Random.Range(0, QnA.Count); // generate a random question from the list of questions provided
+
           QuestionTxt.text = QnA[currentQuestion].Question; // set the current question text
           SetAnswers();
           QuestionsPanel.SetActive(true);
           PartialResultsPanel.SetActive(false);
+<<<<<<< HEAD
           currentQuestion += 1; // to generate the next question
+=======
+>>>>>>> parent of 4382270... Multiplayer partially works
         }
         else //when there are no more questions
         {
@@ -118,9 +138,15 @@ public class QuizzManager : MonoBehaviour
     //After each question = display the intermediate results
     void IntermediateResults()
     {
+<<<<<<< HEAD
         QuestionsPanel.SetActive(false);
         PartialResultsPanel.SetActive(true);
         ScoreTxt.text = (score).ToString();
+=======
+        ScoreTxt.text = (scoreTeam1).ToString();
+        QuestionsPanel.SetActive(false);
+        PartialResultsPanel.SetActive(true);
+>>>>>>> parent of 4382270... Multiplayer partially works
     }
 
     public void ColorChange()
