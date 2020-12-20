@@ -24,7 +24,7 @@ public class TimeLeft : MonoBehaviour
           {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
-            //QuizzManager.ColorChange();
+            QuizzManager.ColorChange();
           }
           else
           {
