@@ -1299,13 +1299,6 @@ MonoBehaviour:
     - Tom Cruise
     - Nobody knows
     CorrectAnswer: 1
-  - Question: 'What is this machine used for ? '
-    Answers:
-    - Slice tomatoes
-    - Fly
-    - Play guitar
-    - Nobody knows
-    CorrectAnswer: 2
   options:
   - {fileID: 717483846}
   - {fileID: 1422695134}
@@ -1317,7 +1310,6 @@ MonoBehaviour:
   FinalResultsPanel: {fileID: 1649989537}
   UIElements: {fileID: 1020884394}
   QuestionTxt: {fileID: 564293365}
-  quizzManagerTeam: {fileID: 0}
 --- !u!1 &324885102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,13 +2995,6 @@ MonoBehaviour:
     - Tom Cruise
     - Nobody knows
     CorrectAnswer: 1
-  - Question: What is this machine used for ?
-    Answers:
-    - Slice tomatoes
-    - Fly
-    - something else
-    - Nobody knows
-    CorrectAnswer: 2
   currentQuestionTeam: 0
   optionsTeam:
   - {fileID: 1937381607}
@@ -6803,27 +6788,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreTxt: {fileID: 891710562}
   score: 0
-  QnATeam:
-  - Question: What is my name ?
-    Answers:
-    - Da Vinci
-    - Di Caprio
-    - Tom Cruise
-    - Nobody knows
-    CorrectAnswer: 1
-  - Question: What is this machine used for ?
-    Answers:
-    - Slice tomatoes
-    - Fly
-    - something else
-    - Nobody knows
-    CorrectAnswer: 2
+  QnATeam: []
   currentQuestionTeam: 0
-  optionsTeam:
-  - {fileID: 1937381607}
-  - {fileID: 1317802587}
-  - {fileID: 139585414}
-  - {fileID: 593467518}
+  optionsTeam: []
 --- !u!224 &1713626619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7902,27 +7869,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreTxt: {fileID: 891710562}
   score: 0
-  QnATeam:
-  - Question: What is my name ?
-    Answers:
-    - Da Vinci
-    - Di Caprio
-    - Tom Cruise
-    - Nobody knows
-    CorrectAnswer: 1
-  - Question: What is this machine used for ?
-    Answers:
-    - Slice tomatoes
-    - Fly
-    - something else
-    - Nobody knows
-    CorrectAnswer: 2
+  QnATeam: []
   currentQuestionTeam: 0
-  optionsTeam:
-  - {fileID: 1937381607}
-  - {fileID: 1317802587}
-  - {fileID: 139585414}
-  - {fileID: 593467518}
+  optionsTeam: []
 --- !u!224 &2013219043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8396,27 +8345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreTxt: {fileID: 891710562}
   score: 0
-  QnATeam:
-  - Question: What is my name ?
-    Answers:
-    - Da Vinci
-    - Di Caprio
-    - Tom Cruise
-    - Nobody knows
-    CorrectAnswer: 1
-  - Question: What is this machine used for ?
-    Answers:
-    - Slice tomatoes
-    - Fly
-    - something else
-    - Nobody knows
-    CorrectAnswer: 2
+  QnATeam: []
   currentQuestionTeam: 0
-  optionsTeam:
-  - {fileID: 1937381607}
-  - {fileID: 1317802587}
-  - {fileID: 139585414}
-  - {fileID: 593467518}
+  optionsTeam: []
 --- !u!224 &2115034706
 RectTransform:
   m_ObjectHideFlags: 0
