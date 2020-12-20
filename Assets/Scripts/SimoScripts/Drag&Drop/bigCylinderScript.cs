@@ -30,7 +30,7 @@ public class bigCylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BIG)
+        if (gameManager.GetComponent<GameManager>().state == TextState.BIG)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
@@ -38,7 +38,7 @@ public class bigCylinderScript : MonoBehaviour
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 
@@ -54,17 +54,14 @@ public class bigCylinderScript : MonoBehaviour
 
             sr = bigcylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
+
+            gameManager.GetComponent<GameManager>().state = TextState.BIG_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
-    }
-
-    private void SetCollider(bool active)
-    {
-        gameObject.GetComponent<PolygonCollider2D>().enabled = active;
     }
 }

@@ -33,7 +33,7 @@ public class beamScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BEAM)
+        if (gameManager.GetComponent<GameManager>().state == TextState.BEAM)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
@@ -41,7 +41,7 @@ public class beamScript : MonoBehaviour
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 
@@ -57,6 +57,8 @@ public class beamScript : MonoBehaviour
 
             sr = beam1_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
+
+            gameManager.GetComponent<GameManager>().state = TextState.BEAM_DONE;
         }
         else if (beamObject2.active && Mathf.Abs(transform.position.x - beam2_s.position.x) <= 60.0f
             && Mathf.Abs(transform.position.y - beam2_s.position.y) <= 50.0f)
@@ -68,6 +70,8 @@ public class beamScript : MonoBehaviour
 
             sr = beam2_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
+
+            gameManager.GetComponent<GameManager>().state = TextState.BEAM_DONE;
         }
         else if (beamObject3.active && Mathf.Abs(transform.position.x - beam3_s.position.x) <= 60.0f
             && Mathf.Abs(transform.position.y - beam3_s.position.y) <= 50.0f)
@@ -79,17 +83,14 @@ public class beamScript : MonoBehaviour
 
             sr = beam3_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
+
+            gameManager.GetComponent<GameManager>().state = TextState.BEAM_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
-    }
-
-    private void SetCollider(bool active)
-    {
-        gameObject.GetComponent<PolygonCollider2D>().enabled = active;
     }
 }

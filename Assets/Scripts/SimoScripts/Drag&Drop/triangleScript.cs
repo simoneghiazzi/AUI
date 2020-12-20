@@ -31,7 +31,7 @@ public class triangleScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.TRIANGLE)
+        if (gameManager.GetComponent<GameManager>().state == TextState.TRIANGLE)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
@@ -39,7 +39,7 @@ public class triangleScript : MonoBehaviour
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 
@@ -55,17 +55,14 @@ public class triangleScript : MonoBehaviour
 
             sr = triangle_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
+
+            gameManager.GetComponent<GameManager>().state = TextState.TRIANGLE_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
-    }
-
-    private void SetCollider(bool active)
-    {
-        gameObject.GetComponent<PolygonCollider2D>().enabled = active;
     }
 }

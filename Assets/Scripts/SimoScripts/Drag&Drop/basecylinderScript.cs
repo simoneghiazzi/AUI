@@ -30,7 +30,7 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == GameManager.TextState.BASE)
+        if (gameManager.GetComponent<GameManager>().state == TextState.BASE)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
@@ -38,7 +38,7 @@ public class basecylinderScript : MonoBehaviour
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 
@@ -54,17 +54,14 @@ public class basecylinderScript : MonoBehaviour
 
             sr = basecylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
+
+            gameManager.GetComponent<GameManager>().state = TextState.BASE_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
-            SetCollider(false);
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
-    }
-
-    private void SetCollider(bool active)
-    {
-        gameObject.GetComponent<PolygonCollider2D>().enabled = active;
     }
 }
