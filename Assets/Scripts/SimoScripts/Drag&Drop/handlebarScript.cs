@@ -38,7 +38,7 @@ public class handlebarScript : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
             gameManager.GetComponent<GameManager>().state = TextState.WRONG_OBJ;
         }
     }

@@ -20,9 +20,12 @@ public class GameManager : MonoBehaviour
 
     private Text txt;
 
-    private GameObject objs;
+    private GameObject objs, leoSprite;
 
     private Timer timer = new Timer();
+
+    //Leo's different expressions. updateSprite used to avoid a bug for which the sprite is not updated outside of the Update() function
+    private Sprite NORMAL, HAPPY, THINK, SAD, updateSprite;
 
     //This is necessary to avoid a bug of Unity for which updating the text outside of the main Update() function doesn't work
     private string toUpdate;
@@ -42,6 +45,13 @@ public class GameManager : MonoBehaviour
         timer.Interval = 5000f;
         timer.Elapsed += NextIntro;
         toUpdate = txt.text;
+
+        leoSprite = GameObject.Find("leo");
+        NORMAL = Resources.Load<Sprite>("Leo_explaining");
+        HAPPY = Resources.Load<Sprite>("Leo_happy");
+        THINK = Resources.Load<Sprite>("Leo_waiting");
+        SAD = Resources.Load<Sprite>("Leo_sad");
+        updateSprite = NORMAL;
     }
 
     // Update is called once per frame
@@ -53,7 +63,6 @@ public class GameManager : MonoBehaviour
             {
                 case TextState.INTRO:
                     timer.Start();
-                    savedState = state;
                     break;
                 case TextState.BASE:
                     toUpdate = "Innazitutto c'è bisogno di qualcosa di ampio su cui poter stare in piedi";
@@ -139,16 +148,19 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.TRIANGLE_DONE:
                     toUpdate = "Ce l'abbiamo fatta! Siamo riusciti ad assemblare il primo elicottero della storia";
+                    updateSprite = HAPPY;
                     break;
                 case TextState.WRONG_POS:
                     timer.Elapsed += WrongPick;
                     toUpdate = "È un'idea carina ma non penso potrebbe funzionare. Prova a riposizionarlo!";
+                    updateSprite = SAD;
                     timer.Start();
                     break;
                 case TextState.WRONG_OBJ:
                     timer.Elapsed += WrongPick;
-                    Debug.Log(savedState);
                     toUpdate = "Non sono sicuro che questo vada bene...prova a prendere un altro oggetto!";
+                    updateSprite = SAD;
+                    Debug.Log(savedState);
                     timer.Start();
                     break;
                 default:
@@ -157,6 +169,8 @@ public class GameManager : MonoBehaviour
         }
         //For the bug explained at the beginning
         txt.text = toUpdate;
+
+        leoSprite.GetComponent<Image>().sprite = updateSprite;
     }
 
     void NextIntro(object o, System.EventArgs e)
@@ -171,6 +185,7 @@ public class GameManager : MonoBehaviour
     {
         timer.Stop();
         state = TextState.BASE;
+        updateSprite = THINK;
         //activateObjects(true);
     }
 
@@ -178,6 +193,7 @@ public class GameManager : MonoBehaviour
     {
         timer.Stop();
         state = savedState;
+        updateSprite = THINK;
     }
 
     public void WrongPosition()
