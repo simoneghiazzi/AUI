@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &148163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &160984711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &212230137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &254302192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,17 +1288,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 254710120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57004177d00cb489cbf6048f906bd83b, type: 3}
+  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
   - Question: What is my name ?
     Answers:
-    - Da Vinci
-    - Di Caprio
+    - Leonardo Di Caprio
+    - Leonardo Da Vinci
     - Tom Cruise
     - Nobody knows
-    CorrectAnswer: 1
+    CorrectAnswer: 2
   options:
   - {fileID: 717483846}
   - {fileID: 1422695134}
@@ -1310,6 +1310,8 @@ MonoBehaviour:
   FinalResultsPanel: {fileID: 1649989537}
   UIElements: {fileID: 1020884394}
   QuestionTxt: {fileID: 564293365}
+  ScoreTxt: {fileID: 0}
+  score: 0
 --- !u!1 &324885102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,84 +1389,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324885102}
-  m_CullTransparentMesh: 0
---- !u!1 &331470568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 331470569}
-  - component: {fileID: 331470571}
-  - component: {fileID: 331470570}
-  m_Layer: 0
-  m_Name: ScoreWall(Factice)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &331470569
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331470568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1378839262}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 500, y: 916}
-  m_SizeDelta: {x: 233.3353, y: -24.89093}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &331470570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331470568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
-    m_FontSize: 45
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 45
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: ScoreWall
---- !u!222 &331470571
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331470568}
   m_CullTransparentMesh: 0
 --- !u!1 &401690352
 GameObject:
@@ -1564,7 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &401690356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,7 +2316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &593467522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2545,7 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &605616562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,25 +2906,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 710645644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
+  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreTxt: {fileID: 891710562}
-  score: 0
-  QnATeam:
+  QnA:
   - Question: What is my name ?
     Answers:
-    - Da Vinci
-    - Di Caprio
+    - Leonardo Di Caprio
+    - Leonardo Da Vinci
     - Tom Cruise
     - Nobody knows
-    CorrectAnswer: 1
-  currentQuestionTeam: 0
-  optionsTeam:
+    CorrectAnswer: 2
+  options:
   - {fileID: 1937381607}
   - {fileID: 1317802587}
   - {fileID: 139585414}
   - {fileID: 593467518}
+  currentQuestion: 0
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  QuestionTxt: {fileID: 564293365}
+  ScoreTxt: {fileID: 891710562}
+  score: 0
 --- !u!1 &717483846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,7 +3032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &718641879
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,7 +3419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &859274285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3589,7 +3518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &859274289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3689,7 +3618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &891710560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,7 +3982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &1065972375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4920,7 +4849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1335306517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5044,7 +4973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1347845852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5146,7 +5075,6 @@ RectTransform:
   - {fileID: 1786705620}
   - {fileID: 959046990}
   - {fileID: 324885103}
-  - {fileID: 331470569}
   m_Father: {fileID: 625862655}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5335,7 +5263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1458734753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,7 +5309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1459376546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5534,7 +5462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1470436284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,7 +5643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1472045687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5972,7 +5900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1527164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,7 +6282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1647591910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6647,7 +6575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &1655512573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6747,7 +6675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!1 &1713626616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6783,14 +6711,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1713626616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
+  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreTxt: {fileID: 891710562}
+  QnA:
+  - Question: What is my name ?
+    Answers:
+    - Leonardo Di Caprio
+    - Leonardo Da Vinci
+    - Tom Cruise
+    - Nobody knows
+    CorrectAnswer: 2
+  options:
+  - {fileID: 1459376546}
+  - {fileID: 605616558}
+  - {fileID: 1521342576}
+  - {fileID: 212230137}
+  currentQuestion: 0
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  QuestionTxt: {fileID: 564293365}
+  ScoreTxt: {fileID: 959046991}
   score: 0
-  QnATeam: []
-  currentQuestionTeam: 0
-  optionsTeam: []
 --- !u!224 &1713626619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7587,7 +7531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &1937381611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7740,7 +7684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &1978442816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7864,14 +7808,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2013219040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
+  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreTxt: {fileID: 891710562}
+  QnA:
+  - Question: What is my name ?
+    Answers:
+    - Leonardo Di Caprio
+    - Leonardo Da Vinci
+    - Tom Cruise
+    - Nobody knows
+    CorrectAnswer: 2
+  options:
+  - {fileID: 859274285}
+  - {fileID: 185512613}
+  - {fileID: 2076648121}
+  - {fileID: 1978442812}
+  currentQuestion: 0
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  QuestionTxt: {fileID: 564293365}
+  ScoreTxt: {fileID: 324885104}
   score: 0
-  QnATeam: []
-  currentQuestionTeam: 0
-  optionsTeam: []
 --- !u!224 &2013219043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8169,7 +8129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &2076648125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8340,14 +8300,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115034703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815259717039949edb904d208ede6594, type: 3}
+  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreTxt: {fileID: 891710562}
+  QnA:
+  - Question: What is my name ?
+    Answers:
+    - Leonardo Di Caprio
+    - Leonardo Da Vinci
+    - Tom Cruise
+    - Nobody knows
+    CorrectAnswer: 2
+  options:
+  - {fileID: 401690352}
+  - {fileID: 2146775822}
+  - {fileID: 1655512569}
+  - {fileID: 857628450}
+  currentQuestion: 0
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  QuestionTxt: {fileID: 564293365}
+  ScoreTxt: {fileID: 1786705621}
   score: 0
-  QnATeam: []
-  currentQuestionTeam: 0
-  optionsTeam: []
 --- !u!224 &2115034706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8421,7 +8397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
 --- !u!114 &2137089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8743,4 +8719,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManagerTeam: {fileID: 0}
+  QuizzManager: {fileID: 0}
