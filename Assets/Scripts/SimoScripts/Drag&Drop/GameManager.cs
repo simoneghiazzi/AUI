@@ -53,9 +53,11 @@ public class GameManager : MonoBehaviour
             {
                 case TextState.INTRO:
                     timer.Start();
+                    savedState = state;
                     break;
                 case TextState.BASE:
                     toUpdate = "Innazitutto c'è bisogno di qualcosa di ampio su cui poter stare in piedi";
+                    savedState = state;
                     break;
                 case TextState.BASE_DONE:
                     toUpdate = "Ottimo! Abbiamo sistemato un'ampia base circolare su cui i piloti corrono per far girare le pale";
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.MAST:
                     toUpdate = "Abbiamo bisogno di qualcosa di grosso e resistente per sostenere tutta la macchina";
+                    savedState = state;
                     break;
                 case TextState.MAST_DONE:
                     toUpdate = "Grazie! Questo è l'albero principale della macchina, è fondamentale per il movimento dell'elica e per la stabilità dell'elicottero";
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.BIG:
                     toUpdate = "Ci vuole una base a cui appoggiare il palo...qualcosa di circolare e abbastanza grande";
+                    savedState = state;
                     break;
                 case TextState.BIG_DONE:
                     toUpdate = "E con questo possiamo fissare l'albero alla base della macchina";
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.BEAM:
                     toUpdate = "Non possiamo rischiare che la macchina si rompa...servono dei sostegni laterali!";
+                    savedState = state;
                     break;
                 case TextState.BEAM_DONE:
                     if (beamCounter == 0)
@@ -100,6 +105,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.SMALL:
                     toUpdate = "Credo sia importante agganciare i sostengi a qualcosa sul palo";
+                    savedState = state;
                     break;
                 case TextState.SMALL_DONE:
                     toUpdate = "Questo piccolo cilindro è fondamentale per fissare i paletti all'albero e farlo girare";
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.FABRIC:
                     toUpdate = "Chiaramente non potrà muoversi con la magia...c'è bisogno di qualcosa che venga colpito dall'aria per poter volare!";
+                    savedState = state;
                     break;
                 case TextState.FABRIC_DONE:
                     toUpdate = "La tela tesa in cima all'albero farà sollevare la macchina: grazie alla sua forma 'a cavatappi', la rotazione spinge l'aria verso il basso facendo sollevare l'elicottero!";
@@ -118,6 +125,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.HANDLE:
                     toUpdate = "C'è bisogno anche di qualcosa a cui aggrapparsi per non cadere giù mentre si aziona la macchina";
+                    savedState = state;
                     break;
                 case TextState.HANDLE_DONE:
                     toUpdate = "Grazie a questa asta orizzontale i piloti potranno tenersi saldamente a qualcosa, riuscendo a dare più forza nella rotazione e riducendo il rischio di caduta";
@@ -127,6 +135,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.TRIANGLE:
                     toUpdate = "Infine blocchiamo tutto fissando l'ultimo pezzo in alto";
+                    savedState = state;
                     break;
                 case TextState.TRIANGLE_DONE:
                     toUpdate = "Ce l'abbiamo fatta! Siamo riusciti ad assemblare il primo elicottero della storia";
@@ -138,7 +147,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case TextState.WRONG_OBJ:
                     timer.Elapsed += WrongPick;
-                    savedState = state;
+                    Debug.Log(savedState);
                     toUpdate = "Non sono sicuro che questo vada bene...prova a prendere un altro oggetto!";
                     timer.Start();
                     break;
@@ -173,13 +182,11 @@ public class GameManager : MonoBehaviour
 
     public void WrongPosition()
     {
-        savedState = state;
         state = TextState.WRONG_POS;
     }
 
     public void WrongObject()
     {
-        savedState = state;
         state = TextState.WRONG_OBJ;
     }
 

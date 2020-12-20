@@ -38,10 +38,8 @@ public class handlebarScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("provaaa");
-            gameManager.GetComponent<GameManager>().state = TextState.WRONG_OBJ;
-            //gameManager.GetComponent<GameManager>().WrongObject();
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            gameManager.GetComponent<GameManager>().state = TextState.WRONG_OBJ;
         }
     }
 

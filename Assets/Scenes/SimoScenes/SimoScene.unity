@@ -2354,10 +2354,10 @@ RectTransform:
   m_Father: {fileID: 1985202628}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.065000005, y: 0.32500002}
-  m_AnchorMax: {x: 0.97, y: 0.675}
-  m_AnchoredPosition: {x: -0.91999817, y: 0.47692966}
-  m_SizeDelta: {x: 705.2547, y: 107.23059}
+  m_AnchorMin: {x: 0.045, y: 0.3}
+  m_AnchorMax: {x: 0.95000005, y: 0.70000005}
+  m_AnchoredPosition: {x: 0.16000366, y: 0.3199997}
+  m_SizeDelta: {x: 724.29047, y: 128.83795}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191653586
 MonoBehaviour:
@@ -2391,9 +2391,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Costruiamo insieme questa mia invenzione! Questi sono tutti i componenti
-    necessari: segui le mie istruzioni per afferrare il componente corretto e trascinalo
-    al posto giusto '
+  m_Text: 'Costruiamo insieme il primo elicottero della storia! Questi sono tutti
+    i componenti necessari: segui le mie istruzioni per afferrare il componente corretto
+    e trascinalo al posto giusto '
 --- !u!222 &1191653587
 CanvasRenderer:
   m_ObjectHideFlags: 0
