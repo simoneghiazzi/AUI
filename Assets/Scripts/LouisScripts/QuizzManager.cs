@@ -44,7 +44,11 @@ public class QuizzManager : MonoBehaviour
         PartialResultsPanel.SetActive(false);
         FinalResultsPanel.SetActive(true);
 <<<<<<< HEAD
+<<<<<<< HEAD
         ScoreTxt.text = (score).ToString();
+=======
+        ScoreTxt.text = (scoreTeam1).ToString();
+>>>>>>> parent of 4382270... Multiplayer partially works
 =======
         ScoreTxt.text = (scoreTeam1).ToString();
 >>>>>>> parent of 4382270... Multiplayer partially works
@@ -67,6 +71,7 @@ public class QuizzManager : MonoBehaviour
         IntermediateResults();
         StartCoroutine(waitForNext());
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
 
     public void TimeIsOut()
@@ -81,6 +86,8 @@ public class QuizzManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         generateQuestion();
+=======
+>>>>>>> parent of 4382270... Multiplayer partially works
 =======
 >>>>>>> parent of 4382270... Multiplayer partially works
     }
@@ -123,7 +130,10 @@ public class QuizzManager : MonoBehaviour
           QuestionsPanel.SetActive(true);
           PartialResultsPanel.SetActive(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
           currentQuestion += 1; // to generate the next question
+=======
+>>>>>>> parent of 4382270... Multiplayer partially works
 =======
 >>>>>>> parent of 4382270... Multiplayer partially works
         }
@@ -139,6 +149,7 @@ public class QuizzManager : MonoBehaviour
     void IntermediateResults()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         QuestionsPanel.SetActive(false);
         PartialResultsPanel.SetActive(true);
         ScoreTxt.text = (score).ToString();
@@ -152,6 +163,11 @@ public class QuizzManager : MonoBehaviour
     public void ColorChange()
     {
         GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, Time.time);
+=======
+        ScoreTxt.text = (scoreTeam1).ToString();
+        QuestionsPanel.SetActive(false);
+        PartialResultsPanel.SetActive(true);
+>>>>>>> parent of 4382270... Multiplayer partially works
     }
 
 }
