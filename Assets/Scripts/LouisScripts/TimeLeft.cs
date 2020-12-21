@@ -10,6 +10,8 @@ public class TimeLeft : MonoBehaviour
     public static bool timerIsRunning = false;
     public Text timeText;
 
+    public GameObject myObject;
+
     private void Start()
     {
       //Starts the timer automatically
@@ -24,13 +26,17 @@ public class TimeLeft : MonoBehaviour
           {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
-            //QuizzManager.ColorChange();
+            if (timeRemaining < 5 )
+            {
+              myObject.GetComponent<ChangeColor>().AlmostFinishedColor();
+            }
           }
           else
           {
             timeRemaining = 0;
             Debug.Log("Time has run out !");
             timerIsRunning = false;
+            myObject.GetComponent<ChangeColor>().FinalColor();
           }
         }
     }

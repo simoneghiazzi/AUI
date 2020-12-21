@@ -127,11 +127,5 @@ public class QuizzManager : MonoBehaviour
         PartialResultsPanel.SetActive(true);
     }
 
-/*    public static void ColorChange()
-    {
-        GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, Time.time);
-        QuestionsPanel.SetActive(false);
-        PartialResultsPanel.SetActive(true);
-    }
-*/
+
 }

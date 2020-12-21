@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.09100008, y: 0}
-  m_SizeDelta: {x: 457.3197, y: 87.54567}
+  m_AnchoredPosition: {x: 0.00000047683716, y: 0}
+  m_SizeDelta: {x: 497.52185, y: 87.54567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10697823
 MonoBehaviour:
@@ -412,8 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042fc4b3ee13a488999015ea6d2d5d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
+  timeRemaining: 15
   timeText: {fileID: 53763339}
+  myObject: {fileID: 1849380715}
 --- !u!1 &101564717
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +620,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -668,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &148163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &160984711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,7 +996,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1044,7 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &212230137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1149,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1197,7 +1198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &254302192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,13 +1293,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: What is my name ?
+  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
+      voi, cos'\xE8? "
+    Answers:
+    - Pala eolica
+    - Paracadute
+    - Elicottero
+    - Mulino
+    CorrectAnswer: 3
+  - Question: Come mi chiamo ?
     Answers:
     - Leonardo Di Caprio
     - Leonardo Da Vinci
     - Tom Cruise
-    - Nobody knows
+    - Non si sa
     CorrectAnswer: 2
+  - Question: 'A cosa serve questa invenzione? '
+    Answers:
+    - Scavare
+    - Correre
+    - Volare
+    - Navigare
+    CorrectAnswer: 3
   options:
   - {fileID: 717483846}
   - {fileID: 1422695134}
@@ -1310,7 +1326,7 @@ MonoBehaviour:
   FinalResultsPanel: {fileID: 1649989537}
   UIElements: {fileID: 1020884394}
   QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 0}
+  ScoreTxt: {fileID: 891710562}
   score: 0
 --- !u!1 &324885102
 GameObject:
@@ -1488,7 +1504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &401690356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1507,7 +1523,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1577,8 +1593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.03699994, y: -0.01999998}
-  m_SizeDelta: {x: 456.0758, y: 79.60518}
+  m_AnchoredPosition: {x: -0.0000014305115, y: -0.03999996}
+  m_SizeDelta: {x: 497.52234, y: 76.92894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451683112
 MonoBehaviour:
@@ -2316,7 +2332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &593467522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2335,7 +2351,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2469,7 +2485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &605616562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2488,7 +2504,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2910,13 +2926,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: What is my name ?
+  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
+      voi, cos'\xE8? "
+    Answers:
+    - Pala eolica
+    - Paracadute
+    - Elicottero
+    - Mulino
+    CorrectAnswer: 3
+  - Question: Come mi chiamo ?
     Answers:
     - Leonardo Di Caprio
     - Leonardo Da Vinci
     - Tom Cruise
-    - Nobody knows
+    - Non si sa
     CorrectAnswer: 2
+  - Question: 'A cosa serve questa invenzione? '
+    Answers:
+    - Scavare
+    - Correre
+    - Volare
+    - Navigare
+    CorrectAnswer: 3
   options:
   - {fileID: 1937381607}
   - {fileID: 1317802587}
@@ -3032,7 +3063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &718641879
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,8 +3218,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.07500005, y: -0.060000062}
-  m_SizeDelta: {x: 453.82608, y: 83.57475}
+  m_AnchoredPosition: {x: -0.00000071525574, y: -0.060000062}
+  m_SizeDelta: {x: 497.522, y: 83.57475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805417840
 MonoBehaviour:
@@ -3370,7 +3401,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3419,7 +3450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &859274285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,7 +3549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &859274289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3537,7 +3568,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3618,7 +3649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &891710560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +4013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &1065972375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4539,8 +4570,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.1329999, y: 0.01999998}
-  m_SizeDelta: {x: 439.13843, y: 99.45337}
+  m_AnchoredPosition: {x: 0.0000009536743, y: 0.01999998}
+  m_SizeDelta: {x: 497.52203, y: 99.45337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247185463
 MonoBehaviour:
@@ -4800,7 +4831,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4849,7 +4880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1335306517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,7 +5004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1347845852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5075,6 +5106,7 @@ RectTransform:
   - {fileID: 1786705620}
   - {fileID: 959046990}
   - {fileID: 324885103}
+  - {fileID: 2028542038}
   m_Father: {fileID: 625862655}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5263,7 +5295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1458734753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5309,7 +5341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1459376546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5413,7 +5445,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5462,7 +5494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1470436284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,7 +5675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1472045687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,7 +5710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -102, y: -33}
+  m_AnchoredPosition: {x: -102.000244, y: -33}
   m_SizeDelta: {x: 0.50756836, y: -0.006225586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1478770701
@@ -5851,7 +5883,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5900,7 +5932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1527164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6282,7 +6314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1647591910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,7 +6607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &1655512573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6594,7 +6626,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6675,7 +6707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!1 &1713626616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6715,13 +6747,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: What is my name ?
+  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
+      voi, cos'\xE8? "
+    Answers:
+    - Pala eolica
+    - Paracadute
+    - Elicottero
+    - Mulino
+    CorrectAnswer: 3
+  - Question: Come mi chiamo ?
     Answers:
     - Leonardo Di Caprio
     - Leonardo Da Vinci
     - Tom Cruise
-    - Nobody knows
+    - Non si sa
     CorrectAnswer: 2
+  - Question: 'A cosa serve questa invenzione? '
+    Answers:
+    - Scavare
+    - Correre
+    - Volare
+    - Navigare
+    CorrectAnswer: 3
   options:
   - {fileID: 1459376546}
   - {fileID: 605616558}
@@ -7248,8 +7295,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1849380716}
   - component: {fileID: 1849380717}
+  - component: {fileID: 1849380718}
   m_Layer: 0
-  m_Name: StepwatchBalloon_30sec
+  m_Name: StepwatchBalloon30sec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7308,7 +7356,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f1d92eef4056c4e27bee9c238047737c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d382d742c7e54582a25b4d2b999fbcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7319,6 +7367,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1849380718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849380715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e813b1648c73b4e08a8f1cd0610bdc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorToTurnTo: {r: 0.13550194, g: 0.8207547, b: 0.14238615, a: 1}
+  colorAlmostFinished: {r: 0.9339623, g: 0.55151606, b: 0.16300285, a: 1}
 --- !u!1 &1888634801
 GameObject:
   m_ObjectHideFlags: 0
@@ -7531,7 +7593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &1937381611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7550,7 +7612,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7684,7 +7746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &1978442816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7703,7 +7765,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7812,13 +7874,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: What is my name ?
+  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
+      voi, cos'\xE8? "
+    Answers:
+    - Pala eolica
+    - Paracadute
+    - Elicottero
+    - Mulino
+    CorrectAnswer: 3
+  - Question: Come mi chiamo ?
     Answers:
     - Leonardo Di Caprio
     - Leonardo Da Vinci
     - Tom Cruise
-    - Nobody knows
+    - Non si sa
     CorrectAnswer: 2
+  - Question: 'A cosa serve questa invenzione? '
+    Answers:
+    - Scavare
+    - Correre
+    - Volare
+    - Navigare
+    CorrectAnswer: 3
   options:
   - {fileID: 859274285}
   - {fileID: 185512613}
@@ -7928,6 +8005,84 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016596602}
+  m_CullTransparentMesh: 0
+--- !u!1 &2028542037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028542038}
+  - component: {fileID: 2028542040}
+  - component: {fileID: 2028542039}
+  m_Layer: 0
+  m_Name: Scorefactice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2028542038
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028542037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1378839262}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2028542039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028542037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 1
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &2028542040
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028542037}
   m_CullTransparentMesh: 0
 --- !u!1 &2035043271
 GameObject:
@@ -8129,7 +8284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &2076648125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8148,7 +8303,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8304,13 +8459,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: What is my name ?
+  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
+      voi, cos'\xE8? "
+    Answers:
+    - Pala eolica
+    - Paracadute
+    - Elicottero
+    - Mulino
+    CorrectAnswer: 3
+  - Question: Come mi chiamo ?
     Answers:
     - Leonardo Di Caprio
     - Leonardo Da Vinci
     - Tom Cruise
-    - Nobody knows
+    - Non si sa
     CorrectAnswer: 2
+  - Question: 'A cosa serve questa invenzione? '
+    Answers:
+    - Scavare
+    - Correre
+    - Volare
+    - Navigare
+    CorrectAnswer: 3
   options:
   - {fileID: 401690352}
   - {fileID: 2146775822}
@@ -8397,7 +8567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
 --- !u!114 &2137089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8670,7 +8840,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8719,4 +8889,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  QuizzManager: {fileID: 0}
+  myObject1: {fileID: 0}
