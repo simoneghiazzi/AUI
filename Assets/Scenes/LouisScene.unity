@@ -412,9 +412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042fc4b3ee13a488999015ea6d2d5d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 15
+  timeRemaining: 30
+  timerIsRunning: 0
   timeText: {fileID: 53763339}
-  myObject: {fileID: 1849380715}
+  StepwatchBubble: {fileID: 1849380715}
 --- !u!1 &101564717
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +647,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139585418}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -669,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &148163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &160984711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,7 +1023,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 185512617}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1045,7 +1046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &212230137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1176,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 212230141}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1198,7 +1199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &254302192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254710123}
   - component: {fileID: 254710121}
-  - component: {fileID: 254710124}
+  - component: {fileID: 254710122}
   m_Layer: 0
   m_Name: QuizzManagerWall
   m_TagString: Untagged
@@ -1261,6 +1262,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254710120}
   m_CullTransparentMesh: 0
+--- !u!114 &254710122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254710120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7754b5faaff584cb2ac659600f97a551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QnA:
+  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
+      voi, cos'\xE8? "
+    Answers:
+    - Pala eolica
+    - Paracadute
+    - Elicottero
+    - Mulino
+    CorrectAnswer: 3
+  - Question: 'A cosa serve questa invenzione? '
+    Answers:
+    - Scavare
+    - Correre
+    - Volare
+    - Navigare
+    CorrectAnswer: 3
+  - Question: Come mi chiamo ?
+    Answers:
+    - Leonardo Di Caprio
+    - Leonardo Da Vinci
+    - Tom Cruise
+    - Non si sa
+    CorrectAnswer: 2
+  options:
+  - {fileID: 717483846}
+  - {fileID: 1422695134}
+  - {fileID: 1471748794}
+  - {fileID: 1584404349}
+  currentQuestion: 0
+  QuestionTxt: {fileID: 564293365}
+  score: 00000000000000000000000000000000
+  ScoreTxt:
+  - {fileID: 891710562}
+  - {fileID: 1786705621}
+  - {fileID: 959046991}
+  - {fileID: 324885104}
+  QuestionsPanel: {fileID: 1472045687}
+  PartialResultsPanel: {fileID: 625862654}
+  FinalResultsPanel: {fileID: 1649989537}
+  UIElements: {fileID: 1020884394}
+  Floor:
+  - {fileID: 710645644}
+  - {fileID: 2115034703}
+  - {fileID: 1713626616}
+  - {fileID: 2013219040}
+  TimeLeft: {fileID: 53763337}
 --- !u!224 &254710123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1280,54 +1339,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &254710124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254710120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QnA:
-  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
-      voi, cos'\xE8? "
-    Answers:
-    - Pala eolica
-    - Paracadute
-    - Elicottero
-    - Mulino
-    CorrectAnswer: 3
-  - Question: Come mi chiamo ?
-    Answers:
-    - Leonardo Di Caprio
-    - Leonardo Da Vinci
-    - Tom Cruise
-    - Non si sa
-    CorrectAnswer: 2
-  - Question: 'A cosa serve questa invenzione? '
-    Answers:
-    - Scavare
-    - Correre
-    - Volare
-    - Navigare
-    CorrectAnswer: 3
-  options:
-  - {fileID: 717483846}
-  - {fileID: 1422695134}
-  - {fileID: 1471748794}
-  - {fileID: 1584404349}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 891710562}
-  score: 0
 --- !u!1 &324885102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &401690356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,7 +1560,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 401690355}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2031,8 +2042,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 465.50003, y: 335}
-  m_SizeDelta: {x: 910.34314, y: 33.82823}
+  m_AnchoredPosition: {x: 454.2, y: 333.3}
+  m_SizeDelta: {x: 1010.23254, y: 62.828384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564293365
 MonoBehaviour:
@@ -2055,11 +2066,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 55
+    m_BestFit: 1
+    m_MinSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2332,7 +2343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &593467522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,7 +2388,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 593467521}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2485,7 +2496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &605616562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,7 +2541,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 605616561}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2878,7 +2889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 710645647}
   - component: {fileID: 710645646}
-  - component: {fileID: 710645648}
+  - component: {fileID: 710645645}
   m_Layer: 0
   m_Name: QuizzManagerTeam1
   m_TagString: Untagged
@@ -2886,6 +2897,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &710645645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710645644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867ac877b7d2449a4836fa25e1e3a249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallQuizzManager: {fileID: 254710120}
+  optionsTeam:
+  - {fileID: 1937381607}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!222 &710645646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2913,54 +2942,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &710645648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710645644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QnA:
-  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
-      voi, cos'\xE8? "
-    Answers:
-    - Pala eolica
-    - Paracadute
-    - Elicottero
-    - Mulino
-    CorrectAnswer: 3
-  - Question: Come mi chiamo ?
-    Answers:
-    - Leonardo Di Caprio
-    - Leonardo Da Vinci
-    - Tom Cruise
-    - Non si sa
-    CorrectAnswer: 2
-  - Question: 'A cosa serve questa invenzione? '
-    Answers:
-    - Scavare
-    - Correre
-    - Volare
-    - Navigare
-    CorrectAnswer: 3
-  options:
-  - {fileID: 1937381607}
-  - {fileID: 1317802587}
-  - {fileID: 139585414}
-  - {fileID: 593467518}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 891710562}
-  score: 0
 --- !u!1 &717483846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,7 +2952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 717483847}
   - component: {fileID: 717483848}
-  - component: {fileID: 717483849}
   m_Layer: 0
   m_Name: YellowBalloon
   m_TagString: Untagged
@@ -3050,20 +3030,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &717483849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717483846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4323bfefab996480082f0cd7d680fab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCorrect: 0
-  myObject1: {fileID: 0}
 --- !u!1 &718641879
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,7 +3393,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 857628454}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3450,7 +3416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &859274285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,7 +3515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &859274289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3594,7 +3560,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 859274288}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3649,7 +3615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &891710560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,7 +3979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &1065972375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4530,8 +4496,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225814019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5339198, y: -186.87659, z: 316.74}
-  m_LocalScale: {x: 62.209496, y: 62.209496, z: 62.209496}
+  m_LocalPosition: {x: 1.9, y: 0.6, z: 316.74}
+  m_LocalScale: {x: 61.206074, y: 46.191235, z: 62.209496}
   m_Children: []
   m_Father: {fileID: 1020884395}
   m_RootOrder: 0
@@ -4857,7 +4823,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1317802591}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4880,7 +4846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &1335306517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,7 +4970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &1347845852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,7 +5072,6 @@ RectTransform:
   - {fileID: 1786705620}
   - {fileID: 959046990}
   - {fileID: 324885103}
-  - {fileID: 2028542038}
   m_Father: {fileID: 625862655}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5203,7 +5168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1422695135}
   - component: {fileID: 1422695136}
-  - component: {fileID: 1422695137}
   m_Layer: 0
   m_Name: BlueBalloon
   m_TagString: Untagged
@@ -5282,20 +5246,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1422695137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422695134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4323bfefab996480082f0cd7d680fab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCorrect: 0
-  myObject1: {fileID: 0}
 --- !u!1 &1458734753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,7 +5291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &1459376546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5471,7 +5421,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1459376550}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5494,7 +5444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &1470436284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5583,7 +5533,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1471748795}
   - component: {fileID: 1471748796}
-  - component: {fileID: 1471748797}
   m_Layer: 0
   m_Name: GreenBalloon
   m_TagString: Untagged
@@ -5662,20 +5611,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1471748797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471748794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4323bfefab996480082f0cd7d680fab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCorrect: 0
-  myObject1: {fileID: 0}
 --- !u!1 &1472045687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,7 +5645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -102.000244, y: -33}
+  m_AnchoredPosition: {x: -102, y: -33}
   m_SizeDelta: {x: 0.50756836, y: -0.006225586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1478770701
@@ -5909,7 +5844,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1521342580}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5932,7 +5867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &1527164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6222,7 +6157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1584404350}
   - component: {fileID: 1584404351}
-  - component: {fileID: 1584404352}
   m_Layer: 0
   m_Name: RedBalloon
   m_TagString: Untagged
@@ -6301,20 +6235,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1584404352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584404349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4323bfefab996480082f0cd7d680fab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCorrect: 0
-  myObject1: {fileID: 0}
 --- !u!1 &1647591910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6607,7 +6527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &1655512573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6652,7 +6572,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1655512572}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6707,7 +6627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!1 &1713626616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6743,45 +6663,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1713626616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Script: {fileID: 11500000, guid: 867ac877b7d2449a4836fa25e1e3a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
-      voi, cos'\xE8? "
-    Answers:
-    - Pala eolica
-    - Paracadute
-    - Elicottero
-    - Mulino
-    CorrectAnswer: 3
-  - Question: Come mi chiamo ?
-    Answers:
-    - Leonardo Di Caprio
-    - Leonardo Da Vinci
-    - Tom Cruise
-    - Non si sa
-    CorrectAnswer: 2
-  - Question: 'A cosa serve questa invenzione? '
-    Answers:
-    - Scavare
-    - Correre
-    - Volare
-    - Navigare
-    CorrectAnswer: 3
-  options:
-  - {fileID: 1459376546}
-  - {fileID: 605616558}
-  - {fileID: 1521342576}
-  - {fileID: 212230137}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 959046991}
-  score: 0
+  WallQuizzManager: {fileID: 0}
+  optionsTeam: []
 --- !u!224 &1713626619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7229,8 +7115,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818566675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -3.05, z: 27.5}
-  m_LocalScale: {x: 0.619929, y: 1.1874436, z: 0.619929}
+  m_LocalPosition: {x: -0, y: 0.541, z: 27.5}
+  m_LocalScale: {x: 0.6074999, y: 0.873569, z: 0.619929}
   m_Children: []
   m_Father: {fileID: 516466391}
   m_RootOrder: 0
@@ -7593,7 +7479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &1937381611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7638,7 +7524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1937381610}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7746,7 +7632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &1978442816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7791,7 +7677,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1978442815}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7870,45 +7756,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2013219040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Script: {fileID: 11500000, guid: 867ac877b7d2449a4836fa25e1e3a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
-      voi, cos'\xE8? "
-    Answers:
-    - Pala eolica
-    - Paracadute
-    - Elicottero
-    - Mulino
-    CorrectAnswer: 3
-  - Question: Come mi chiamo ?
-    Answers:
-    - Leonardo Di Caprio
-    - Leonardo Da Vinci
-    - Tom Cruise
-    - Non si sa
-    CorrectAnswer: 2
-  - Question: 'A cosa serve questa invenzione? '
-    Answers:
-    - Scavare
-    - Correre
-    - Volare
-    - Navigare
-    CorrectAnswer: 3
-  options:
-  - {fileID: 859274285}
-  - {fileID: 185512613}
-  - {fileID: 2076648121}
-  - {fileID: 1978442812}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 324885104}
-  score: 0
+  WallQuizzManager: {fileID: 0}
+  optionsTeam: []
 --- !u!224 &2013219043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8005,84 +7857,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016596602}
-  m_CullTransparentMesh: 0
---- !u!1 &2028542037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2028542038}
-  - component: {fileID: 2028542040}
-  - component: {fileID: 2028542039}
-  m_Layer: 0
-  m_Name: Scorefactice
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2028542038
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028542037}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1378839262}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2028542039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028542037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 1
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &2028542040
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028542037}
   m_CullTransparentMesh: 0
 --- !u!1 &2035043271
 GameObject:
@@ -8284,7 +8058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &2076648125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8329,7 +8103,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2076648124}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8429,8 +8203,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115034706}
-  - component: {fileID: 2115034705}
   - component: {fileID: 2115034704}
+  - component: {fileID: 2115034705}
   m_Layer: 0
   m_Name: QuizzManagerTeam2
   m_TagString: Untagged
@@ -8455,45 +8229,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115034703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c048d1c79cd424673a90c84ec16bcb75, type: 3}
+  m_Script: {fileID: 11500000, guid: 867ac877b7d2449a4836fa25e1e3a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
-      voi, cos'\xE8? "
-    Answers:
-    - Pala eolica
-    - Paracadute
-    - Elicottero
-    - Mulino
-    CorrectAnswer: 3
-  - Question: Come mi chiamo ?
-    Answers:
-    - Leonardo Di Caprio
-    - Leonardo Da Vinci
-    - Tom Cruise
-    - Non si sa
-    CorrectAnswer: 2
-  - Question: 'A cosa serve questa invenzione? '
-    Answers:
-    - Scavare
-    - Correre
-    - Volare
-    - Navigare
-    CorrectAnswer: 3
-  options:
-  - {fileID: 401690352}
-  - {fileID: 2146775822}
-  - {fileID: 1655512569}
-  - {fileID: 857628450}
-  currentQuestion: 0
-  QuestionsPanel: {fileID: 1472045687}
-  PartialResultsPanel: {fileID: 625862654}
-  FinalResultsPanel: {fileID: 1649989537}
-  UIElements: {fileID: 1020884394}
-  QuestionTxt: {fileID: 564293365}
-  ScoreTxt: {fileID: 1786705621}
-  score: 0
+  WallQuizzManager: {fileID: 254710120}
+  optionsTeam: []
 --- !u!224 &2115034706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8567,7 +8307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0
 --- !u!114 &2137089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8866,7 +8606,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2146775826}
-        m_MethodName: Answer
+        m_MethodName: AnswersManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8889,4 +8629,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  myObject1: {fileID: 0}
+  alreadyAnswered: 0

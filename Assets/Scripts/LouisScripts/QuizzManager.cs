@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +53,7 @@ public class QuizzManager : MonoBehaviour
     public void correct()
     {
         score += 1;
-        QnA.RemoveAt(currentQuestion);
+        //QnA.RemoveAt(currentQuestion);
         IntermediateResults();
         StartCoroutine(waitForNext());
     }
@@ -60,14 +61,14 @@ public class QuizzManager : MonoBehaviour
     //When an answer is wrong
     public void wrong()
     {
-        QnA.RemoveAt(currentQuestion);
+        //QnA.RemoveAt(currentQuestion);
         IntermediateResults();
         StartCoroutine(waitForNext());
     }
 
     public void TimeIsOut()
     {
-        QnA.RemoveAt(currentQuestion);
+        //QnA.RemoveAt(currentQuestion);
         IntermediateResults();
         StartCoroutine(waitForNext());
     }
@@ -103,6 +104,7 @@ public class QuizzManager : MonoBehaviour
     {
         if(QnA.Count > 0) //when there are questions available
         {
+          Debug.Log("currentQuestion = " + currentQuestion);
           QuestionTxt.text = QnA[currentQuestion].Question; // set the current question text
           SetAnswers();
           QuestionsPanel.SetActive(true);
@@ -129,3 +131,4 @@ public class QuizzManager : MonoBehaviour
 
 
 }
+*/

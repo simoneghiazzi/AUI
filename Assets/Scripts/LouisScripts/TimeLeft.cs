@@ -7,12 +7,12 @@ public class TimeLeft : MonoBehaviour
 {
 
     public float timeRemaining;
-    public static bool timerIsRunning = false;
+    public bool timerIsRunning = false;
     public Text timeText;
 
-    public GameObject myObject;
+    public GameObject StepwatchBubble;
 
-    private void Start()
+    public void Start()
     {
       //Starts the timer automatically
       timerIsRunning = true;
@@ -28,7 +28,7 @@ public class TimeLeft : MonoBehaviour
             DisplayTime(timeRemaining);
             if (timeRemaining < 5 )
             {
-              myObject.GetComponent<ChangeColor>().AlmostFinishedColor();
+              StepwatchBubble.GetComponent<ChangeColor>().AlmostFinishedColor();
             }
           }
           else
@@ -36,12 +36,12 @@ public class TimeLeft : MonoBehaviour
             timeRemaining = 0;
             Debug.Log("Time has run out !");
             timerIsRunning = false;
-            myObject.GetComponent<ChangeColor>().FinalColor();
+            StepwatchBubble.GetComponent<ChangeColor>().FinalColor();
           }
         }
     }
 
-    public static bool GetTimerIsRunning()
+    public bool GetTimerIsRunning()
     {
         return timerIsRunning;
     }

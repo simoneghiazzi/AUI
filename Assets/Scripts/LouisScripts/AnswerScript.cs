@@ -6,31 +6,38 @@ using UnityEngine.UI;
 public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
-    public GameObject myObject1;
+    public bool alreadyAnswered = false;
 
     public void Start()
     {
-      myObject1 = GameObject.Find("QuizzManagerTeam1");
+
     }
 
-    public void Answer() // method called when the player clicks on the button
+    public void AnswersManager() // method called when the player clicks on the button
     {
-        if( (isCorrect == true) && (TimeLeft.GetTimerIsRunning() == true) )
+        if( (isCorrect == true) && (alreadyAnswered == false))
         {
             Debug.Log("Correct Answer");
-            myObject1.GetComponent<QuizzManager>().correct();
+            alreadyAnswered = true;
+            // Code for correct answer
         }
 
-        if(TimeLeft.GetTimerIsRunning() == false)
+        if( alreadyAnswered == false )
         {
             Debug.Log("Time is out, you cannot answer anymore");
-            myObject1.GetComponent<QuizzManager>().TimeIsOut();
+            // Code for Time is out
         }
 
-        if( (isCorrect == false) && (TimeLeft.GetTimerIsRunning() == true) )
+        if( (isCorrect == false) && (alreadyAnswered == false))
         {
             Debug.Log("Wrong Answer");
-            myObject1.GetComponent<QuizzManager>().wrong();
+            alreadyAnswered = true;
+            // Code for wrong answer
+        }
+
+        if(alreadyAnswered == true)
+        {
+          Debug.Log("You already answered");
         }
 
     }
