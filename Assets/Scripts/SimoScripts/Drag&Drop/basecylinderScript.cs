@@ -10,6 +10,10 @@ public class basecylinderScript : MonoBehaviour
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
+    //public GameObject rightHand;
+
+    private Camera mainCamera;
+
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
@@ -20,25 +24,42 @@ public class basecylinderScript : MonoBehaviour
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
         gameManager = GameObject.Find("GameManager");
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        //rightHand.getComponent<TrackerPlayerPosition>().HandState += CheckHandState;
     }
+
+    /*private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.name == "RightHand")
+        {
+            Debug.Log("Ciao");
+        }
+    }
+    private void CheckHandState(Dictionary<PartToTrack, bool> handstate)
+    {
+
+    }*/
 
     private void onMouseDown()
     {
-        deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-        deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+        //deltaX = rightHand.transform.position.x - transform.position.x;
+        //deltaY = rightHand.transform.position.y - transform.position.y;
+        deltaX = mainCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        deltaY = mainCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
     private void OnMouseDrag()
     {
         if (gameManager.GetComponent<GameManager>().state == TextState.BASE)
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //mousePosition = rightHand.transform.position;
+            mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
         {
             gameManager.GetComponent<GameManager>().WrongObject();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 
@@ -61,7 +82,6 @@ public class basecylinderScript : MonoBehaviour
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
             gameManager.GetComponent<GameManager>().WrongPosition();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 }
