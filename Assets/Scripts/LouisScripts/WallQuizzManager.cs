@@ -65,7 +65,9 @@ public class WallQuizzManager : MonoBehaviour
   // Generate a question from the information provided in the Unity Inspector
   void generateQuestion()
   {
-    if(QnA.Count > 0)
+    Debug.Log("totalQuestions = " + totalQuestions);
+    Debug.Log("currentQuestion = " + currentQuestion);
+    if( currentQuestion < totalQuestions )
     {
       // Set the Panels
       QuestionsPanel.SetActive(true);

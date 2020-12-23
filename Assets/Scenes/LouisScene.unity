@@ -2912,9 +2912,9 @@ MonoBehaviour:
   WallQuizzManager: {fileID: 254710120}
   optionsTeam:
   - {fileID: 1937381607}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1317802587}
+  - {fileID: 139585414}
+  - {fileID: 593467518}
 --- !u!222 &710645646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6666,8 +6666,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867ac877b7d2449a4836fa25e1e3a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WallQuizzManager: {fileID: 0}
-  optionsTeam: []
+  WallQuizzManager: {fileID: 254710120}
+  optionsTeam:
+  - {fileID: 1459376546}
+  - {fileID: 605616558}
+  - {fileID: 1521342576}
+  - {fileID: 212230137}
 --- !u!224 &1713626619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7759,8 +7763,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867ac877b7d2449a4836fa25e1e3a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WallQuizzManager: {fileID: 0}
-  optionsTeam: []
+  WallQuizzManager: {fileID: 254710120}
+  optionsTeam:
+  - {fileID: 859274285}
+  - {fileID: 185512613}
+  - {fileID: 2076648121}
+  - {fileID: 1978442812}
 --- !u!224 &2013219043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8233,7 +8241,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WallQuizzManager: {fileID: 254710120}
-  optionsTeam: []
+  optionsTeam:
+  - {fileID: 401690352}
+  - {fileID: 2146775822}
+  - {fileID: 1655512569}
+  - {fileID: 857628450}
 --- !u!224 &2115034706
 RectTransform:
   m_ObjectHideFlags: 0

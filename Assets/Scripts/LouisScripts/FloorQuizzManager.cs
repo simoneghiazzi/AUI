@@ -32,16 +32,17 @@ public class FloorQuizzManager : MonoBehaviour
     public void SetAnswersFloor()
     {
       int currentQuestionFloor = WallQuizzManager.GetComponent<WallQuizzManager>().currentQuestion;
+      Debug.Log("value of currentQuestionFloor = " + currentQuestionFloor);
 
         for(int i = 0; i < optionsTeam.Length; i++)
         {
           // Set the answer corresponding to the index of the current question, and putting it into the
           // corresponding Text component (= corresponding text bubble)
-          optionsTeam[i].transform.GetChild(0).GetComponent<Text>().text = Wall.GetQnA()[currentQuestionFloor].Answers[i];
+          optionsTeam[i].transform.GetChild(0).GetComponent<Text>().text = WallQuizzManager.GetComponent<WallQuizzManager>().GetQnA()[currentQuestionFloor].Answers[i];
 
           optionsTeam[i].GetComponent<AnswerScript>().isCorrect = false;  // reset all the buttons to false state
 
-          if(Wall.GetQnA()[currentQuestionFloor].CorrectAnswer == i+1)   // if the right button is clicked (if the chosen option is in the correct index)
+          if(WallQuizzManager.GetComponent<WallQuizzManager>().GetQnA()[currentQuestionFloor].CorrectAnswer == i+1)   // if the right button is clicked (if the chosen option is in the correct index)
           {
               optionsTeam[i].GetComponent<AnswerScript>().isCorrect = true;
           }
