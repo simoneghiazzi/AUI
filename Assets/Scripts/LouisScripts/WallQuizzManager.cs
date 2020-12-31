@@ -24,7 +24,7 @@ public class WallQuizzManager : MonoBehaviour
   public GameObject UIElements;
 
   //From FloorQuizzManager
-  public GameObject[] Floor;
+  public GameObject[] Floor; // to be linked to all the FloorQuizzManager scripts used
 
   //From TimeLeft
   public GameObject TimeLeft;
@@ -34,6 +34,8 @@ public class WallQuizzManager : MonoBehaviour
 
   private void Start()
   {
+    Debug.Log("Start WallQuizzManager");
+
     // Set the different Panels
     QuestionsPanel.SetActive(true);
     PartialResultsPanel.SetActive(false);
@@ -44,11 +46,39 @@ public class WallQuizzManager : MonoBehaviour
     totalQuestions = QnA.Count;   // total number of questions
     currentQuestion = 0;
 
+    Debug.Log("Start Finished");
+
     // first method to generate all the questions
-    TimeLeft.GetComponent<TimeLeft>().Start();
     generateQuestion();
 
   }
+
+
+
+  // Generate a question from the information provided in the Unity Inspector
+  void generateQuestion()
+  {
+    Debug.Log("generateQuestion");
+    Debug.Log("currentQuestion = " + currentQuestion);
+
+    TimeLeft.GetComponent<TimeLeft>().StartTimer();
+
+      // Set the question + answer text on the wall
+      QuestionTxt.text = QnA[currentQuestion].Question;
+      SetAnswersWall();
+
+      // + set the helicopter on the wall ?? => another panel ? do it with another method
+
+      // Set the answers on the floor
+      for(int i=0; i < Floor.Length ; i++)
+        {
+          Debug.Log("hey SetAnswersFloor" + i);
+          Floor[i].GetComponent<FloorQuizzManager>().SetAnswersFloor(); // Set the answers of each FloorQuizzManager
+        }
+
+  }
+
+
 
   // Manage the answers displayed on the Wall
   public void SetAnswersWall()
@@ -62,56 +92,12 @@ public class WallQuizzManager : MonoBehaviour
   }
 
 
-  // Generate a question from the information provided in the Unity Inspector
-  void generateQuestion()
-  {
-    Debug.Log("totalQuestions = " + totalQuestions);
-    Debug.Log("currentQuestion = " + currentQuestion);
-    if( currentQuestion < totalQuestions )
-    {
-      // Set the Panels
-      QuestionsPanel.SetActive(true);
-      // PartialResultsPanel.SetActive(false); // optional ?
-
-      // Set the question + answer text on the wall
-      QuestionTxt.text = QnA[currentQuestion].Question;
-      SetAnswersWall();
-
-      // + set the helicopter on the wall ?? => another panel ? do it with another method
-
-      // Set the answers on the floor
-      if(TimeLeft.GetComponent<TimeLeft>().GetTimerIsRunning() == true)
-      {
-        for(int i=0; i < Floor.Length ; i++)
-        {
-          Floor[i].GetComponent<FloorQuizzManager>().SetAnswersFloor(); // SET IN THE FLOOR SCRIPT !!
-        }
-      }
-      else
-      {
-        Debug.Log("You can't answer anymore, Time Is Out // FloorQuizzManager");
-      }
-
-      // manage the answers given on the floor => call the method from the other script AnswerScript
-      // AnswerScript.AnswersManager(); // => include time manager
-
-      // display the intermediate results
-      IntermediateResults();
-
-    }
-    else
-    {
-      Debug.Log("Out of questions !");
-
-      // Game Over ??
-      // Display the Final results panel ??
-
-    }
-  }
 
   // Display the intermediate results
   public void IntermediateResults()
   {
+    Debug.Log("IntermediateResults");
+
     // Panels
     QuestionsPanel.SetActive(false);
     PartialResultsPanel.SetActive(true);
@@ -123,25 +109,60 @@ public class WallQuizzManager : MonoBehaviour
     }
 
     // Wait for 5 seconds to display the scores
-    StartCoroutine(waitForNext());
-
-    // Panels back to question mode
-    QuestionsPanel.SetActive(false);
-    PartialResultsPanel.SetActive(true);
+    StartCoroutine(waitForNext(5));
 
     // On to the next question (on the currentQuestion index)
     currentQuestion += 1;
-
-    // Generate the next question
-    generateQuestion();
-
+    
   }
 
-  IEnumerator waitForNext()
+
+
+  // Display the final results
+  public void FinalResults()
   {
-      yield return new WaitForSeconds(10);
-      generateQuestion();
+    Debug.Log("FinalResults");
+
+    // Panels
+    QuestionsPanel.SetActive(false);
+    PartialResultsPanel.SetActive(true);
+
+    // Display the different scores
+    for(int i=0 ; i < score.Length ; i++)
+    {
+      ScoreTxt[i].text = (score[i]).ToString();
+    }
+
+    // Wait for 5 seconds to display the scores
+    StartCoroutine(waitForNext(5));
+
+    Debug.Log("END OF GAME");
+
   }
+
+
+
+  IEnumerator waitForNext(int time)
+  {
+      yield return new WaitForSeconds(time);
+
+      // Panels back to question mode
+      QuestionsPanel.SetActive(true);
+      PartialResultsPanel.SetActive(false);
+
+      //Check if there are no more questions
+      if(currentQuestion > totalQuestions)
+      {
+        FinalResults();
+      }
+      else
+      {
+        // Generate the next question
+        generateQuestion();
+      }
+  }
+
+
 
   //Access the QnA
   public List<QuestionAndAnswers> GetQnA()

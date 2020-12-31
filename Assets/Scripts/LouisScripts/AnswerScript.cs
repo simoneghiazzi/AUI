@@ -20,6 +20,9 @@ public class AnswerScript : MonoBehaviour
             Debug.Log("Correct Answer");
             alreadyAnswered = true;
             // Code for correct answer
+            // better to put an integer to know which team is which
+            // use the id of the team as the index of the score array
+            // alreay answered array = INITIALIZATION false, and everytime an answer is given we put true for the corresponding team
         }
 
         if( alreadyAnswered == false )

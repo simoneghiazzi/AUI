@@ -38,4 +38,10 @@ public class ChangeColor : MonoBehaviour
       rend.material.color = colorFinal;
     }
 
+    public void ResetColor()
+    {
+      //Change sprite color to the reset selected color
+      rend.material.color = colorToTurnTo;
+    }
+
 }
