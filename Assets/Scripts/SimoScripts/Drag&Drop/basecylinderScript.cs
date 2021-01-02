@@ -10,6 +10,8 @@ public class basecylinderScript : MonoBehaviour
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
+    //THE LINES OF CODE COMMENTED IN THIS SCRIPT ARE KEPT AS REFERENCE IN CASE, FOR FUTURE DEVELOPMENT, IT WILL BE MODIFIED TO BE USED WITH GESTURES
+
     //public GameObject rightHand;
 
     private Camera mainCamera;
