@@ -13,6 +13,12 @@ public class BoatScript : MonoBehaviour
 
     public float maximumSteeringAngle = 200f;
     public float wheelReleasedSpeed = 200f;
+    
+    //The grater the slower the boat rotates
+    public float wheelInfluenceOnBoat = 500f;
+
+    //The greater the slower the boat translates
+    public float waterResistance = 2f;
 
     float wheelAngle = 0f;
     float wheelPrevAngle = 0f;
@@ -52,8 +58,21 @@ public class BoatScript : MonoBehaviour
                 wheelAngle += deltaAngle;
         }
 
-        // Rotate the wheel image
+        // Rotate the wheel image. Vector3.back is a shorthand for writing Vector3(0, 0, -1).
         rectT.localEulerAngles = Vector3.back * wheelAngle;
+        transform.Rotate(Vector3.back * wheelAngle / wheelInfluenceOnBoat);
+        transform.Translate(-transform.rotation.z / waterResistance , 0, 0, Space.World);
+
+        //Having the boat face downward would be irealistic. Notice that eulerAngles are between 0 and 360, but we can 
+        //make a rotation with negative angles like in the unity inspector
+        if(transform.rotation.eulerAngles.z > 90 && transform.rotation.eulerAngles.z < 180)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        else if(transform.rotation.eulerAngles.z > 180 && transform.rotation.eulerAngles.z < 270)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
     }
 
     void InitEventsSystem()
