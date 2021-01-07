@@ -338,7 +338,7 @@ MonoBehaviour:
   maximumSteeringAngle: 200
   wheelReleasedSpeed: 200
   wheelInfluenceOnBoat: 500
-  waterResistance: 1.5
+  waterResistance: 2
   wheelAngle: 0
   wheelBeingHeld: 0
 --- !u!114 &-3223512506276837298
