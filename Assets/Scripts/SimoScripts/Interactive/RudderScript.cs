@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System.Collections;
 
-public class BoatScript : MonoBehaviour
+public class RudderScript : MonoBehaviour
 {
     public Graphic UI_Element;
 
@@ -18,12 +18,12 @@ public class BoatScript : MonoBehaviour
     public float wheelInfluenceOnBoat = 500f;
 
     //The greater the slower the boat translates
-    public float waterResistance = 2f;
+    public float waterResistance = 1.5f;
 
-    float wheelAngle = 0f;
+    public float wheelAngle = 0f;
     float wheelPrevAngle = 0f;
 
-    bool wheelBeingHeld = false;
+    public bool wheelBeingHeld = false;
 
     public float GetClampedValue()
     {

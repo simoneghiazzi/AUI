@@ -435,7 +435,7 @@ PrefabInstance:
     - target: {fileID: 8626071631358021473, guid: 743cd3a0489c5dd44baa30b315c80bd3,
         type: 3}
       propertyPath: m_Name
-      value: Rpier
+      value: Pier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743cd3a0489c5dd44baa30b315c80bd3, type: 3}
@@ -1187,7 +1187,27 @@ MonoBehaviour:
   maximumSteeringAngle: 200
   wheelReleasedSpeed: 200
   wheelInfluenceOnBoat: 500
-  waterResistance: 2
+  waterResistance: 1.5
+  wheelAngle: 0
+  wheelBeingHeld: 0
+--- !u!114 &634316005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634316000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f65107a904bda54fb7eb7798c0383ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.1
+  spriteBlinkingTotalTimer: 0
+  spriteBlinkingTotalDuration: 1
+  startBlinking: 0
+  timePassed: 0
 --- !u!1 &713543811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2731,7 @@ PrefabInstance:
     - target: {fileID: 8626071631358021473, guid: 743cd3a0489c5dd44baa30b315c80bd3,
         type: 3}
       propertyPath: m_Name
-      value: Rpier
+      value: Pier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743cd3a0489c5dd44baa30b315c80bd3, type: 3}
@@ -3182,6 +3202,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1240239016}
     m_Modifications:
+    - target: {fileID: 2167687564271920236, guid: 743cd3a0489c5dd44baa30b315c80bd3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8626071631358021472, guid: 743cd3a0489c5dd44baa30b315c80bd3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3250,7 +3275,7 @@ PrefabInstance:
     - target: {fileID: 8626071631358021473, guid: 743cd3a0489c5dd44baa30b315c80bd3,
         type: 3}
       propertyPath: m_Name
-      value: Lpier
+      value: Pier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743cd3a0489c5dd44baa30b315c80bd3, type: 3}
@@ -3276,7 +3301,27 @@ MonoBehaviour:
   maximumSteeringAngle: 200
   wheelReleasedSpeed: 200
   wheelInfluenceOnBoat: 500
-  waterResistance: 2
+  waterResistance: 1.5
+  wheelAngle: 0
+  wheelBeingHeld: 0
+--- !u!114 &1839966035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839966031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f65107a904bda54fb7eb7798c0383ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.1
+  spriteBlinkingTotalTimer: 0
+  spriteBlinkingTotalDuration: 1
+  startBlinking: 0
+  timePassed: 0
 --- !u!4 &1951748803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8626071631358021472, guid: 743cd3a0489c5dd44baa30b315c80bd3,
@@ -4074,7 +4119,7 @@ PrefabInstance:
     - target: {fileID: 8626071631358021473, guid: 743cd3a0489c5dd44baa30b315c80bd3,
         type: 3}
       propertyPath: m_Name
-      value: Lpier
+      value: Pier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743cd3a0489c5dd44baa30b315c80bd3, type: 3}
