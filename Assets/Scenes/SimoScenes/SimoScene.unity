@@ -481,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 1398484070248738110, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: m_Name
-      value: boat
+      value: Rboat
       objectReference: {fileID: 0}
     - target: {fileID: 1398484070248738111, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
@@ -548,7 +548,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.14697805
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 654504039248165224, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
+    - {fileID: -3223512506276837298, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
 --- !u!1 &105803888
 GameObject:
@@ -3891,7 +3893,7 @@ PrefabInstance:
     - target: {fileID: 1398484070248738110, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: m_Name
-      value: boat
+      value: Lboat
       objectReference: {fileID: 0}
     - target: {fileID: 1398484070248738111, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
@@ -3958,7 +3960,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.14697805
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 654504039248165224, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
+    - {fileID: -3223512506276837298, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
 --- !u!1001 &4916343774201233483
 PrefabInstance:
