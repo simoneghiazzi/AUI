@@ -31,7 +31,7 @@ public class TimeLeft : MonoBehaviour
           {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
-            Debug.Log("Time remaining = " + DisplayTimeDebug(timeRemaining));
+            //Debug.Log("Time remaining = " + DisplayTimeDebug(timeRemaining));
 
             // Turn the color of the stepwatch bubble to orange
             if (timeRemaining < 5 )
@@ -47,7 +47,13 @@ public class TimeLeft : MonoBehaviour
           else
           {
             timeRemaining = 0;
-            Debug.Log("Time has run out !");
+            Debug.Log("Time has run out ! You can't answer anymore");
+
+            //To prevent teams from answering after the time has run out
+            for(int j=0 ; j < WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered.Length ; j++){
+              WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[j] = true;
+            }
+
             timerIsRunning = false;
 
             // Turn the color of the stepwatch bubble to red

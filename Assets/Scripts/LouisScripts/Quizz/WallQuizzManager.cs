@@ -16,6 +16,7 @@ public class WallQuizzManager : MonoBehaviour
   public Text QuestionTxt;    // text of the current question
   public int[] score = new int[4]; // array contening the score of each team
   public Text[] ScoreTxt = new Text[4];   // array of score in text of each team
+  public bool[] alreadyAnswered = new bool [4];
 
   // Panels
   public GameObject QuestionsPanel;
@@ -61,6 +62,12 @@ public class WallQuizzManager : MonoBehaviour
     Debug.Log("generateQuestion");
     Debug.Log("currentQuestion = " + currentQuestion);
 
+    //Re-initialization of the alreadyAnswered array
+    for(int k = 0 ; k < alreadyAnswered.Length ; k++){
+      alreadyAnswered[k] = false;
+      //Debug.Log("State " + k + " = " + alreadyAnswered[k]);
+    }
+
     TimeLeft.GetComponent<TimeLeft>().StartTimer();
 
       // Set the question + answer text on the wall
@@ -72,7 +79,7 @@ public class WallQuizzManager : MonoBehaviour
       // Set the answers on the floor
       for(int i=0; i < Floor.Length ; i++)
         {
-          Debug.Log("hey SetAnswersFloor" + i);
+          //Debug.Log("hey SetAnswersFloor" + i);
           Floor[i].GetComponent<FloorQuizzManager>().SetAnswersFloor(); // Set the answers of each FloorQuizzManager
         }
 
@@ -109,11 +116,11 @@ public class WallQuizzManager : MonoBehaviour
     }
 
     // Wait for 5 seconds to display the scores
-    StartCoroutine(waitForNext(5));
+    StartCoroutine(waitForNext(10));
 
     // On to the next question (on the currentQuestion index)
     currentQuestion += 1;
-    
+
   }
 
 
@@ -134,7 +141,7 @@ public class WallQuizzManager : MonoBehaviour
     }
 
     // Wait for 5 seconds to display the scores
-    StartCoroutine(waitForNext(5));
+    StartCoroutine(waitForNext(10));
 
     Debug.Log("END OF GAME");
 
