@@ -7536,32 +7536,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!61 &1937381612
-BoxCollider2D:
+--- !u!65 &1937381612
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937381607}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.74, y: 2.6520073}
-    newSize: {x: 7.74, y: 2.6520073}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.74, y: 2.6520073}
-  m_EdgeRadius: 0
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &1978442812
 GameObject:
   m_ObjectHideFlags: 0
