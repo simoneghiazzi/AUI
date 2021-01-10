@@ -36,12 +36,18 @@ public class ChangeColor : MonoBehaviour
     {
       //Change sprite color to the final selected color
       rend.material.color = colorFinal;
+      StartCoroutine(WaitColor(8));
     }
 
     public void ResetColor()
     {
       //Change sprite color to the reset selected color
       rend.material.color = colorToTurnTo;
+    }
+
+    public IEnumerator WaitColor(int time)
+    {
+      yield return new WaitForSeconds(time);
     }
 
 }

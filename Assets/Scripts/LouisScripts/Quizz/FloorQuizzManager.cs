@@ -47,7 +47,7 @@ public class FloorQuizzManager : MonoBehaviour
           {
               optionsTeam[j].GetComponent<AnswerScript>().isCorrect = true;
           }
-        }  
+        }
 
     }
 
@@ -61,6 +61,9 @@ public class FloorQuizzManager : MonoBehaviour
         Debug.Log("+1 point for Team " + TeamID);
         WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
       }
+      else{
+        Debug.Log("Team " + TeamID + " you already answered !");
+      }
     }
 
     public void wrong()
@@ -70,6 +73,9 @@ public class FloorQuizzManager : MonoBehaviour
       {
         Debug.Log("0 point for Team " + TeamID);
         WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
+      }
+      else{
+        Debug.Log("Team " + TeamID + " you already answered !");
       }
     }
 

@@ -50,7 +50,8 @@ public class TimeLeft : MonoBehaviour
             Debug.Log("Time has run out ! You can't answer anymore");
 
             //To prevent teams from answering after the time has run out
-            for(int j=0 ; j < WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered.Length ; j++){
+            for(int j=0 ; j < WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered.Length ; j++)
+            {
               WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[j] = true;
             }
 
