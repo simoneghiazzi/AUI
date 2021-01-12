@@ -10,6 +10,7 @@ public class FloorQuizzManager : MonoBehaviour
     public GameObject[] optionsTeam;
     WallQuizzManager Wall = new WallQuizzManager();
     public GameObject TimeLeft;
+    public int TeamID;
 
 
     // Start is called before the first frame update
@@ -48,6 +49,34 @@ public class FloorQuizzManager : MonoBehaviour
           }
         }
 
+    }
+
+    public void correct()
+    {
+      Debug.Log("Team " + (TeamID+1) + " answered correct");
+
+      if(WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] == false)
+      {
+        WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] += 1;
+        Debug.Log("+1 point for Team " + TeamID);
+        WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
+      }
+      else{
+        Debug.Log("Team " + TeamID + " you already answered !");
+      }
+    }
+
+    public void wrong()
+    {
+      Debug.Log("Team " + (TeamID+1) + " answered wrong");
+      if(WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] == false)
+      {
+        Debug.Log("0 point for Team " + TeamID);
+        WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
+      }
+      else{
+        Debug.Log("Team " + TeamID + " you already answered !");
+      }
     }
 
 }
