@@ -55,8 +55,14 @@ public class CollisionsScript : MonoBehaviour
         }
         else if (other.gameObject.name == "Ldoor" || other.gameObject.name == "Rdoor")
         {
+            //In variable timePassed we save the time of the team
             timePassed = stopwatch.Elapsed.TotalSeconds;
             stopwatch.Stop();
+
+            //Reaching the goal means having finished the race, so we disable everything
+            gameObject.GetComponent<RudderScript>().wheelBeingHeld = false;
+            gameObject.GetComponent<RudderScript>().wheelAngle = 0f;
+            gameObject.GetComponent<RudderScript>().enabled = false;
 
             UnityEngine.Debug.Log("Time: " + timePassed);
         }

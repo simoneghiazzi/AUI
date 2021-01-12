@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using System.Collections.Generic;
 
 public class basecylinderScript : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class basecylinderScript : MonoBehaviour
         basecylinderObject = basecylinder_s.gameObject;
         gameManager = GameObject.Find("GameManager");
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        //rightHand.getComponent<TrackerPlayerPosition>().HandState += CheckHandState;
+        //rightHand.GetComponent<TrackerPlayerPosition>().HandState += CheckHandState;
     }
 
     /*private void OnTriggerEnter2D(Collider2D other)

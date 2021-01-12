@@ -478,11 +478,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 105803889}
     m_Modifications:
+    - target: {fileID: -4343590566905170925, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: UI_Element
+      value: 
+      objectReference: {fileID: 713543813}
     - target: {fileID: 654504039248165224, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: UI_Element
       value: 
       objectReference: {fileID: 713543813}
+    - target: {fileID: 654504039248165224, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 1297935932}
     - target: {fileID: 1398484070248738110, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: m_Name
@@ -705,8 +715,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269917342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.773, y: -8.237, z: -222.91}
-  m_LocalScale: {x: 0.2769699, y: 0.30947646, z: 1}
+  m_LocalPosition: {x: -4.735, y: -8.406, z: -222.91}
+  m_LocalScale: {x: 0.2769699, y: 0.30947646, z: 600}
   m_Children: []
   m_Father: {fileID: 1297935934}
   m_RootOrder: 0
@@ -1018,6 +1028,7 @@ GameObject:
   - component: {fileID: 522704835}
   - component: {fileID: 522704837}
   - component: {fileID: 522704836}
+  - component: {fileID: 522704838}
   m_Layer: 5
   m_Name: LEFTrudder
   m_TagString: Untagged
@@ -1081,6 +1092,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522704834}
   m_CullTransparentMesh: 0
+--- !u!58 &522704838
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522704834}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 23
 --- !u!1 &534087585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1208,7 @@ GameObject:
   - component: {fileID: 713543812}
   - component: {fileID: 713543814}
   - component: {fileID: 713543813}
+  - component: {fileID: 713543815}
   m_Layer: 5
   m_Name: RIGHTrudder
   m_TagString: Untagged
@@ -1244,6 +1272,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713543811}
   m_CullTransparentMesh: 0
+--- !u!58 &713543815
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713543811}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 46
 --- !u!1 &743394241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37820145, y: 0.81684554}
   m_AnchorMax: {x: 0.6442015, y: 0.8865773}
-  m_AnchoredPosition: {x: -0.0016479492, y: -1.5599}
+  m_AnchoredPosition: {x: -0.0016479492, y: -1.559906}
   m_SizeDelta: {x: 690.19165, y: 113.55609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981772687
@@ -2657,8 +2701,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257365028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.933, y: -8.294, z: -222.91}
-  m_LocalScale: {x: 0.2769699, y: 0.30947646, z: 1}
+  m_LocalPosition: {x: -8.9218, y: -8.45, z: -222.91}
+  m_LocalScale: {x: 0.29937676, y: 0.30947646, z: 600}
   m_Children: []
   m_Father: {fileID: 1764610714}
   m_RootOrder: 0
@@ -3987,11 +4031,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 770594827}
     m_Modifications:
+    - target: {fileID: -4343590566905170925, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: UI_Element
+      value: 
+      objectReference: {fileID: 522704836}
     - target: {fileID: 654504039248165224, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: UI_Element
       value: 
       objectReference: {fileID: 522704836}
+    - target: {fileID: 654504039248165224, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 1764610712}
     - target: {fileID: 1398484070248738110, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: m_Name

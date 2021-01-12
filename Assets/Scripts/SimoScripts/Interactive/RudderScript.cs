@@ -1,8 +1,16 @@
-﻿using UnityEngine;
+﻿#define ENABLE_UPDATE_FUNCTION_CALLBACK
+#define ENABLE_LATEUPDATE_FUNCTION_CALLBACK
+#define ENABLE_FIXEDUPDATE_FUNCTION_CALLBACK
+
+using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
+using System.Timers;
+using UnityEngine.SceneManagement;
 
 public class RudderScript : MonoBehaviour
 {
@@ -22,25 +30,29 @@ public class RudderScript : MonoBehaviour
 
     public float wheelAngle = 0f;
     float wheelPrevAngle = 0f;
-
     public bool wheelBeingHeld = false;
 
-    public float GetClampedValue()
-    {
-        // returns a value in range [-1,1] similar to GetAxis("Horizontal")
-        return wheelAngle / maximumSteeringAngle;
-    }
+    //Timer for randomly move the boat. Enums for setting the movement. Rnd variable to pick a random direction
+    private Timer timer = new Timer();
+    private enum Direction { RIGHT, LEFT, NONE }
+    private Direction direction;
+    
+    private int rnd;
 
-    public float GetAngle()
-    {
-        // returns the wheel angle itself without clamp operation
-        return wheelAngle;
-    }
+    //Vector to be used for the random rotation and movement of the boat
+    private Vector3 rndVector;
 
     void Start()
     {
         rectT = UI_Element.rectTransform;
         InitEventsSystem();
+
+        direction = Direction.NONE;
+        timer.Interval = 5000f;
+        timer.Elapsed += SetDirection;
+        timer.Start();
+
+        rndVector = new Vector3(0.0f, 0.0f, 0.07f);
     }
 
     void Update()
@@ -56,6 +68,22 @@ public class RudderScript : MonoBehaviour
                 wheelAngle -= deltaAngle;
             else
                 wheelAngle += deltaAngle;
+        }
+
+        switch (direction)
+        {
+            case Direction.LEFT:
+                transform.Rotate(rndVector);
+                transform.Translate(-transform.rotation.z / waterResistance, 0, 0, Space.World);
+                break;
+            case Direction.RIGHT:
+                transform.Rotate(-rndVector);
+                transform.Translate(-transform.rotation.z / waterResistance, 0, 0, Space.World);
+                break;
+            case Direction.NONE:
+                break;
+            default:
+                break;
         }
 
         // Rotate the wheel image. Vector3.back is a shorthand for writing Vector3(0, 0, -1).
@@ -75,10 +103,40 @@ public class RudderScript : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        UnityThread.initUnityThread();
+    }
+
+    void SetDirection(object o, System.EventArgs e)
+    {
+        timer.Stop();
+
+        UnityThread.executeInUpdate(() =>
+        {
+            rnd = UnityEngine.Random.Range(0, 2);
+        });
+
+        Debug.Log(rnd);
+
+        switch (rnd)
+        {
+            case 0:
+                direction = Direction.LEFT;
+                break;
+            case 1:
+                direction = Direction.RIGHT;
+                break;
+            default:
+                break;
+        }
+        Debug.Log(direction);
+
+        timer.Start();
+    }
+
     void InitEventsSystem()
     {
-        // Warning: Be ready to see some extremely boring code here :-/
-        // You are warned!
         EventTrigger events = UI_Element.gameObject.GetComponent<EventTrigger>();
 
         if (events == null)
@@ -151,5 +209,233 @@ public class RudderScript : MonoBehaviour
         DragEvent(eventData);
 
         wheelBeingHeld = false;
+    }
+
+    public float GetClampedValue()
+    {
+        // returns a value in range [-1,1] similar to GetAxis("Horizontal")
+        return wheelAngle / maximumSteeringAngle;
+    }
+
+    public float GetAngle()
+    {
+        // returns the wheel angle itself without clamp operation
+        return wheelAngle;
+    }
+}
+
+//DON'T CARE ABOUT THE FOLLOWING CLASS. BORING STUFF ABOUT THREADING
+/// <summary>
+///Class used for handle the thread for randomly picking a direction inside the thread of the Timer.Elapsed event
+/// </summary>
+public class UnityThread : MonoBehaviour
+{
+    //our (singleton) instance
+    private static UnityThread instance = null;
+
+
+    ////////////////////////////////////////////////UPDATE IMPL////////////////////////////////////////////////////////
+    //Holds actions received from another Thread. Will be coped to actionCopiedQueueUpdateFunc then executed from there
+    private static List<System.Action> actionQueuesUpdateFunc = new List<Action>();
+
+    //holds Actions copied from actionQueuesUpdateFunc to be executed
+    List<System.Action> actionCopiedQueueUpdateFunc = new List<System.Action>();
+
+    // Used to know if whe have new Action function to execute. This prevents the use of the lock keyword every frame
+    private volatile static bool noActionQueueToExecuteUpdateFunc = true;
+
+
+    ////////////////////////////////////////////////LATEUPDATE IMPL////////////////////////////////////////////////////////
+    //Holds actions received from another Thread. Will be coped to actionCopiedQueueLateUpdateFunc then executed from there
+    private static List<System.Action> actionQueuesLateUpdateFunc = new List<Action>();
+
+    //holds Actions copied from actionQueuesLateUpdateFunc to be executed
+    List<System.Action> actionCopiedQueueLateUpdateFunc = new List<System.Action>();
+
+    // Used to know if whe have new Action function to execute. This prevents the use of the lock keyword every frame
+    private volatile static bool noActionQueueToExecuteLateUpdateFunc = true;
+
+
+
+    ////////////////////////////////////////////////FIXEDUPDATE IMPL////////////////////////////////////////////////////////
+    //Holds actions received from another Thread. Will be coped to actionCopiedQueueFixedUpdateFunc then executed from there
+    private static List<System.Action> actionQueuesFixedUpdateFunc = new List<Action>();
+
+    //holds Actions copied from actionQueuesFixedUpdateFunc to be executed
+    List<System.Action> actionCopiedQueueFixedUpdateFunc = new List<System.Action>();
+
+    // Used to know if whe have new Action function to execute. This prevents the use of the lock keyword every frame
+    private volatile static bool noActionQueueToExecuteFixedUpdateFunc = true;
+
+
+    //Used to initialize UnityThread. Call once before any function here
+    public static void initUnityThread(bool visible = false)
+    {
+        if (instance != null)
+        {
+            return;
+        }
+
+        if (Application.isPlaying)
+        {
+            // add an invisible game object to the scene
+            GameObject obj = new GameObject("MainThreadExecuter");
+            if (!visible)
+            {
+                obj.hideFlags = HideFlags.HideAndDontSave;
+            }
+
+            DontDestroyOnLoad(obj);
+            instance = obj.AddComponent<UnityThread>();
+        }
+    }
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    //////////////////////////////////////////////COROUTINE IMPL//////////////////////////////////////////////////////
+#if (ENABLE_UPDATE_FUNCTION_CALLBACK)
+    public static void executeCoroutine(IEnumerator action)
+    {
+        if (instance != null)
+        {
+            executeInUpdate(() => instance.StartCoroutine(action));
+        }
+    }
+
+    ////////////////////////////////////////////UPDATE IMPL////////////////////////////////////////////////////
+    public static void executeInUpdate(System.Action action)
+    {
+        if (action == null)
+        {
+            throw new ArgumentNullException("action");
+        }
+
+        lock (actionQueuesUpdateFunc)
+        {
+            actionQueuesUpdateFunc.Add(action);
+            noActionQueueToExecuteUpdateFunc = false;
+        }
+    }
+
+    public void Update()
+    {
+        if (noActionQueueToExecuteUpdateFunc)
+        {
+            return;
+        }
+
+        //Clear the old actions from the actionCopiedQueueUpdateFunc queue
+        actionCopiedQueueUpdateFunc.Clear();
+        lock (actionQueuesUpdateFunc)
+        {
+            //Copy actionQueuesUpdateFunc to the actionCopiedQueueUpdateFunc variable
+            actionCopiedQueueUpdateFunc.AddRange(actionQueuesUpdateFunc);
+            //Now clear the actionQueuesUpdateFunc since we've done copying it
+            actionQueuesUpdateFunc.Clear();
+            noActionQueueToExecuteUpdateFunc = true;
+        }
+
+        // Loop and execute the functions from the actionCopiedQueueUpdateFunc
+        for (int i = 0; i < actionCopiedQueueUpdateFunc.Count; i++)
+        {
+            actionCopiedQueueUpdateFunc[i].Invoke();
+        }
+    }
+#endif
+
+    ////////////////////////////////////////////LATEUPDATE IMPL////////////////////////////////////////////////////
+#if (ENABLE_LATEUPDATE_FUNCTION_CALLBACK)
+    public static void executeInLateUpdate(System.Action action)
+    {
+        if (action == null)
+        {
+            throw new ArgumentNullException("action");
+        }
+
+        lock (actionQueuesLateUpdateFunc)
+        {
+            actionQueuesLateUpdateFunc.Add(action);
+            noActionQueueToExecuteLateUpdateFunc = false;
+        }
+    }
+
+
+    public void LateUpdate()
+    {
+        if (noActionQueueToExecuteLateUpdateFunc)
+        {
+            return;
+        }
+
+        //Clear the old actions from the actionCopiedQueueLateUpdateFunc queue
+        actionCopiedQueueLateUpdateFunc.Clear();
+        lock (actionQueuesLateUpdateFunc)
+        {
+            //Copy actionQueuesLateUpdateFunc to the actionCopiedQueueLateUpdateFunc variable
+            actionCopiedQueueLateUpdateFunc.AddRange(actionQueuesLateUpdateFunc);
+            //Now clear the actionQueuesLateUpdateFunc since we've done copying it
+            actionQueuesLateUpdateFunc.Clear();
+            noActionQueueToExecuteLateUpdateFunc = true;
+        }
+
+        // Loop and execute the functions from the actionCopiedQueueLateUpdateFunc
+        for (int i = 0; i < actionCopiedQueueLateUpdateFunc.Count; i++)
+        {
+            actionCopiedQueueLateUpdateFunc[i].Invoke();
+        }
+    }
+#endif
+
+    ////////////////////////////////////////////FIXEDUPDATE IMPL//////////////////////////////////////////////////
+#if (ENABLE_FIXEDUPDATE_FUNCTION_CALLBACK)
+    public static void executeInFixedUpdate(System.Action action)
+    {
+        if (action == null)
+        {
+            throw new ArgumentNullException("action");
+        }
+
+        lock (actionQueuesFixedUpdateFunc)
+        {
+            actionQueuesFixedUpdateFunc.Add(action);
+            noActionQueueToExecuteFixedUpdateFunc = false;
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if (noActionQueueToExecuteFixedUpdateFunc)
+        {
+            return;
+        }
+
+        //Clear the old actions from the actionCopiedQueueFixedUpdateFunc queue
+        actionCopiedQueueFixedUpdateFunc.Clear();
+        lock (actionQueuesFixedUpdateFunc)
+        {
+            //Copy actionQueuesFixedUpdateFunc to the actionCopiedQueueFixedUpdateFunc variable
+            actionCopiedQueueFixedUpdateFunc.AddRange(actionQueuesFixedUpdateFunc);
+            //Now clear the actionQueuesFixedUpdateFunc since we've done copying it
+            actionQueuesFixedUpdateFunc.Clear();
+            noActionQueueToExecuteFixedUpdateFunc = true;
+        }
+
+        // Loop and execute the functions from the actionCopiedQueueFixedUpdateFunc
+        for (int i = 0; i < actionCopiedQueueFixedUpdateFunc.Count; i++)
+        {
+            actionCopiedQueueFixedUpdateFunc[i].Invoke();
+        }
+    }
+#endif
+
+    public void OnDisable()
+    {
+        if (instance == this)
+        {
+            instance = null;
+        }
     }
 }
