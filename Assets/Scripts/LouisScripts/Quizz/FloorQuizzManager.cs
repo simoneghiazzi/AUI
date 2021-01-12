@@ -58,11 +58,11 @@ public class FloorQuizzManager : MonoBehaviour
       if(WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] == false)
       {
         WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] += 1;
-        Debug.Log("+1 point for Team " + TeamID);
+        Debug.Log("+1 point for Team " + (TeamID+1));
         WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
       }
       else{
-        Debug.Log("Team " + TeamID + " you already answered !");
+        Debug.Log("Team " + (TeamID+1) + " you already answered !");
       }
     }
 
@@ -71,11 +71,11 @@ public class FloorQuizzManager : MonoBehaviour
       Debug.Log("Team " + (TeamID+1) + " answered wrong");
       if(WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] == false)
       {
-        Debug.Log("0 point for Team " + TeamID);
+        Debug.Log("0 point for Team " + (TeamID+1));
         WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
       }
       else{
-        Debug.Log("Team " + TeamID + " you already answered !");
+        Debug.Log("Team " + (TeamID+1) + " you already answered !");
       }
     }
 
