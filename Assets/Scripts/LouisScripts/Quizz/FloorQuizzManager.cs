@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class FloorQuizzManager : MonoBehaviour
 {
@@ -57,8 +58,9 @@ public class FloorQuizzManager : MonoBehaviour
 
       if(WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] == false)
       {
-        WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] += 1;
-        Debug.Log("+1 point for Team " + (TeamID+1));
+
+        WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] = (int)Math.Round(TimeLeft.GetComponent<TimeLeft>().timeRemaining);
+        Debug.Log(WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] + " points for Team " + (TeamID+1));
         WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
       }
       else{
