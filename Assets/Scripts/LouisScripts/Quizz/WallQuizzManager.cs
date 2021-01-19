@@ -256,6 +256,25 @@ public class WallQuizzManager : MonoBehaviour
   }
 
 
+  // After each question, when the time is out
+  public void TimeIsOut()
+  {
+    IntroductionTxt = "Time is out !";
+    QuestionTxt.text = IntroductionTxt;
+    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+
+    StartCoroutine(waitForNextTimeIsOut(5));
+  }
+
+  IEnumerator waitForNextTimeIsOut(int time)
+  {
+    yield return new WaitForSeconds(time);
+
+    IntermediateResults();
+  }
+
+
 
 
 

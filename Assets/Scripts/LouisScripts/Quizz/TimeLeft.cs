@@ -60,7 +60,7 @@ public class TimeLeft : MonoBehaviour
             // Turn the color of the stepwatch bubble to red
             StepwatchBubble.GetComponent<ChangeColor>().FinalColor();
 
-            WallQuizzManager.GetComponent<WallQuizzManager>().IntermediateResults();
+            WallQuizzManager.GetComponent<WallQuizzManager>().TimeIsOut();
           }
         }
     }

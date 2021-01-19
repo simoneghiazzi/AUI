@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 139585416}
   - component: {fileID: 139585418}
   - component: {fileID: 139585417}
+  - component: {fileID: 139585419}
   m_Layer: 0
   m_Name: GreenBalloon1
   m_TagString: Untagged
@@ -611,7 +612,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139585414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -672,6 +673,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 139585419}
+--- !u!65 &139585419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139585414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &148163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 0}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &160984711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &212230137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &254302192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,6 +1454,7 @@ GameObject:
   - component: {fileID: 401690354}
   - component: {fileID: 401690356}
   - component: {fileID: 401690355}
+  - component: {fileID: 401690357}
   m_Layer: 0
   m_Name: YellowBalloon2
   m_TagString: Untagged
@@ -1523,6 +1542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &401690356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,6 +1597,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &401690357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401690352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &451683110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,6 +2412,7 @@ GameObject:
   - component: {fileID: 593467520}
   - component: {fileID: 593467522}
   - component: {fileID: 593467521}
+  - component: {fileID: 593467523}
   m_Layer: 0
   m_Name: RedBalloon1
   m_TagString: Untagged
@@ -2466,6 +2500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 593467523}
 --- !u!114 &593467522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,7 +2508,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593467518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -2520,6 +2555,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &593467523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593467518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &605616558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,6 +2667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &605616562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3541,6 +3590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &859274285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,6 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &859274289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4094,6 +4145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 0}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &1065972375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4819,6 +4871,7 @@ GameObject:
   - component: {fileID: 1317802589}
   - component: {fileID: 1317802591}
   - component: {fileID: 1317802590}
+  - component: {fileID: 1317802592}
   m_Layer: 0
   m_Name: BlueBalloon1
   m_TagString: Untagged
@@ -4899,7 +4952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317802587}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -4960,6 +5013,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 1317802592}
+--- !u!65 &1317802592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317802587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &1335306517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5538,6 +5605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &1470436284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5931,6 +5999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &1527164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6591,6 +6660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &1655512573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7531,6 +7601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 1937381612}
 --- !u!114 &1937381611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7697,6 +7768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &1978442816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8129,6 +8201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &2076648125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8384,6 +8457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 0}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &2137089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8706,3 +8780,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
