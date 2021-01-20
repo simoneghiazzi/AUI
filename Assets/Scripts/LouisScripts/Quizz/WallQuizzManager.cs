@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Timers;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class WallQuizzManager : MonoBehaviour
 {
   // VARIABLES DECLARATION AND INITIALIZATION
 
-  private Timer timer = new Timer();
+  public int state = 0;
 
   public List<QuestionAndAnswers> QnA;
   public GameObject[] options;
@@ -54,18 +54,6 @@ public class WallQuizzManager : MonoBehaviour
 
     // Introduction of the activity
     Introduction();
-
-    //Set the different panels
-    QuestionsPanel.SetActive(true);
-
-    // initialize the variables
-    totalQuestions = QnA.Count;   // total number of questions
-    currentQuestion = 0;
-
-    Debug.Log("Start WallQuizzManager Finished");
-
-    // first method to generate all the questions
-    generateQuestion();
 
   }
 
@@ -118,10 +106,12 @@ public class WallQuizzManager : MonoBehaviour
   public void IntermediateResults()
   {
     Debug.Log("IntermediateResults");
+    QuestionTxt.text = "The results for this round are :";
 
     // Panels
     QuestionsPanel.SetActive(false);
     PartialResultsPanel.SetActive(true);
+
 
     // Display the different scores
     for(int i=0 ; i < score.Length ; i++)
@@ -154,13 +144,9 @@ public class WallQuizzManager : MonoBehaviour
       ScoreTxt[i].text = (score[i]).ToString();
     }
 
-    // Wait for 10 seconds to display the scores
-    StartCoroutine(waitForNext(10));
-
     Debug.Log("END OF GAME");
 
   }
-
 
 
   IEnumerator waitForNext(int time)
@@ -171,18 +157,18 @@ public class WallQuizzManager : MonoBehaviour
       QuestionsPanel.SetActive(true);
       PartialResultsPanel.SetActive(false);
 
+
       //Check if there are no more questions
-      if(currentQuestion > totalQuestions)
-      {
-        FinalResults();
-      }
-      else
+      if(currentQuestion < totalQuestions)
       {
         // Generate the next question
         generateQuestion();
       }
+      else
+      {
+        FinalResults();
+      }
   }
-
 
 
   //Access the QnA
@@ -191,56 +177,104 @@ public class WallQuizzManager : MonoBehaviour
     return QnA;
   }
 
-  IEnumerator WaitForIntro(int time)
-  {
+
+  IEnumerator waitForNextIntro(int time, int state){
     yield return new WaitForSeconds(time);
+
+    if(state < 5)
+    {
+      Introduction();
+    }
+    else
+    {
+      //Set the different panels
+      QuestionsPanel.SetActive(true);
+
+      // initialize the variables
+      totalQuestions = QnA.Count;   // total number of questions
+      currentQuestion = 0;
+
+      Debug.Log("Start WallQuizzManager Finished");
+
+      // first method to generate all the questions
+      generateQuestion();
+    }
+
   }
 
 
   //Introduction of the activity
   public void Introduction()
   {
+      switch (state)
+      {
+        case 0:
+          // Writes the text corresponding to the introduction
+          IntroductionTxt = "Welcome to this activity ! My name is Leonardo Da Vinci, and I will guide you all along this activity.";
+          QuestionTxt.text = IntroductionTxt;
 
-    // Writes the text corresponding to the introduction
-    IntroductionTxt = "Welcome to this activity ! My name is Leonardo Da Vinci, and I will guide you all along this activity.";
-    QuestionTxt.text = IntroductionTxt;
-
-    //Fade the different GameObjects
-    //LeoCharacter.GetComponent<FadeIn>().StartFadingIn();
-    //DialogueBalloon.GetComponent<FadeIn>().StartFadingIn();
-    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
-    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
-
-
-    // Writes the text corresponding to the introduction
-    IntroductionTxt = "Here are the rules to play : you have to organize in 4 teams, with one chief for each team.";
-    QuestionTxt.text = IntroductionTxt;
-    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
-    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
-
-
-    // Writes the text corresponding to the introduction
-    IntroductionTxt = "For each question I will ask, the chief has to speak with his team, and then step on the chosen answer.";
-    QuestionTxt.text = IntroductionTxt;
-    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
-    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
-
-
-    // Writes the text corresponding to the introduction
-    IntroductionTxt = "The goal is to answer as many correct answers as possible. I will announce the winners at the end of the activity.";
-    QuestionTxt.text = IntroductionTxt;
-    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
-    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
-
-
-    // Writes the text corresponding to the introduction
-    IntroductionTxt = "Good luck to everyone ! And let's start !";
-    QuestionTxt.text = IntroductionTxt;
-    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
-    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
-
-
+          //Fade the different GameObjects
+          //LeoCharacter.GetComponent<FadeIn>().StartFadingIn();
+          //DialogueBalloon.GetComponent<FadeIn>().StartFadingIn();
+          LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+          LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+          break;
+        case 1:
+          // Writes the text corresponding to the introduction
+          IntroductionTxt = "Here are the rules to play : you have to organize in 4 teams, with one chief for each team.";
+          QuestionTxt.text = IntroductionTxt;
+          LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+          LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+          break;
+        case 2:
+          // Writes the text corresponding to the introduction
+          IntroductionTxt = "For each question I will ask, the chief has to speak with his team, and then step on the chosen answer.";
+          QuestionTxt.text = IntroductionTxt;
+          LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+          LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+          break;
+        case 3:
+          // Writes the text corresponding to the introduction
+          IntroductionTxt = "The goal is to answer as many correct answers as possible. I will announce the winners at the end of the activity.";
+          QuestionTxt.text = IntroductionTxt;
+          LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+          LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+          break;
+        case 4:
+          // Writes the text corresponding to the introduction
+          IntroductionTxt = "Good luck to everyone ! And let's start !";
+          QuestionTxt.text = IntroductionTxt;
+          LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+          LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+          break;
+        default:
+          break;
+      }
+      StartCoroutine(waitForNextIntro(5, state));
+      state += 1;
+      Debug.Log("Hello " + state);
   }
+
+
+  // After each question, when the time is out
+  public void TimeIsOut()
+  {
+    IntroductionTxt = "Time is out !";
+    QuestionTxt.text = IntroductionTxt;
+    LeoText.GetComponent<TextFadeScript>().TextFadeIn();
+    LeoText.GetComponent<TextFadeScript>().TextFadeOut();
+
+    StartCoroutine(waitForNextTimeIsOut(5));
+  }
+
+  IEnumerator waitForNextTimeIsOut(int time)
+  {
+    yield return new WaitForSeconds(time);
+
+    IntermediateResults();
+  }
+
+
 
 
 

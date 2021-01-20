@@ -7,7 +7,7 @@ public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
     public GameObject FloorQuizzManager;
-    Collider AnswerBubble;
+    public Collider AnswerBubble;
 
     public void Start()
     {
@@ -16,10 +16,9 @@ public class AnswerScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider AnswerBubble) // method called when the player collides with the button
     {
-        Debug.Log("Answer selected, wait 3 seconds for validation");
+        Debug.Log("Answer selected, wait 2 seconds for validation");
 
-        StartCoroutine(waitForValidation(3)); // Waiting 3 seconds on the button to validate the button
-
+        StartCoroutine(waitForValidation(2)); // Waiting 3 seconds on the button to validate the button
     }
 
 
@@ -32,7 +31,7 @@ public class AnswerScript : MonoBehaviour
     }
 
 
-    public void OnTriggerExit(Collider AnswerBubble) // method called when the player stop stepping on the answer bubble
+    public void OnTriggerExit(Collider AnswerBubble) // method called when the player stops stepping on the answer bubble
     {
       Debug.Log("Answer deselected");
     }

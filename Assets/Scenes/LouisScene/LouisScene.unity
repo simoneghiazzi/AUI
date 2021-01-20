@@ -356,7 +356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.13999939, y: -0.13999939}
+  m_AnchoredPosition: {x: -0.14001465, y: -0.14001465}
   m_SizeDelta: {x: 147.13356, y: 118.7825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53763339
@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 139585416}
   - component: {fileID: 139585418}
   - component: {fileID: 139585417}
+  - component: {fileID: 139585419}
   m_Layer: 0
   m_Name: GreenBalloon1
   m_TagString: Untagged
@@ -611,7 +612,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139585414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -672,6 +673,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 139585419}
+--- !u!65 &139585419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139585414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &148163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 0}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &160984711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,7 +902,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &170748809
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1048,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &212230137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &254302192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7754b5faaff584cb2ac659600f97a551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   QnA:
   - Question: "Ecco una delle mie prime invenzioni. Parecchio strana, vero? Secondo
       voi, cos'\xE8? "
@@ -1326,7 +1345,6 @@ MonoBehaviour:
   LeoCharacter: {fileID: 684126286}
   LeoText: {fileID: 564293363}
   DialogueBalloon: {fileID: 2091324820}
-  AnsweringArea: {fileID: 542308318}
 --- !u!224 &254710123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1436,6 +1454,7 @@ GameObject:
   - component: {fileID: 401690354}
   - component: {fileID: 401690356}
   - component: {fileID: 401690355}
+  - component: {fileID: 401690357}
   m_Layer: 0
   m_Name: YellowBalloon2
   m_TagString: Untagged
@@ -1523,6 +1542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &401690356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,6 +1597,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &401690357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401690352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &451683110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,7 +2310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &581279704
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2379,6 +2412,7 @@ GameObject:
   - component: {fileID: 593467520}
   - component: {fileID: 593467522}
   - component: {fileID: 593467521}
+  - component: {fileID: 593467523}
   m_Layer: 0
   m_Name: RedBalloon1
   m_TagString: Untagged
@@ -2466,6 +2500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 593467523}
 --- !u!114 &593467522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,7 +2508,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593467518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -2520,6 +2555,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &593467523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593467518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &605616558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,6 +2667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &605616562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,7 +2828,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &665336240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2831,7 +2880,6 @@ GameObject:
   m_Component:
   - component: {fileID: 684126287}
   - component: {fileID: 684126288}
-  - component: {fileID: 684126289}
   m_Layer: 0
   m_Name: LeoCharacter
   m_TagString: Untagged
@@ -2903,18 +2951,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &684126289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684126286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34948de172ab4649bd3c696d1819690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &709722807
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,6 +3590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &859274285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,6 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &859274289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4043,7 +4081,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1032254168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4107,6 +4145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 0}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &1065972375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4230,7 +4269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1067299734
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4344,7 +4383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1097419530
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4422,7 +4461,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1108959483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4811,7 +4850,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1290579570
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4832,6 +4871,7 @@ GameObject:
   - component: {fileID: 1317802589}
   - component: {fileID: 1317802591}
   - component: {fileID: 1317802590}
+  - component: {fileID: 1317802592}
   m_Layer: 0
   m_Name: BlueBalloon1
   m_TagString: Untagged
@@ -4912,7 +4952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317802587}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -4973,6 +5013,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 1317802592}
+--- !u!65 &1317802592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317802587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.657219, y: 2.6520076, z: 2}
+  m_Center: {x: -0.04139004, y: 0, z: 0}
 --- !u!1 &1335306517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5096,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1335306520
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5265,7 +5319,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1385588139
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5551,6 +5605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &1470436284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5620,7 +5675,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1470436287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5944,6 +5999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 1713626616}
+  AnswerBubble: {fileID: 0}
 --- !u!1 &1527164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6013,7 +6069,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1527164374
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6380,7 +6436,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1647591913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6604,6 +6660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &1655512573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7144,7 +7201,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1800027760
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7435,7 +7492,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1930978154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7544,6 +7601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 710645644}
+  AnswerBubble: {fileID: 1937381612}
 --- !u!114 &1937381611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7710,6 +7768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &1978442816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7932,7 +7991,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &2016596605
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8142,6 +8201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2013219040}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &2076648125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8206,7 +8266,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2091324821}
   - component: {fileID: 2091324822}
-  - component: {fileID: 2091324823}
   m_Layer: 0
   m_Name: dialogue balloon
   m_TagString: Untagged
@@ -8278,18 +8337,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2091324823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091324820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34948de172ab4649bd3c696d1819690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2115034703
 GameObject:
   m_ObjectHideFlags: 0
@@ -8410,6 +8457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 0}
+  AnswerBubble: {fileID: 0}
 --- !u!114 &2137089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8732,3 +8780,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   FloorQuizzManager: {fileID: 2115034703}
+  AnswerBubble: {fileID: 0}
