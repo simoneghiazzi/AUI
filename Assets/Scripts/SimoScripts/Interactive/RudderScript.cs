@@ -36,7 +36,6 @@ public class RudderScript : MonoBehaviour
     private Timer timer = new Timer();
     private enum Direction { RIGHT, LEFT, NONE }
     private Direction direction;
-    
     private int rnd;
 
     //Vector to be used for the random rotation and movement of the boat
@@ -52,7 +51,7 @@ public class RudderScript : MonoBehaviour
         timer.Elapsed += SetDirection;
         timer.Start();
 
-        rndVector = new Vector3(0.0f, 0.0f, 0.07f);
+        rndVector = new Vector3(0.0f, 0.0f, 0.06f);
     }
 
     void Update()
@@ -88,11 +87,13 @@ public class RudderScript : MonoBehaviour
 
         // Rotate the wheel image. Vector3.back is a shorthand for writing Vector3(0, 0, -1).
         rectT.localEulerAngles = Vector3.back * wheelAngle;
+
+        // Rotate and translate the boat according to the wheel rotation
         transform.Rotate(Vector3.back * wheelAngle / wheelInfluenceOnBoat);
         transform.Translate(-transform.rotation.z / waterResistance , 0, 0, Space.World);
 
         //Having the boat face downward would be irealistic. Notice that eulerAngles are between 0 and 360, but we can 
-        //make a rotation with negative angles like in the unity inspector
+        //make a rotation with negative angles like in the unity inspector using transform.rotation
         if(transform.rotation.eulerAngles.z > 90 && transform.rotation.eulerAngles.z < 180)
         {
             transform.rotation = Quaternion.Euler(0, 0, 90);
@@ -117,8 +118,6 @@ public class RudderScript : MonoBehaviour
             rnd = UnityEngine.Random.Range(0, 2);
         });
 
-        Debug.Log(rnd);
-
         switch (rnd)
         {
             case 0:
@@ -130,7 +129,6 @@ public class RudderScript : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log(direction);
 
         timer.Start();
     }
