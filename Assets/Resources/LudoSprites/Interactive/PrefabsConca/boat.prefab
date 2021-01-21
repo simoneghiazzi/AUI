@@ -125,8 +125,9 @@ GameObject:
   - component: {fileID: 1398484070248738104}
   - component: {fileID: -7285884414417557056}
   - component: {fileID: -6857684288516664489}
-  - component: {fileID: -3223512506276837298}
   - component: {fileID: -4343590566905170925}
+  - component: {fileID: -8808280476335533061}
+  - component: {fileID: -8842238290161577907}
   m_Layer: 0
   m_Name: boat
   m_TagString: Untagged
@@ -322,24 +323,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3223512506276837298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398484070248738110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f65107a904bda54fb7eb7798c0383ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteBlinkingTimer: 0
-  spriteBlinkingMiniDuration: 0.1
-  spriteBlinkingTotalTimer: 0
-  spriteBlinkingTotalDuration: 2
-  startBlinking: 0
-  timePassed: 0
 --- !u!114 &-4343590566905170925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +342,36 @@ MonoBehaviour:
   waterResistance: 1.5
   wheelAngle: 0
   wheelBeingHeld: 0
+--- !u!114 &-8808280476335533061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398484070248738110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009a5aa255be14c439577f35926b8038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8842238290161577907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398484070248738110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f65107a904bda54fb7eb7798c0383ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.1
+  spriteBlinkingTotalTimer: 0
+  spriteBlinkingTotalDuration: 2
+  startBlinking: 0
+  timePassed: 0
 --- !u!1 &1398484071156383367
 GameObject:
   m_ObjectHideFlags: 0

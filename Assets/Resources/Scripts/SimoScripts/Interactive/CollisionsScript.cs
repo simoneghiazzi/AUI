@@ -10,6 +10,10 @@ using System.Diagnostics;
 
 public class CollisionsScript : MonoBehaviour
 {
+    //We need to access the script attached to water in order to stop it after reaching the Conca
+    [SerializeField]
+    private GameObject water;
+
     //Variables used for making the boat blink after a collision
     public float spriteBlinkingTimer = 0.0f;
     public float spriteBlinkingMiniDuration = 0.1f;
@@ -17,11 +21,14 @@ public class CollisionsScript : MonoBehaviour
     public float spriteBlinkingTotalDuration = 2.0f;
     public bool startBlinking = false;
 
-    //Variables used to kepp track of the race time
+    //Variables used to keep track of the race time
     private Stopwatch stopwatch;
     public double timePassed;
 
     private Vector3 initialPos;
+
+    //Boolean used in the blinking function (explained there)
+    private bool endReached = false;
 
     // Start is called before the first frame update
     void Start()
@@ -60,37 +67,43 @@ public class CollisionsScript : MonoBehaviour
             stopwatch.Stop();
 
             //Reaching the goal means having finished the race, so we disable everything
-            gameObject.GetComponent<RudderScript>().wheelBeingHeld = false;
-            gameObject.GetComponent<RudderScript>().wheelAngle = 0f;
-            gameObject.GetComponent<RudderScript>().enabled = false;
+            endReached = true;
+            Destroy(gameObject.GetComponent<RudderScript>());
+            Destroy(gameObject.GetComponent<LateralMovementScript>());
+            Destroy(water.GetComponent<WaterScript>());
 
-            UnityEngine.Debug.Log("Time: " + timePassed);
+            //UnityEngine.Debug.Log("Time: " + timePassed);
         }
     }
 
     private void SpriteBlinkingEffect()
     {
-        spriteBlinkingTotalTimer += Time.deltaTime;
-        if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
+        //Enveloped in the if just to avoid blinking just before reaching the goal 
+        //(it would generate errors due to the fact that we destroy the scripts
+        if (!endReached)
         {
-            startBlinking = false;
-            spriteBlinkingTotalTimer = 0.0f;
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.GetComponent<RudderScript>().enabled = true;
-            return;
-        }
-
-        spriteBlinkingTimer += Time.deltaTime;
-        if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
-        {
-            spriteBlinkingTimer = 0.0f;
-            if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+            spriteBlinkingTotalTimer += Time.deltaTime;
+            if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
             {
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            }
-            else
-            {
+                startBlinking = false;
+                spriteBlinkingTotalTimer = 0.0f;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.GetComponent<RudderScript>().enabled = true;
+                return;
+            }
+
+            spriteBlinkingTimer += Time.deltaTime;
+            if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
+            {
+                spriteBlinkingTimer = 0.0f;
+                if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                }
             }
         }
     }

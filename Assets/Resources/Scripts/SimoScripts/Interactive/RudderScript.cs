@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using System.Timers;
 using UnityEngine.SceneManagement;
 
 public class RudderScript : MonoBehaviour
@@ -32,26 +31,10 @@ public class RudderScript : MonoBehaviour
     float wheelPrevAngle = 0f;
     public bool wheelBeingHeld = false;
 
-    //Timer for randomly move the boat. Enums for setting the movement. Rnd variable to pick a random direction
-    private Timer timer = new Timer();
-    private enum Direction { RIGHT, LEFT, NONE }
-    private Direction direction;
-    private int rnd;
-
-    //Vector to be used for the random rotation and movement of the boat
-    private Vector3 rndVector;
-
     void Start()
     {
         rectT = UI_Element.rectTransform;
         InitEventsSystem();
-
-        direction = Direction.NONE;
-        timer.Interval = 5000f;
-        timer.Elapsed += SetDirection;
-        timer.Start();
-
-        rndVector = new Vector3(0.0f, 0.0f, 0.06f);
     }
 
     void Update()
@@ -67,22 +50,6 @@ public class RudderScript : MonoBehaviour
                 wheelAngle -= deltaAngle;
             else
                 wheelAngle += deltaAngle;
-        }
-
-        switch (direction)
-        {
-            case Direction.LEFT:
-                transform.Rotate(rndVector);
-                transform.Translate(-transform.rotation.z / waterResistance, 0, 0, Space.World);
-                break;
-            case Direction.RIGHT:
-                transform.Rotate(-rndVector);
-                transform.Translate(-transform.rotation.z / waterResistance, 0, 0, Space.World);
-                break;
-            case Direction.NONE:
-                break;
-            default:
-                break;
         }
 
         // Rotate the wheel image. Vector3.back is a shorthand for writing Vector3(0, 0, -1).
@@ -107,30 +74,6 @@ public class RudderScript : MonoBehaviour
     void Awake()
     {
         UnityThread.initUnityThread();
-    }
-
-    void SetDirection(object o, System.EventArgs e)
-    {
-        timer.Stop();
-
-        UnityThread.executeInUpdate(() =>
-        {
-            rnd = UnityEngine.Random.Range(0, 2);
-        });
-
-        switch (rnd)
-        {
-            case 0:
-                direction = Direction.LEFT;
-                break;
-            case 1:
-                direction = Direction.RIGHT;
-                break;
-            default:
-                break;
-        }
-
-        timer.Start();
     }
 
     void InitEventsSystem()
