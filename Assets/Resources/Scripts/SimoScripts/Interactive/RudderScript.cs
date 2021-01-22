@@ -71,6 +71,12 @@ public class RudderScript : MonoBehaviour
         }
     }
 
+    //After a collision with the piers, the CollisionScript calls this method 
+    public void CollisionReset()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
     void Awake()
     {
         UnityThread.initUnityThread();

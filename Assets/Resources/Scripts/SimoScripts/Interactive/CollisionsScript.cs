@@ -44,6 +44,27 @@ public class CollisionsScript : MonoBehaviour
         if (startBlinking == true)
         {
             SpriteBlinkingEffect();
+            
+            //To reset boat position and disable rudder after collision
+            gameObject.GetComponent<RudderScript>().wheelBeingHeld = false;
+            gameObject.GetComponent<RudderScript>().wheelAngle = 0f;
+            gameObject.GetComponent<RudderScript>().CollisionReset();
+            gameObject.GetComponent<RudderScript>().enabled = false;
+
+            //We also stop the water movement
+            water.GetComponent<WaterScript>().enabled = false;
+        }
+        else if (!endReached)
+        {
+            gameObject.GetComponent<RudderScript>().wheelBeingHeld = true;
+            gameObject.GetComponent<RudderScript>().enabled = true;
+            water.GetComponent<WaterScript>().enabled = true;
+        }
+        else
+        {
+            gameObject.GetComponent<RudderScript>().enabled = false;
+            gameObject.GetComponent<RudderScript>().CollisionReset();
+            water.GetComponent<WaterScript>().enabled = false;
         }
     }
 
@@ -55,24 +76,17 @@ public class CollisionsScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             startBlinking = true;
             
-            //To reset and disable rudder after collision
-            gameObject.GetComponent<RudderScript>().wheelBeingHeld = false;
-            gameObject.GetComponent<RudderScript>().wheelAngle = 0f;
-            gameObject.GetComponent<RudderScript>().enabled = false;
+            
         }
         else if (other.gameObject.name == "Ldoor" || other.gameObject.name == "Rdoor")
         {
             //In variable timePassed we save the time of the team
             timePassed = stopwatch.Elapsed.TotalSeconds;
             stopwatch.Stop();
+            //UnityEngine.Debug.Log("Time: " + timePassed);
 
             //Reaching the goal means having finished the race, so we disable everything
             endReached = true;
-            Destroy(gameObject.GetComponent<RudderScript>());
-            Destroy(gameObject.GetComponent<LateralMovementScript>());
-            Destroy(water.GetComponent<WaterScript>());
-
-            //UnityEngine.Debug.Log("Time: " + timePassed);
         }
     }
 

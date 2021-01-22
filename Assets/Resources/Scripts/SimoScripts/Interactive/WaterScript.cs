@@ -23,6 +23,9 @@ public class WaterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //To simulate the natural water current
+        transform.Translate(0, 0.05f, 0, Space.World);
+
         switch (speed)
         {
             case Speed.STOP:
