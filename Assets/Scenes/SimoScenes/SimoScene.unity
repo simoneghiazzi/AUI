@@ -228,6 +228,17 @@ PrefabInstance:
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 1297935932}
+    - target: {fileID: 1398484069370745161, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: m_Name
+      value: Lgreenhollow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398484069370745163, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cedc18c0671c143788fc5a9c9bc35267,
+        type: 3}
     - target: {fileID: 1398484070248738110, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: m_Name
@@ -298,6 +309,27 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.14697805
       objectReference: {fileID: 0}
+    - target: {fileID: 1398484071207882403, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: m_Name
+      value: Rgreenhollow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398484071207882413, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11c1e029b95444e5d865b9387995c2d2,
+        type: 3}
+    - target: {fileID: 1449083567151534787, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: Lhollow
+      value: 
+      objectReference: {fileID: 1085940396}
+    - target: {fileID: 1449083567151534787, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: Rhollow
+      value: 
+      objectReference: {fileID: 1567442813}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
 --- !u!1 &105803888
@@ -332,6 +364,12 @@ Transform:
   m_Father: {fileID: 2042267334}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &149003076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1398484069370745162, guid: 5e30c621edb590f49a26889e8516d950,
+    type: 3}
+  m_PrefabInstance: {fileID: 1398484069457589124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &153463507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1394,6 +1432,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &939489112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1398484071207882412, guid: 5e30c621edb590f49a26889e8516d950,
+    type: 3}
+  m_PrefabInstance: {fileID: 1398484069457589124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &981772685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1623,12 @@ Transform:
   m_Father: {fileID: 1540612958}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1085940396 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1398484069370745162, guid: 5e30c621edb590f49a26889e8516d950,
+    type: 3}
+  m_PrefabInstance: {fileID: 104513360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1112960709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,6 +2526,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1567442813 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1398484071207882412, guid: 5e30c621edb590f49a26889e8516d950,
+    type: 3}
+  m_PrefabInstance: {fileID: 104513360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764610712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +3025,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.14697805
       objectReference: {fileID: 0}
+    - target: {fileID: 1449083567151534787, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: Lhollow
+      value: 
+      objectReference: {fileID: 149003076}
+    - target: {fileID: 1449083567151534787, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: Rhollow
+      value: 
+      objectReference: {fileID: 939489112}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e30c621edb590f49a26889e8516d950, type: 3}
 --- !u!1001 &8820047670032977310

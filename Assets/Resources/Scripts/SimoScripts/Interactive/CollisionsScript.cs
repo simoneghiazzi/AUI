@@ -53,18 +53,25 @@ public class CollisionsScript : MonoBehaviour
 
             //We also stop the water movement
             water.GetComponent<WaterScript>().enabled = false;
+
+            //We stop the movement of the hollows as well
+            gameObject.GetComponent<HollowsAnimationScript>().CollisionReset();
+            gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
+
         }
         else if (!endReached)
         {
             gameObject.GetComponent<RudderScript>().wheelBeingHeld = true;
             gameObject.GetComponent<RudderScript>().enabled = true;
             water.GetComponent<WaterScript>().enabled = true;
+            gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
         }
         else
         {
             gameObject.GetComponent<RudderScript>().enabled = false;
             gameObject.GetComponent<RudderScript>().CollisionReset();
             water.GetComponent<WaterScript>().enabled = false;
+            gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
         }
     }
 
