@@ -35,7 +35,7 @@ public class HollowsAnimationScript : MonoBehaviour
 
         rotationSpeed = -rotationSpeed;
 
-        if (rotationTime < 4000f)
+        if (rotationTime < 3500f)
         {
             rotationTime += 500f;
         }
