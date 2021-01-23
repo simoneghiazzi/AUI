@@ -59,7 +59,7 @@ public class FloorQuizzManager : MonoBehaviour
       if(WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] == false)
       {
 
-        WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] = (int)Math.Round(TimeLeft.GetComponent<TimeLeft>().timeRemaining);
+        WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] = (int)Math.Round(TimeLeft.GetComponent<TimeLeft>().timeRemaining) + WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID];
         Debug.Log(WallQuizzManager.GetComponent<WallQuizzManager>().score[TeamID] + " points for Team " + (TeamID+1));
         WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered[TeamID] = true;
       }
