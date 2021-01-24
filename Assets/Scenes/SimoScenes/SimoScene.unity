@@ -218,6 +218,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7677656904964734806, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1297935934}
+    - target: {fileID: -7677656904964734806, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: shoulder
+      value: 
+      objectReference: {fileID: 1955948256}
     - target: {fileID: -4343590566905170925, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: UI_Element
@@ -3676,6 +3686,21 @@ PrefabInstance:
       propertyPath: water
       value: 
       objectReference: {fileID: 8820047670032977311}
+    - target: {fileID: -8808280476335533061, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7677656904964734806, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1764610714}
+    - target: {fileID: -7677656904964734806, guid: 5e30c621edb590f49a26889e8516d950,
+        type: 3}
+      propertyPath: shoulder
+      value: 
+      objectReference: {fileID: 201970820}
     - target: {fileID: -4343590566905170925, guid: 5e30c621edb590f49a26889e8516d950,
         type: 3}
       propertyPath: UI_Element
