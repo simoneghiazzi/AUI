@@ -61,7 +61,7 @@ public class RudderScript : MonoBehaviour
 
         //Having the boat face downward would be irealistic. Notice that eulerAngles are between 0 and 360, but we can 
         //make a rotation with negative angles like in the unity inspector using transform.rotation
-        if(transform.rotation.eulerAngles.z > 90 && transform.rotation.eulerAngles.z < 180)
+        if (transform.rotation.eulerAngles.z > 90 && transform.rotation.eulerAngles.z < 180)
         {
             transform.rotation = Quaternion.Euler(0, 0, 90);
         }
