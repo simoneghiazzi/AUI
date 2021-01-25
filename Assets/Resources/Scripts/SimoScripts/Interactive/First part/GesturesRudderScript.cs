@@ -40,7 +40,5 @@ public class GesturesRudderScript : MonoBehaviour
         }
 
         gameObject.GetComponent<RudderScript>().wheelAngle = wheelAngle;
-
-        Debug.Log("Angolo: " + wheelAngle);
     }
 }

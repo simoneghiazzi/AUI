@@ -51,8 +51,9 @@ public class CollisionsScript : MonoBehaviour
             gameObject.GetComponent<RudderScript>().CollisionReset();
             gameObject.GetComponent<RudderScript>().enabled = false;
 
-            //Disable Gestures for controlling the rudder
+            //Disable Gestures for controlling the rudder and water movement
             gameObject.GetComponent<GesturesRudderScript>().enabled = false;
+            gameObject.GetComponent<GesturesWaterScript>().enabled = false;
 
             //We also stop the water movement
             water.GetComponent<WaterScript>().enabled = false;
@@ -67,6 +68,7 @@ public class CollisionsScript : MonoBehaviour
             gameObject.GetComponent<RudderScript>().wheelBeingHeld = true;
             gameObject.GetComponent<RudderScript>().enabled = true;
             gameObject.GetComponent<GesturesRudderScript>().enabled = true;
+            gameObject.GetComponent<GesturesWaterScript>().enabled = true;
             water.GetComponent<WaterScript>().enabled = true;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
         }
@@ -75,6 +77,7 @@ public class CollisionsScript : MonoBehaviour
             gameObject.GetComponent<RudderScript>().enabled = false;
             gameObject.GetComponent<RudderScript>().CollisionReset();
             gameObject.GetComponent<GesturesRudderScript>().enabled = false;
+            gameObject.GetComponent<GesturesWaterScript>().enabled = false;
             water.GetComponent<WaterScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
         }
