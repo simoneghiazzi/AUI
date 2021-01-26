@@ -40,6 +40,7 @@ public class WallQuizzManager : MonoBehaviour
   public GameObject DialogueBalloon;
 
 
+
   // METHODS
 
   private void Start()
@@ -264,6 +265,12 @@ public class WallQuizzManager : MonoBehaviour
     LeoText.GetComponent<TextFadeScript>().TextFadeIn();
     LeoText.GetComponent<TextFadeScript>().TextFadeOut();
 
+/*  // Magic Room controls
+    MagicRoomManager.Instance.MagicRoomLightManager.SetColor(Color.red);
+    MagicRoomManager.Instance.MagicRoomTextToSpeechManager.GenerateAudioFromText("stringtoRead", MagicRoomManager.Instance.MagicRoomTextToSpeechManager.ListOfVoices.ToArray()[0]);
+    MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "ON"); //turn on the bubble machine
+    MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "OFF"); //turn off the bubble machine
+*/
     StartCoroutine(waitForNextTimeIsOut(5));
   }
 
@@ -273,9 +280,6 @@ public class WallQuizzManager : MonoBehaviour
 
     IntermediateResults();
   }
-
-
-
 
 
 }

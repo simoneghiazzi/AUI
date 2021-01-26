@@ -7076,22 +7076,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd44ade045b64ddb96c7553394b38a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbObstacles: 0
-  OnA: []
-  LeoExplaining: {fileID: 0}
-  LeoHappy: {fileID: 0}
-  LeoSad: {fileID: 0}
-  LeoWaiting: {fileID: 0}
-  TextBubble: {fileID: 0}
-  DialogueBalloon: {fileID: 0}
-  BlackCloud: {fileID: 0}
-  WarningSignCloud: {fileID: 0}
-  WarningSign: {fileID: 0}
-  Machine: {fileID: 0}
-  Birds: {fileID: 0}
-  Tornado: {fileID: 0}
-  Cloud: {fileID: 0}
-  OtherMachine: {fileID: 0}
+  OnA:
+  - Obstacle: Birds
+    Answers: []
+    CorrectAnswer: 0
+  - Obstacle: Tornado
+    Answers: []
+    CorrectAnswer: 0
+  - Obstacle: OtherMachine
+    Answers: []
+    CorrectAnswer: 0
+  - Obstacle: ThunderCloud
+    Answers: []
+    CorrectAnswer: 0
+  Intro:
+  - IntroductionText: 'Welcome to this activity ! '
+  - IntroductionText: We will begin in few seconds...
+  alreadyAnswered: 00000000
+  LeoExplaining: {fileID: 169794961}
+  LeoHappy: {fileID: 1788167494}
+  LeoSad: {fileID: 336958829}
+  LeoWaiting: {fileID: 1520821119}
+  LeoBubble: {fileID: 1112170143}
+  TextLeoBubble: {fileID: 235882312}
+  BlackWarningCloud: {fileID: 34793630}
+  TextBlackCloud: {fileID: 1964913079}
+  WarningSign: {fileID: 772619247}
+  Stepwatch: {fileID: 960164689}
+  Machine: {fileID: 1503812375}
+  MachineAnim: {fileID: 579991384}
+  Birds: {fileID: 1621978804}
+  Tornado: {fileID: 663083583}
+  ThunderCloud: {fileID: 1560041372}
+  OtherMachine: {fileID: 1373085576}
+  Background: {fileID: 1202306183}
 --- !u!4 &915585519
 Transform:
   m_ObjectHideFlags: 0
@@ -7527,7 +7545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112170144}
   m_Layer: 0
-  m_Name: TextBubble
+  m_Name: LeoBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
