@@ -14,12 +14,14 @@ public class TimeLeftStep : MonoBehaviour
 
     public GameObject WallStepManager;
 
-    public void StartTimer()
+    public GameObject FloorStepManager;
+
+    public void StartStepTimer()
     {
       Debug.Log("Start Timer");
       //Starts the timer automatically
       timerIsRunning = true;
-      timeRemaining = 15;
+      timeRemaining = 10;
 
     }
 
@@ -47,13 +49,9 @@ public class TimeLeftStep : MonoBehaviour
           else
           {
             timeRemaining = 0;
-            Debug.Log("Time has run out ! You can't answer anymore");
+            Debug.Log("Time has run out !");
 
-            //To prevent teams from answering after the time has run out
-            for(int j=0 ; j < WallStepManager.GetComponent<WallStepManager>().alreadyAnswered.Length ; j++)
-            {
-              WallStepManager.GetComponent<WallStepManager>().alreadyAnswered[j] = true;
-            }
+            FloorStepManager.GetComponent<FloorStepManager>().wrong();
 
             timerIsRunning = false;
 
