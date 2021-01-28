@@ -78,6 +78,20 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+    public void closeDoors()
+    {
+        leftDoor.eulerAngles = new Vector3(
+            leftDoor.eulerAngles.x,
+            0,
+            leftDoor.eulerAngles.z
+        );
+        rightDoor.eulerAngles = new Vector3(
+            rightDoor.eulerAngles.x,
+            0,
+            rightDoor.eulerAngles.z
+        );
+    }
+
     void InitEventsSystem()
     {
         EventTrigger events = UI_Element.gameObject.GetComponent<EventTrigger>();
