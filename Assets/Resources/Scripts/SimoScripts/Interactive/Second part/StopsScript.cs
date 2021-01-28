@@ -22,5 +22,9 @@ public class StopsScript : MonoBehaviour
         {
             gameObject.GetComponent<BoatManagerScript>().firstStep = true;
         }
+        else if (other.gameObject.name == "Goal")
+        {
+            gameObject.GetComponent<BoatManagerScript>().thirdStep = true;
+        }
     }
 }

@@ -16,6 +16,9 @@ public class BoatManagerScript : MonoBehaviour
     //Boolean to check if we have closed the first door
     public bool secondStep = false;
 
+    //Last boolean, to check if the boat has reached the goal
+    public bool thirdStep = false;
+
     [SerializeField]
     private GameObject water, firstDoor, secondDoor;
 
@@ -35,6 +38,7 @@ public class BoatManagerScript : MonoBehaviour
             water.GetComponent<AutomaticWaterScript>().enabled = true;
             firstDoor.GetComponent<DoorScript>().toOpen = false;
             firstDoor.GetComponent<DoorScript>().wheelAngle = 0.0f;
+            firstDoor.GetComponent<DoorScript>().wheelBeingHeld = false;
             firstDoor.GetComponent<DoorScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
 
@@ -51,7 +55,7 @@ public class BoatManagerScript : MonoBehaviour
             firstDoor.GetComponent<DoorScript>().enabled = false;
             firstDoor.GetComponent<DoorScript>().closeDoors();
             deepWater.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
-            alpha -= 0.005f;
+            alpha -= 0.001f;
             if (alpha <= 0.0)
             {
                 firstStep = false;
@@ -60,9 +64,19 @@ public class BoatManagerScript : MonoBehaviour
             }
         }
 
-        if(secondLeftDoor.rotation.eulerAngles.z >= 75 && secondStep)
+        if(secondLeftDoor.rotation.eulerAngles.z >= 75 && secondStep && !thirdStep)
         {
-
+            water.GetComponent<AutomaticWaterScript>().enabled = true;
+            secondDoor.GetComponent<DoorScript>().toOpen = false;
+            secondDoor.GetComponent<DoorScript>().wheelAngle = 0.0f;
+            secondDoor.GetComponent<DoorScript>().enabled = false;
+            gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
+        }
+        else if (secondLeftDoor.rotation.eulerAngles.z <= 76 && thirdStep)
+        {
+            water.GetComponent<AutomaticWaterScript>().enabled = false;
+            gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
+            Debug.Log("FINE");
         }
     }
 }

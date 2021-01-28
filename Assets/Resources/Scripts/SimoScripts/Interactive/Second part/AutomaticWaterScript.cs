@@ -13,6 +13,6 @@ public class AutomaticWaterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, -0.2f, 0, Space.World);
+        transform.Translate(0, -0.25f, 0, Space.World);
     }
 }

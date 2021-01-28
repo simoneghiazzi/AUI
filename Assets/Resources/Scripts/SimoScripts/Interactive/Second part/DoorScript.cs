@@ -63,7 +63,7 @@ public class DoorScript : MonoBehaviour
         // Rotate the wheel image. Vector3.back is a shorthand for writing Vector3(0, 0, -1).
         rectT.localEulerAngles = Vector3.back * wheelAngle;
 
-        if ((((int)wheelAngle % 30) > 25 || ((int)wheelAngle % 30) < 5) && wheelAngle!=0)
+        if ((((int)wheelAngle % 15) > 10 || ((int)wheelAngle % 30) < 5) && wheelAngle!=0)
         {
             if (toOpen)
             {

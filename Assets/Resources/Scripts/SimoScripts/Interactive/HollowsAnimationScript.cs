@@ -37,7 +37,7 @@ public class HollowsAnimationScript : MonoBehaviour
 
         if (rotationTime < 3500f)
         {
-            rotationTime += 500f;
+            rotationTime += 600f;
         }
         timer.Interval = rotationTime;
         timer.Start();
