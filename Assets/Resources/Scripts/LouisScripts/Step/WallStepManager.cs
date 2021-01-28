@@ -13,7 +13,6 @@ public class WallStepManager : MonoBehaviour
   public List<Introduction> Intro;
   private int sizeofIntro;
   private int sizeofOnA;
-  public bool[] alreadyAnswered = new bool [4];
 
   //Leo character
   public GameObject LeoExplaining;
@@ -37,6 +36,9 @@ public class WallStepManager : MonoBehaviour
   public GameObject Machine;
   public Animator MachineAnim;
 
+  //Explosion
+  public GameObject Explosion;
+
   //Obstacles
   public GameObject Birds;
   public GameObject Tornado;
@@ -48,7 +50,7 @@ public class WallStepManager : MonoBehaviour
   public GameObject Background;
 
   //Loop Fly
-  int k = 0;
+  public int currentObstacle = 0;
 
 
 
@@ -80,6 +82,9 @@ public class WallStepManager : MonoBehaviour
     Machine.SetActive(false);
     MachineAnim = GetComponent<Animator>();
 
+    //Explosion
+    Explosion.SetActive(false);
+
     // Obstacles
     Birds.SetActive(false);
     Tornado.SetActive(false);
@@ -93,7 +98,7 @@ public class WallStepManager : MonoBehaviour
     sizeofOnA = OnA.Count;
 
     //Loop Fly increment
-    k = 0;
+    currentObstacle = 0;
 
 
     // Introduction of the activity
@@ -117,7 +122,7 @@ public class WallStepManager : MonoBehaviour
   }
 
 
-  private void Fly()
+  public void Fly()
   {
     Debug.Log("Start Fly");
     //Background moving
@@ -129,7 +134,7 @@ public class WallStepManager : MonoBehaviour
     //Leo Dialogue balloon disappearing
     LeoBubble.SetActive(false);
 
-    if(k < sizeofOnA)
+    if(currentObstacle < sizeofOnA)
     {
       StartCoroutine(waitForNextObstacle(10));
     }
@@ -147,13 +152,16 @@ public class WallStepManager : MonoBehaviour
     Obstacle();
   }
 
-  private void Obstacle()
+  public void Obstacle()
   {
 
-    switch(OnA[k].Obstacle)
+    switch(OnA[currentObstacle].Obstacle)
     {
       case "Birds":
         Debug.Log("Birds obstacle");
+
+        Birds.GetComponent<BirdObstacle>().Start();
+
         break;
       case "Tornado":
         Debug.Log("Tornado obstacle");
@@ -167,14 +175,22 @@ public class WallStepManager : MonoBehaviour
       default:
         break;
     }
-    k++;
+    currentObstacle++;
     Fly();
   }
+
 
   private void Outro()
   {
     //Outro of the activity
     Debug.Log("Outro");
+  }
+
+
+  //Access the OnA
+  public List<ObstaclesAndAnswers> GetOnA()
+  {
+    return OnA;
   }
 
 }

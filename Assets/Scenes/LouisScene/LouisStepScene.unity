@@ -850,6 +850,7 @@ GameObject:
   - component: {fileID: 204094396}
   - component: {fileID: 204094397}
   - component: {fileID: 204094398}
+  - component: {fileID: 204094399}
   m_Layer: 0
   m_Name: RedBalloon
   m_TagString: Untagged
@@ -936,6 +937,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.7400007, y: 2.662015, z: 2}
   m_Center: {x: 0, y: -0.00000023841858, z: 0}
+--- !u!114 &204094399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204094395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be19174a64b640d6b7c23095542ae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  FloorStepManager: {fileID: 879855160}
+  StepAnswerBubble: {fileID: 204094398}
 --- !u!1 &235882310
 GameObject:
   m_ObjectHideFlags: 0
@@ -7017,6 +7033,107 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860446272}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &872142595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 872142596}
+  - component: {fileID: 872142598}
+  - component: {fileID: 872142597}
+  m_Layer: 0
+  m_Name: Explosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &872142596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872142595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.2193644, y: 3.2193644, z: 3.2193644}
+  m_Children: []
+  m_Father: {fileID: 1954968697}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &872142597
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872142595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b7e2f9f1246245909b63e1900c7579d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &872142598
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872142595}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 2c16892b9412d47cbb2854992bfa1156, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.41, y: 1.35}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &879855160
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,6 +7143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879855161}
+  - component: {fileID: 879855162}
   m_Layer: 0
   m_Name: FloorStepManager
   m_TagString: Untagged
@@ -7047,6 +7165,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879855162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879855160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56db54cf7f28e4e9c8fd50d7bb532c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallStepManager: {fileID: 915585517}
+  AnswerBalloons:
+  - {fileID: 2033879769}
+  - {fileID: 1944427177}
+  - {fileID: 1441572596}
+  - {fileID: 204094395}
 --- !u!1 &915585517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,7 +7214,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnA:
   - Obstacle: Birds
-    Answers: []
+    Answers:
+    - 
+    - 
+    - 
+    - 
     CorrectAnswer: 0
   - Obstacle: Tornado
     Answers: []
@@ -7092,7 +7232,6 @@ MonoBehaviour:
   Intro:
   - IntroductionText: 'Welcome to this activity ! '
   - IntroductionText: We will begin in few seconds...
-  alreadyAnswered: 00000000
   LeoExplaining: {fileID: 169794961}
   LeoHappy: {fileID: 1788167494}
   LeoSad: {fileID: 336958829}
@@ -7105,11 +7244,13 @@ MonoBehaviour:
   Stepwatch: {fileID: 960164689}
   Machine: {fileID: 1503812375}
   MachineAnim: {fileID: 579991384}
+  Explosion: {fileID: 872142595}
   Birds: {fileID: 1621978804}
   Tornado: {fileID: 663083583}
   ThunderCloud: {fileID: 1560041372}
   OtherMachine: {fileID: 1373085576}
   Background: {fileID: 1202306183}
+  currentObstacle: 0
 --- !u!4 &915585519
 Transform:
   m_ObjectHideFlags: 0
@@ -7830,6 +7971,7 @@ GameObject:
   - component: {fileID: 1441572597}
   - component: {fileID: 1441572598}
   - component: {fileID: 1441572599}
+  - component: {fileID: 1441572600}
   m_Layer: 0
   m_Name: GreenBalloon
   m_TagString: Untagged
@@ -7916,6 +8058,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.7400007, y: 2.662015, z: 2}
   m_Center: {x: 0, y: -0.00000023841858, z: 0}
+--- !u!114 &1441572600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441572596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be19174a64b640d6b7c23095542ae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  FloorStepManager: {fileID: 879855160}
+  StepAnswerBubble: {fileID: 1441572599}
 --- !u!1 &1503812375
 GameObject:
   m_ObjectHideFlags: 0
@@ -8147,6 +8304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621978805}
   - component: {fileID: 1621978806}
+  - component: {fileID: 1621978807}
   m_Layer: 0
   m_Name: Birds
   m_TagString: Untagged
@@ -8219,6 +8377,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1621978807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621978804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2c589d64ba4d98932a8720dbc610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MachineAnimator: {fileID: 579991384}
+  TimeLeftStep: {fileID: 2078091072}
+  WallStepManager: {fileID: 915585517}
+  FloorStepManager: {fileID: 879855160}
+  Background: {fileID: 1202306183}
+  birds: {fileID: 853521687}
 --- !u!1 &1666884032
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,6 +8574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1805454056}
   - component: {fileID: 1805454057}
+  - component: {fileID: 1805454058}
   m_Layer: 0
   m_Name: StepwatchBalloon
   m_TagString: Untagged
@@ -8474,6 +8651,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1805454058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805454055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef30308f761d433883c1155c20a9a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorToTurnTo: {r: 0.27037942, g: 0.754717, b: 0.08187969, a: 1}
+  colorAlmostFinished: {r: 0.9339623, g: 0.5913724, b: 0.074893214, a: 1}
 --- !u!1 &1898545961
 GameObject:
   m_ObjectHideFlags: 0
@@ -8594,6 +8785,7 @@ GameObject:
   - component: {fileID: 1944427178}
   - component: {fileID: 1944427179}
   - component: {fileID: 1944427180}
+  - component: {fileID: 1944427181}
   m_Layer: 0
   m_Name: BlueBalloon
   m_TagString: Untagged
@@ -8680,6 +8872,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.7400007, y: 2.6520076, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1944427181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944427177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be19174a64b640d6b7c23095542ae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  FloorStepManager: {fileID: 879855160}
+  StepAnswerBubble: {fileID: 1944427180}
 --- !u!1 &1947287321
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,6 +8953,7 @@ Transform:
   - {fileID: 1560041373}
   - {fileID: 1373085577}
   - {fileID: 1621978805}
+  - {fileID: 872142596}
   m_Father: {fileID: 1921389273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8871,6 +9079,7 @@ GameObject:
   - component: {fileID: 2033879770}
   - component: {fileID: 2033879771}
   - component: {fileID: 2033879772}
+  - component: {fileID: 2033879773}
   m_Layer: 0
   m_Name: YellowBalloon
   m_TagString: Untagged
@@ -8957,6 +9166,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.7400007, y: 2.6520076, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2033879773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033879769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be19174a64b640d6b7c23095542ae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  FloorStepManager: {fileID: 879855160}
+  StepAnswerBubble: {fileID: 2033879772}
 --- !u!1 &2052159526
 GameObject:
   m_ObjectHideFlags: 0
@@ -9067,6 +9291,7 @@ GameObject:
   - component: {fileID: 2078091073}
   - component: {fileID: 2078091075}
   - component: {fileID: 2078091074}
+  - component: {fileID: 2078091076}
   m_Layer: 0
   m_Name: TextTimeRemaining
   m_TagString: Untagged
@@ -9134,6 +9359,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078091072}
   m_CullTransparentMesh: 0
+--- !u!114 &2078091076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078091072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8872f05fcd80b438abef16c56008aa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 10
+  timerIsRunning: 0
+  timeText: {fileID: 2078091074}
+  StepwatchBubble: {fileID: 1805454055}
+  WallStepManager: {fileID: 915585517}
+  FloorStepManager: {fileID: 879855160}
 --- !u!1 &2110535251
 GameObject:
   m_ObjectHideFlags: 0
