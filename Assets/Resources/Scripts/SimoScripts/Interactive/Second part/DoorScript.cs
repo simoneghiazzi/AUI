@@ -22,7 +22,7 @@ public class DoorScript : MonoBehaviour
     public bool wheelBeingHeld = false;
 
     //Boolean used to set rotation direction
-    private bool open = true;
+    public bool toOpen = true;
 
     private Transform leftDoor, rightDoor;
 
@@ -39,11 +39,11 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(open && wheelAngle < 0)
+        if(toOpen && wheelAngle < 0)
         {
             wheelAngle = 0;
         }
-        else if (!open && wheelAngle >0)
+        else if (!toOpen && wheelAngle >0)
         {
             wheelAngle = 0;
         }
@@ -65,8 +65,16 @@ public class DoorScript : MonoBehaviour
 
         if ((((int)wheelAngle % 30) > 25 || ((int)wheelAngle % 30) < 5) && wheelAngle!=0)
         {
-            leftDoor.Rotate(Vector3.forward * 0.5f);
-            rightDoor.Rotate(Vector3.back * 0.5f);
+            if (toOpen)
+            {
+                leftDoor.Rotate(Vector3.forward * 0.5f);
+                rightDoor.Rotate(Vector3.back * 0.5f);
+            }
+            else
+            {
+                leftDoor.Rotate(Vector3.back * 0.5f);
+                rightDoor.Rotate(Vector3.forward * 0.5f);
+            }
         }
     }
 

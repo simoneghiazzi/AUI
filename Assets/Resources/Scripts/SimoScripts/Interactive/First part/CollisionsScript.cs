@@ -90,8 +90,6 @@ public class CollisionsScript : MonoBehaviour
             transform.position = initialPos;
             transform.rotation = Quaternion.Euler(0, 0, 0);
             startBlinking = true;
-            
-            
         }
         else if (other.gameObject.name == "Ldoor" || other.gameObject.name == "Rdoor")
         {

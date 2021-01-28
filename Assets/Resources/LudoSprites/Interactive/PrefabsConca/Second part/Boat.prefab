@@ -207,8 +207,10 @@ GameObject:
   - component: {fileID: 5720539920606067749}
   - component: {fileID: 5720539920606067748}
   - component: {fileID: 5720539920606067747}
+  - component: {fileID: 2966651905129826923}
+  - component: {fileID: -1629635457297244390}
   m_Layer: 0
-  m_Name: Lboat
+  m_Name: Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,6 +418,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lhollow: {fileID: 5720539921522001027}
   Rhollow: {fileID: 5720539920008745710}
+--- !u!114 &2966651905129826923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720539920606067745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4666dd7fc9da946a35fe16b48d8d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 0}
+  firstDoor: {fileID: 0}
+  secondDoor: {fileID: 0}
+--- !u!114 &-1629635457297244390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720539920606067745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328df0660df63c64c8fbc77c35c89a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5720539921522001026
 GameObject:
   m_ObjectHideFlags: 0
