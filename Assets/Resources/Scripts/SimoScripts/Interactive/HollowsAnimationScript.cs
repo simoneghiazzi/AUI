@@ -9,6 +9,8 @@ public class HollowsAnimationScript : MonoBehaviour
     private Transform Lhollow, Rhollow;
     private float rotationSpeed, rotationTime;
 
+    private int count = 0;
+
     //Timer to change rotation each X seconds
     private Timer timer = new Timer();
 
@@ -34,10 +36,11 @@ public class HollowsAnimationScript : MonoBehaviour
         timer.Stop();
 
         rotationSpeed = -rotationSpeed;
+        count += 1;
 
-        if (rotationTime < 3500f)
+        if (rotationTime < 3000f && count%2 == 1)
         {
-            rotationTime += 600f;
+            rotationTime += 500f;
         }
         timer.Interval = rotationTime;
         timer.Start();

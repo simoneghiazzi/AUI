@@ -41,7 +41,7 @@ public class CollisionsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startBlinking == true)
+        if (startBlinking && !endReached)
         {
             SpriteBlinkingEffect();
             
@@ -52,8 +52,8 @@ public class CollisionsScript : MonoBehaviour
             gameObject.GetComponent<RudderScript>().enabled = false;
 
             //Disable Gestures for controlling the rudder and water movement
-            gameObject.GetComponent<GesturesRudderScript>().enabled = false;
-            gameObject.GetComponent<GesturesWaterScript>().enabled = false;
+            //gameObject.GetComponent<GesturesRudderScript>().enabled = false;
+            //gameObject.GetComponent<GesturesWaterScript>().enabled = false;
 
             //We also stop the water movement
             water.GetComponent<WaterScript>().enabled = false;
@@ -63,12 +63,12 @@ public class CollisionsScript : MonoBehaviour
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
 
         }
-        else if (!endReached)
+        else if (!startBlinking && !endReached)
         {
             gameObject.GetComponent<RudderScript>().wheelBeingHeld = true;
             gameObject.GetComponent<RudderScript>().enabled = true;
-            gameObject.GetComponent<GesturesRudderScript>().enabled = true;
-            gameObject.GetComponent<GesturesWaterScript>().enabled = true;
+            //gameObject.GetComponent<GesturesRudderScript>().enabled = true;
+            //gameObject.GetComponent<GesturesWaterScript>().enabled = true;
             water.GetComponent<WaterScript>().enabled = true;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
         }
@@ -76,8 +76,8 @@ public class CollisionsScript : MonoBehaviour
         {
             gameObject.GetComponent<RudderScript>().enabled = false;
             gameObject.GetComponent<RudderScript>().CollisionReset();
-            gameObject.GetComponent<GesturesRudderScript>().enabled = false;
-            gameObject.GetComponent<GesturesWaterScript>().enabled = false;
+            //gameObject.GetComponent<GesturesRudderScript>().enabled = false;
+            //gameObject.GetComponent<GesturesWaterScript>().enabled = false;
             water.GetComponent<WaterScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
         }

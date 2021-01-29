@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3002434398369468427}
   - component: {fileID: 5776166970379015204}
+  - component: {fileID: 7786161809018916658}
   m_Layer: 0
   m_Name: FirstDoor
   m_TagString: Untagged
@@ -250,6 +251,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4408fc1e130741344a834b7fc90f81d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI_Element: {fileID: 0}
+  maximumSteeringAngle: 200
+  wheelReleasedSpeed: 200
+  wheelAngle: 0
+  wheelBeingHeld: 0
+  toOpen: 1
+--- !u!114 &7786161809018916658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002434398369468424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d36d57170ef9454c8457e02186bc613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3002434399239515466
@@ -523,6 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5516473052256347720}
   - component: {fileID: 5163621447992153159}
+  - component: {fileID: 9025156285834332125}
   m_Layer: 0
   m_Name: SecondDoor
   m_TagString: Untagged
@@ -556,6 +576,24 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4408fc1e130741344a834b7fc90f81d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI_Element: {fileID: 0}
+  maximumSteeringAngle: 200
+  wheelReleasedSpeed: 200
+  wheelAngle: 0
+  wheelBeingHeld: 0
+  toOpen: 1
+--- !u!114 &9025156285834332125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969193813661067734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d36d57170ef9454c8457e02186bc613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6332769251897018102

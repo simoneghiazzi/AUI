@@ -38,8 +38,8 @@ public class BoatManagerScript : MonoBehaviour
             water.GetComponent<AutomaticWaterScript>().enabled = true;
             firstDoor.GetComponent<DoorScript>().toOpen = false;
             firstDoor.GetComponent<DoorScript>().wheelAngle = 0.0f;
-            firstDoor.GetComponent<DoorScript>().wheelBeingHeld = false;
             firstDoor.GetComponent<DoorScript>().enabled = false;
+            firstDoor.GetComponent<GestureDoorScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
 
             transform.Translate(0, 0.1f, 0, Space.World);
@@ -55,7 +55,7 @@ public class BoatManagerScript : MonoBehaviour
             firstDoor.GetComponent<DoorScript>().enabled = false;
             firstDoor.GetComponent<DoorScript>().closeDoors();
             deepWater.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
-            alpha -= 0.001f;
+            alpha -= 0.002f;
             if (alpha <= 0.0)
             {
                 firstStep = false;
