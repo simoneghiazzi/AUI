@@ -6,7 +6,7 @@ public class triangleScript : MonoBehaviour
 {
     [SerializeField]
     private Transform triangle_s, triangle_f;
-    private GameObject triangleObject, gameManager;
+    private GameObject triangleObject, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -20,7 +20,7 @@ public class triangleScript : MonoBehaviour
         initialPosition = transform.position;
         triangleObject = triangle_s.gameObject;
 
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
     }
 
     private void onMouseDown()
@@ -31,14 +31,14 @@ public class triangleScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.TRIANGLE)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.TRIANGLE)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
         {
-            gameManager.GetComponent<GameManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongObject();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
@@ -56,12 +56,12 @@ public class triangleScript : MonoBehaviour
             sr = triangle_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.TRIANGLE_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.TRIANGLE_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }

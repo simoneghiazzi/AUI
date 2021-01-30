@@ -6,7 +6,7 @@ public class smallCylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform smallcylinder_s, smallcylinder_f;
-    private GameObject smalcylinderObject, gameManager;
+    private GameObject smalcylinderObject, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -20,7 +20,7 @@ public class smallCylinderScript : MonoBehaviour
         initialPosition = transform.position;
         smalcylinderObject = smallcylinder_s.gameObject;
 
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
     }
 
     private void onMouseDown()
@@ -31,14 +31,14 @@ public class smallCylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.SMALL)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.SMALL)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
         {
-            gameManager.GetComponent<GameManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongObject();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
@@ -56,12 +56,12 @@ public class smallCylinderScript : MonoBehaviour
             sr = smallcylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.SMALL_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.SMALL_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }

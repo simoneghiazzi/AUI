@@ -4,14 +4,13 @@ using System.Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public enum TextState
 {
     INTRO, BASE, BASE_DONE, BIG, BIG_DONE, SMALL, SMALL_DONE, BEAM, BEAM_DONE, TRIANGLE,
     TRIANGLE_DONE, MAST, MAST_DONE, FABRIC, FABRIC_DONE, HANDLE, HANDLE_DONE, WRONG_OBJ, WRONG_POS
 }
 
-public class GameManager : MonoBehaviour
+public class LeoManager : MonoBehaviour
 {
     //enum TextState { INTRO, BASE, BIG, SMALL, BEAM, TRIANGLE, FABRIC, HANDLE };
 
@@ -198,11 +197,13 @@ public class GameManager : MonoBehaviour
 
     public void WrongPosition()
     {
+        savedState = state;
         state = TextState.WRONG_POS;
     }
 
     public void WrongObject()
     {
+        savedState = state;
         state = TextState.WRONG_OBJ;
     }
 

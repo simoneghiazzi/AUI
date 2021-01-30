@@ -7,7 +7,7 @@ public class basecylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform basecylinder_s, basecylinder_f;
-    private GameObject basecylinderObject, gameManager;
+    private GameObject basecylinderObject, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -26,7 +26,7 @@ public class basecylinderScript : MonoBehaviour
     {
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         //rightHand.GetComponent<TrackerPlayerPosition>().HandState += CheckHandState;
     }
@@ -54,7 +54,7 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.BASE)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.BASE)
         {
             //mousePosition = rightHand.transform.position;
             mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -62,7 +62,7 @@ public class basecylinderScript : MonoBehaviour
         }
         else
         {
-            gameManager.GetComponent<GameManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongObject();
         }
     }
 
@@ -79,12 +79,12 @@ public class basecylinderScript : MonoBehaviour
             sr = basecylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.BASE_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.BASE_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
         }
     }
 }

@@ -6,7 +6,7 @@ public class fabricScript : MonoBehaviour
 {
     [SerializeField]
     private Transform fabric_s, fabric_f;
-    private GameObject fabricObject, gameManager;
+    private GameObject fabricObject, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -20,7 +20,7 @@ public class fabricScript : MonoBehaviour
         initialPosition = transform.position;
         fabricObject = fabric_s.gameObject;
 
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
     }
 
     private void onMouseDown()
@@ -31,14 +31,14 @@ public class fabricScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.FABRIC)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.FABRIC)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
         {
-            gameManager.GetComponent<GameManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongObject();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
@@ -56,12 +56,12 @@ public class fabricScript : MonoBehaviour
             sr = fabric_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.FABRIC_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.FABRIC_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }

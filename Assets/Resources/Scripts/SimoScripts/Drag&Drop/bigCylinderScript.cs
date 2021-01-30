@@ -6,7 +6,7 @@ public class bigCylinderScript : MonoBehaviour
 {
     [SerializeField]
     private Transform bigcylinder_s, bigcylinder_f;
-    private GameObject bigcylinderObject, gameManager;
+    private GameObject bigcylinderObject, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -19,7 +19,7 @@ public class bigCylinderScript : MonoBehaviour
     {
         initialPosition = transform.position;
         bigcylinderObject = bigcylinder_s.gameObject;
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
     }
 
     private void onMouseDown()
@@ -30,14 +30,14 @@ public class bigCylinderScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.BIG)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.BIG)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
         {
-            gameManager.GetComponent<GameManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongObject();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
@@ -55,12 +55,12 @@ public class bigCylinderScript : MonoBehaviour
             sr = bigcylinder_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.BIG_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.BIG_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }

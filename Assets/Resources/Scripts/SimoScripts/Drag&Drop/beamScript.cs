@@ -6,7 +6,7 @@ public class beamScript : MonoBehaviour
 {
     [SerializeField]
     private Transform beam1_s, beam2_s, beam3_s, beam1_f, beam2_f, beam3_f;
-    private GameObject beamObject1, beamObject2, beamObject3, gameManager;
+    private GameObject beamObject1, beamObject2, beamObject3, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -22,7 +22,7 @@ public class beamScript : MonoBehaviour
         beamObject2= beam2_s.gameObject;
         beamObject3 = beam3_s.gameObject;
 
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
     }
 
     private void onMouseDown()
@@ -33,14 +33,14 @@ public class beamScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.BEAM)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.BEAM)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
         {
-            gameManager.GetComponent<GameManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongObject();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
@@ -58,7 +58,7 @@ public class beamScript : MonoBehaviour
             sr = beam1_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.BEAM_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.BEAM_DONE;
         }
         else if (beamObject2.active && Mathf.Abs(transform.position.x - beam2_s.position.x) <= 60.0f
             && Mathf.Abs(transform.position.y - beam2_s.position.y) <= 50.0f)
@@ -71,7 +71,7 @@ public class beamScript : MonoBehaviour
             sr = beam2_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.BEAM_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.BEAM_DONE;
         }
         else if (beamObject3.active && Mathf.Abs(transform.position.x - beam3_s.position.x) <= 60.0f
             && Mathf.Abs(transform.position.y - beam3_s.position.y) <= 50.0f)
@@ -84,12 +84,12 @@ public class beamScript : MonoBehaviour
             sr = beam3_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.BEAM_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.BEAM_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }

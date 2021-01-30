@@ -6,7 +6,7 @@ public class handlebarScript : MonoBehaviour
 {
     [SerializeField]
     private Transform handlebar_s, handlebar_f;
-    private GameObject handlebarObject, gameManager;
+    private GameObject handlebarObject, leoManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
@@ -20,7 +20,7 @@ public class handlebarScript : MonoBehaviour
         initialPosition = transform.position;
         handlebarObject = handlebar_s.gameObject;
 
-        gameManager = GameObject.Find("GameManager");
+        leoManager = GameObject.Find("LeoManager");
     }
 
     private void onMouseDown()
@@ -31,7 +31,7 @@ public class handlebarScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (gameManager.GetComponent<GameManager>().state == TextState.HANDLE)
+        if (leoManager.GetComponent<LeoManager>().state == TextState.HANDLE)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
@@ -39,7 +39,7 @@ public class handlebarScript : MonoBehaviour
         else
         {
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-            gameManager.GetComponent<GameManager>().state = TextState.WRONG_OBJ;
+            leoManager.GetComponent<LeoManager>().state = TextState.WRONG_OBJ;
         }
     }
 
@@ -56,12 +56,12 @@ public class handlebarScript : MonoBehaviour
             sr = handlebar_f.GetComponent<SpriteRenderer>();
             sr.color = new Color(1f, 1f, 1f, 1f);
 
-            gameManager.GetComponent<GameManager>().state = TextState.HANDLE_DONE;
+            leoManager.GetComponent<LeoManager>().state = TextState.HANDLE_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            gameManager.GetComponent<GameManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
             //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
