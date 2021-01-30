@@ -96,10 +96,21 @@ public class CollisionsScript : MonoBehaviour
             //In variable timePassed we save the time of the team
             timePassed = stopwatch.Elapsed.TotalSeconds;
             stopwatch.Stop();
-            //UnityEngine.Debug.Log("Time: " + timePassed);
-
             //Reaching the goal means having finished the race, so we disable everything
             endReached = true;
+
+            //We save the time in the game manager and said that this boat has reached the goal
+            if (gameObject.name == "Lboat")
+            {
+                GameManager.instance.score1 = timePassed;
+                GameManager.instance.firstDone = true;
+            }
+            else if(gameObject.name == "Rboat")
+            {
+                GameManager.instance.score2 = timePassed;
+                GameManager.instance.secondDone = true;
+            }
+
         }
     }
 

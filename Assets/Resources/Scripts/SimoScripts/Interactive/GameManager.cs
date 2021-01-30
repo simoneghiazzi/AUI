@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     //Keep track of the time of the two teams
-    public float score1, score2;
+    public double score1, score2;
 
     //Check if both boats have reached the goal in the first level
     public bool firstDone, secondDone;
@@ -28,6 +28,16 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(firstDone && secondDone)
+        {
+            firstDone = secondDone = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
