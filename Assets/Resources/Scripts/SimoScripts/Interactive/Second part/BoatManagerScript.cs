@@ -39,7 +39,7 @@ public class BoatManagerScript : MonoBehaviour
             firstDoor.GetComponent<DoorScript>().toOpen = false;
             firstDoor.GetComponent<DoorScript>().wheelAngle = 0.0f;
             firstDoor.GetComponent<DoorScript>().enabled = false;
-            firstDoor.GetComponent<GestureDoorScript>().enabled = false;
+            firstDoor.GetComponent<GesturesDoorScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
 
             transform.Translate(0, 0.1f, 0, Space.World);
