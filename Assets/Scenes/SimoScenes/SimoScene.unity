@@ -1230,11 +1230,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 622124066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d872200f2fd658b4eb6970092c88d6f7, type: 3}
+  m_Script: {fileID: 11500000, guid: fc6e7e84d1b3f24428137caf36ff4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  savedState: 0
+  score1: 0
+  score2: 0
+  firstDone: 0
+  secondDone: 0
 --- !u!4 &622124068
 Transform:
   m_ObjectHideFlags: 0

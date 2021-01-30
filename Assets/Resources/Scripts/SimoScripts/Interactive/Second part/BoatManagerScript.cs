@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
 public class BoatManagerScript : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class BoatManagerScript : MonoBehaviour
     //Last boolean, to check if the boat has reached the goal
     public bool thirdStep = false;
 
+    //Variables used to keep track of the race time
+    private Stopwatch stopwatch;
+    public double timePassed;
+
     [SerializeField]
     private GameObject water, firstDoor, secondDoor;
 
@@ -28,6 +33,9 @@ public class BoatManagerScript : MonoBehaviour
         firstLeftDoor = firstDoor.transform.GetChild(0);
         secondLeftDoor = secondDoor.transform.GetChild(0);
         deepWater = water.transform.GetChild(0);
+
+        stopwatch = new Stopwatch();
+        stopwatch.Start();
     }
 
     // Update is called once per frame
@@ -76,7 +84,19 @@ public class BoatManagerScript : MonoBehaviour
         {
             water.GetComponent<AutomaticWaterScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
-            Debug.Log("FINE");
+
+            timePassed = stopwatch.Elapsed.TotalSeconds;
+            stopwatch.Stop();
+
+            //We save the time in the game manager and said that this boat has reached the goal
+            if (gameObject.name == "Lboat")
+            {
+                GameManager.instance.score1 += timePassed;
+            }
+            else if (gameObject.name == "Rboat")
+            {
+                GameManager.instance.score2 += timePassed;
+            }
         }
     }
 }

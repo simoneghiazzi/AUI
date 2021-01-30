@@ -110,7 +110,6 @@ public class CollisionsScript : MonoBehaviour
                 GameManager.instance.score2 = timePassed;
                 GameManager.instance.secondDone = true;
             }
-
         }
     }
 
