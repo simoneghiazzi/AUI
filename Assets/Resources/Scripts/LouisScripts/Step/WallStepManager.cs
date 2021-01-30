@@ -52,6 +52,12 @@ public class WallStepManager : MonoBehaviour
   //Loop Fly
   public int currentObstacle = 0;
 
+  public bool IntoObstacle = false;
+
+  public GameObject FloorStepManager;
+
+  public GameObject TimeLeftStep;
+
 
 
   private void Start()
@@ -100,6 +106,7 @@ public class WallStepManager : MonoBehaviour
     //Loop Fly increment
     currentObstacle = 0;
 
+    Debug.Log("INITIALIZATION done");
 
     // Introduction of the activity
     StartCoroutine(Introduction());
@@ -125,14 +132,18 @@ public class WallStepManager : MonoBehaviour
   public void Fly()
   {
     Debug.Log("Start Fly");
-    //Background moving
-    Background.GetComponent<ScrollScript>().speed = 5f;
 
-    //Machine appearing + set the speed
-    Machine.SetActive(true);
+    if(IntoObstacle == false)
+    {
+      //Background moving
+      Background.GetComponent<ScrollScript>().speed = 5f;
 
-    //Leo Dialogue balloon disappearing
-    LeoBubble.SetActive(false);
+      //Machine appearing + set the speed
+      Machine.SetActive(true);
+
+      //Leo Dialogue balloon disappearing
+      LeoBubble.SetActive(false);
+    }
 
     if(currentObstacle < sizeofOnA)
     {
@@ -154,29 +165,71 @@ public class WallStepManager : MonoBehaviour
 
   public void Obstacle()
   {
+    Debug.Log("Start Obstacle n°" + currentObstacle);
+
+    //Leo waiting
+    LeoWaiting.SetActive(true);
+    LeoSad.SetActive(false);
 
     switch(OnA[currentObstacle].Obstacle)
     {
       case "Birds":
         Debug.Log("Birds obstacle");
 
-        Birds.GetComponent<BirdObstacle>().Start();
+        Birds.SetActive(true);
+
+        //To start the timer again
+        TimeLeftStep.GetComponent<TimeLeftStep>().timerIsRunning = true;
+
+        Birds.GetComponent<BirdObstacle>().BeforeStartBirds();
 
         break;
       case "Tornado":
         Debug.Log("Tornado obstacle");
+
+        //To start the timer again
+        TimeLeftStep.GetComponent<TimeLeftStep>().timerIsRunning = true;
+
+        Tornado.GetComponent<TornadoObstacle>().BeforeStartTornado();
+
         break;
       case "OtherMachine":
         Debug.Log("OtherMachine obstacle");
+
+        //To start the timer again
+        TimeLeftStep.GetComponent<TimeLeftStep>().timerIsRunning = true;
+
+        OtherMachine.GetComponent<OtherMachineObstacle>().BeforeStartOtherMachine();
+
         break;
       case "ThunderCloud":
         Debug.Log("ThunderCloud obstacle");
+
+        //To start the timer again
+        TimeLeftStep.GetComponent<TimeLeftStep>().timerIsRunning = true;
+
+        ThunderCloud.GetComponent<ThunderCloudObstacle>().BeforeStartThunderCloud();
+
         break;
       default:
         break;
     }
-    currentObstacle++;
-    Fly();
+
+  }
+
+  public void StepTimeIsOut()
+  {
+    LeoBubble.SetActive(true);
+    TextLeoBubble.text = "Time is out !";
+
+    StartCoroutine(waitForNextStepTimeIsOut(3));
+  }
+
+  IEnumerator waitForNextStepTimeIsOut(int time)
+  {
+    yield return new WaitForSeconds(time);
+
+    FloorStepManager.GetComponent<FloorStepManager>().wrong();
   }
 
 

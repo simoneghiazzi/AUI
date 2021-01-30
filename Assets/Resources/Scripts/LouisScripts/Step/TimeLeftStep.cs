@@ -51,16 +51,20 @@ public class TimeLeftStep : MonoBehaviour
             timeRemaining = 0;
             Debug.Log("Time has run out !");
 
-            FloorStepManager.GetComponent<FloorStepManager>().wrong();
-
             timerIsRunning = false;
 
             // Turn the color of the stepwatch bubble to red
             StepwatchBubble.GetComponent<ChangeColorStep>().FinalColor();
 
-            WallStepManager.GetComponent<WallQuizzManager>().TimeIsOut();
+            WallStepManager.GetComponent<WallStepManager>().StepTimeIsOut();
+
           }
         }
+    }
+
+    public void StopStepTimer()
+    {
+      timerIsRunning = false;
     }
 
     public bool GetTimerIsRunning()
