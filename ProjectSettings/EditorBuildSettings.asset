@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SimoScenes/SimoScene.unity
     guid: 1d30e438aa1f55f4791f31d408741080
+  - enabled: 1
+    path: Assets/Scenes/SimoScenes/VideoScene.unity
+    guid: 71a7f6ffa24b99c40bb8f109b2317121
+  - enabled: 1
+    path: Assets/Scenes/SimoScenes/TestScene.unity
+    guid: fafa0a709c83f32478661002103980e6
   m_configObjects: {}
