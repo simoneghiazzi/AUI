@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FloorStepManager : MonoBehaviour
 {
@@ -9,6 +11,15 @@ public class FloorStepManager : MonoBehaviour
     public GameObject WallStepManager;
 
     public GameObject[] AnswerBalloons;
+
+    public GameObject BirdObstacle;
+    public GameObject TornadoObstacle;
+    public GameObject ThunderCloudObstacle;
+    public GameObject OtherMachineObstacle;
+
+    public GameObject TimeLeftStep;
+
+    private int currentObstacleFloor = 0;
 
 
     // Start is called before the first frame update
@@ -19,13 +30,13 @@ public class FloorStepManager : MonoBehaviour
 
     public void SetStepAnswersFloor()
     {
-      int currentObstacleFloor = WallStepManager.GetComponent<WallStepManager>().currentObstacle;
+      currentObstacleFloor = WallStepManager.GetComponent<WallStepManager>().currentObstacle;
 
       for(int j = 0; j < AnswerBalloons.Length; j++)
       {
         // Set the answer corresponding to the index of the current question, and putting it into the
         // corresponding Text component (= corresponding text bubble)
-        //AnswerBalloons[j].transform.GetChild(0).GetComponent<Text>().text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Answers[j];
+        AnswerBalloons[j].transform.GetChild(0).GetComponent<Text>().text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Answers[j];
 
         AnswerBalloons[j].GetComponent<AnswerScriptStep>().isCorrect = false;  // reset all the buttons to false state
 
@@ -38,11 +49,19 @@ public class FloorStepManager : MonoBehaviour
 
     public void correct()
     {
+      //Stop timer
+      TimeLeftStep.GetComponent<TimeLeftStep>().StopStepTimer();
+
       //Leo happy
+      WallStepManager.GetComponent<WallStepManager>().LeoWaiting.SetActive(false);
       WallStepManager.GetComponent<WallStepManager>().LeoHappy.SetActive(true);
 
       //Leo text bubble
+      WallStepManager.GetComponent<WallStepManager>().LeoBubble.SetActive(true);
       WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "Bravissimo !";
+
+      //incrementing the obstacle variable to go on the next Obstacle
+      WallStepManager.GetComponent<WallStepManager>().currentObstacle++;
 
       StartCoroutine(waitForHappy());
 
@@ -52,15 +71,33 @@ public class FloorStepManager : MonoBehaviour
     {
       yield return new WaitForSeconds(3);
 
-      WallStepManager.GetComponent<WallStepManager>().Fly();
+      if(WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Obstacle == "Birds")
+      {
+        BirdObstacle.GetComponent<BirdObstacle>().StopBirds();
+      }
+      if(WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Obstacle == "Tornado")
+      {
+        TornadoObstacle.GetComponent<TornadoObstacle>().StopTornado();
+      }
+      if(WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Obstacle == "OtherMachine")
+      {
+        OtherMachineObstacle.GetComponent<OtherMachineObstacle>().StopOtherMachine();
+      }
+      if(WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Obstacle == "ThunderCloud")
+      {
+        ThunderCloudObstacle.GetComponent<ThunderCloudObstacle>().StopThunderCloud();
+      }
+
     }
 
     public void wrong()
     {
       //Leo sad
+      WallStepManager.GetComponent<WallStepManager>().LeoWaiting.SetActive(false);
       WallStepManager.GetComponent<WallStepManager>().LeoSad.SetActive(true);
 
       //Leo text bubble
+      WallStepManager.GetComponent<WallStepManager>().LeoBubble.SetActive(true);
       WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "Try again !";
 
       StartCoroutine(waitForCrash());
@@ -68,7 +105,7 @@ public class FloorStepManager : MonoBehaviour
 
     IEnumerator waitForCrash()
     {
-
+      Debug.Log("Crash !!");
       //Explosion animation
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(true);
 
