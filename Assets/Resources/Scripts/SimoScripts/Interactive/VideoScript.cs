@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class VideoScript : MonoBehaviour
 {
+    private VideoPlayer video;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject camera = GameObject.Find("Main Camera");
+        var player = gameObject.transform.GetChild(0);
+        video = player.gameObject.GetComponent<VideoPlayer>();
+        video.loopPointReached += VideoEnded;
+    }
 
-        // VideoPlayer automatically targets the camera backplane when it is added
-        // to a camera object, no need to change videoPlayer.targetCamera.
-        var videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
+    void VideoEnded(UnityEngine.Video.VideoPlayer vp)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // Update is called once per frame
