@@ -18,7 +18,7 @@ public class AnswerScript : MonoBehaviour
     {
           Debug.Log(" Player 1 : Answer selected, wait 2 seconds for validation");
 
-          StartCoroutine(waitForValidation(2)); // Waiting 3 seconds on the button to validate the button
+          StartCoroutine(waitForValidation(2)); // Waiting 2 seconds on the button to validate the button
 
     }
 

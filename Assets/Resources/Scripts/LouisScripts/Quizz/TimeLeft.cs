@@ -14,12 +14,17 @@ public class TimeLeft : MonoBehaviour
 
     public GameObject WallQuizzManager;
 
+    public GameObject PlayerController;
+
     public void StartTimer()
     {
       Debug.Log("Start Timer");
       //Starts the timer automatically
       timerIsRunning = true;
       timeRemaining = 30;
+
+      //Control the virtual teams 2, 3, 4
+      PlayerController.GetComponent<PlayerController>().VirtualTeamsPlay();
 
     }
 
@@ -48,6 +53,9 @@ public class TimeLeft : MonoBehaviour
           {
             timeRemaining = 0;
             Debug.Log("Time has run out ! You can't answer anymore");
+
+            //Control the virtual teams 2, 3, 4
+            PlayerController.GetComponent<PlayerController>().VirtualTeamsStop();
 
             //To prevent teams from answering after the time has run out
             for(int j=0 ; j < WallQuizzManager.GetComponent<WallQuizzManager>().alreadyAnswered.Length ; j++)

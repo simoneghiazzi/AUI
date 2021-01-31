@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Threading;
 
 public class WallQuizzManager : MonoBehaviour
 {
@@ -12,6 +11,12 @@ public class WallQuizzManager : MonoBehaviour
   public int state = 0;
 
   public List<QuestionAndAnswers> QnA;
+  public List<IntroductionQuizz> IntroQuizz;
+  public List<Feedback> Feedback;
+  public List<EndGame> EndGame;
+  private int sizeofEndGame;
+  int fb = 0;
+  private int sizeofIntro;
   public GameObject[] options;
 
   public int currentQuestion = 0;   // index of the current question
@@ -53,8 +58,14 @@ public class WallQuizzManager : MonoBehaviour
     FinalResultsPanel.SetActive(false);
     UIElements.SetActive(true);
 
+    // Length of the Introduction
+    sizeofIntro = IntroQuizz.Count;
+
+    // Length of the End game
+    sizeofEndGame = EndGame.Count;
+
     // Introduction of the activity
-    Introduction();
+    StartCoroutine(IntroductionQuizz());
 
   }
 
@@ -107,7 +118,7 @@ public class WallQuizzManager : MonoBehaviour
   public void IntermediateResults()
   {
     Debug.Log("IntermediateResults");
-    QuestionTxt.text = "The results for this round are :";
+    QuestionTxt.text = "Ecco i risultati per questa domanda :";
 
     // Panels
     QuestionsPanel.SetActive(false);
@@ -145,8 +156,19 @@ public class WallQuizzManager : MonoBehaviour
       ScoreTxt[i].text = (score[i]).ToString();
     }
 
+    StartCoroutine(LeoEndGame());
+
     Debug.Log("END OF GAME");
 
+  }
+
+  IEnumerator LeoEndGame()
+  {
+    for(int i = 0 ; i < sizeofEndGame ; i++)
+    {
+      QuestionTxt.text = EndGame[i].EndGameText;
+      yield return new WaitForSeconds(8);
+    }
   }
 
 
@@ -178,7 +200,7 @@ public class WallQuizzManager : MonoBehaviour
     return QnA;
   }
 
-
+/*
   IEnumerator waitForNextIntro(int time, int state){
     yield return new WaitForSeconds(time);
 
@@ -202,9 +224,10 @@ public class WallQuizzManager : MonoBehaviour
     }
 
   }
-
+*/
 
   //Introduction of the activity
+  /*
   public void Introduction()
   {
       switch (state)
@@ -255,12 +278,40 @@ public class WallQuizzManager : MonoBehaviour
       state += 1;
       Debug.Log("Hello " + state);
   }
+  */
+  IEnumerator IntroductionQuizz()
+  {
+    Debug.Log("Start Intro");
+    // Leo will explain each step of the activity, it is possible to add as many introudction steps
+    //  as we want in the GameManager
+    for(int i = 0 ; i < sizeofIntro ; i++)
+    {
+      Debug.Log("Intro Text n°" + i);
+      QuestionTxt.text = IntroQuizz[i].IntroductionQuizzText;
+      yield return new WaitForSeconds(5);
+    }
+
+    Debug.Log("Finish Intro");
+
+    //Set the different panels
+    QuestionsPanel.SetActive(true);
+
+    // initialize the variables
+    totalQuestions = QnA.Count;   // total number of questions
+    currentQuestion = 0;
+
+    Debug.Log("Start WallQuizzManager Finished");
+
+    // first method to generate all the questions
+    generateQuestion();
+
+  }
 
 
   // After each question, when the time is out
   public void TimeIsOut()
   {
-    IntroductionTxt = "Time is out !";
+    IntroductionTxt = "Il tempo è scaduto !";
     QuestionTxt.text = IntroductionTxt;
     LeoText.GetComponent<TextFadeScript>().TextFadeIn();
     LeoText.GetComponent<TextFadeScript>().TextFadeOut();
@@ -277,6 +328,16 @@ public class WallQuizzManager : MonoBehaviour
   IEnumerator waitForNextTimeIsOut(int time)
   {
     yield return new WaitForSeconds(time);
+
+    StartCoroutine(LeoFeedback());
+  }
+
+  IEnumerator LeoFeedback()
+  {
+    QuestionTxt.text = Feedback[fb].FeedbackText;
+    yield return new WaitForSeconds(8);
+
+    fb++;
 
     IntermediateResults();
   }
