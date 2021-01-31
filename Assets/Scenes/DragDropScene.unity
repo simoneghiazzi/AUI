@@ -3407,9 +3407,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Costruiamo insieme il primo elicottero della storia! Questi sono tutti
-    i componenti necessari: segui le mie istruzioni per afferrare il componente corretto
-    e trascinalo al posto giusto '
+  m_Text: 'Ora che sapete tutto su queste mie macchine volanti, che ne dite di costruirle
+    da zero? Proprio come ho fatto io tanti secoli fa! Preparatevi, iniziamo il secondo
+    livello! '
 --- !u!222 &1563968425
 CanvasRenderer:
   m_ObjectHideFlags: 0

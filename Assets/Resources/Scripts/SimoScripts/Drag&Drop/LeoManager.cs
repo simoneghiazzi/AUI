@@ -12,8 +12,6 @@ public enum TextState
 
 public class LeoManager : MonoBehaviour
 {
-    //enum TextState { INTRO, BASE, BIG, SMALL, BEAM, TRIANGLE, FABRIC, HANDLE };
-
     //saveState needed to retrieve the current state after an error message or to swtich to the next state after an explaination.
     public TextState state, savedState;
 
@@ -29,7 +27,7 @@ public class LeoManager : MonoBehaviour
     //This is necessary to avoid a bug of Unity for which updating the text outside of the main Update() function doesn't work
     private string toUpdate;
 
-    private string[] beamPhrases = { "Perfetto, siamo riusciti a fissare tutti e tre i paletti che sostengno lateralmente l'albero", "Ancora un paletto e il meccanismo di rotazione sarà completato",
+    private string[] beamPhrases = { "Perfetto! Questi tiranti serviranno a controbilanciare il peso dell’albero, e soprattutto la forza del vento!", "Ancora un paletto e il meccanismo di rotazione sarà completato",
         "Ben fatto! Hai posizionato il primo di tre paletti che sostengono l'albero e fanno ruotare l'elica" };
 
     //Counter for the beams
@@ -43,6 +41,8 @@ public class LeoManager : MonoBehaviour
         objs = GameObject.Find("Components");
         timer.Interval = 5000f;
         timer.Elapsed += NextIntro;
+        timer.Start();
+
         toUpdate = txt.text;
 
         leoSprite = GameObject.Find("leo");
@@ -60,35 +60,32 @@ public class LeoManager : MonoBehaviour
         {
             switch (state)
             {
-                case TextState.INTRO:
-                    timer.Start();
-                    break;
                 case TextState.BASE:
-                    toUpdate = "Innazitutto c'è bisogno di qualcosa di ampio su cui poter stare in piedi";
+                    toUpdate = "Per cominciare, è necessario qualcosa di ampio e circolare a cui fissare il tutto, e su cui i piloti possano stare in piedi";
                     savedState = state;
                     break;
                 case TextState.BASE_DONE:
-                    toUpdate = "Ottimo! Abbiamo sistemato un'ampia base circolare su cui i piloti corrono per far girare le pale";
+                    toUpdate = "Ottimo! Questa è la base dell’elicottero, su cui i piloti corrono per far girare le pale. La sua ampiezza conferisce piena stabilità";
                     savedState = TextState.MAST;
                     timer.Elapsed += NextStep;
                     timer.Start();
                     break;
                 case TextState.MAST:
-                    toUpdate = "Abbiamo bisogno di qualcosa di grosso e resistente per sostenere tutta la macchina";
+                    toUpdate = "Ora abbiamo bisogno di qualcosa di grosso e resistente che sostenga verticalmente tutta la macchina";
                     savedState = state;
                     break;
                 case TextState.MAST_DONE:
-                    toUpdate = "Grazie! Questo è l'albero principale della macchina, è fondamentale per il movimento dell'elica e per la stabilità dell'elicottero";
+                    toUpdate = "Esatto! Abbiamo appena posizionato l’albero maestro dell’elicottero, fondamentale per muovere l’elica e conferire stabilità";
                     savedState = TextState.BIG;
                     timer.Elapsed += NextStep;
                     timer.Start();
                     break;
                 case TextState.BIG:
-                    toUpdate = "Ci vuole una base a cui appoggiare il palo...qualcosa di circolare e abbastanza grande";
+                    toUpdate = "Aggiungiamo un altro componente. Ci vuole un’altra base circolare, per ancorare maggiormente l’albero alla grande base principale";
                     savedState = state;
                     break;
                 case TextState.BIG_DONE:
-                    toUpdate = "E con questo possiamo fissare l'albero alla base della macchina";
+                    toUpdate = "Molto bene! Ora l’attacco tra la base e l’albero sarà ancora più solido e resistente.";
                     savedState = TextState.BEAM;
                     timer.Elapsed += NextStep;
                     timer.Start();
@@ -112,11 +109,11 @@ public class LeoManager : MonoBehaviour
                     timer.Start();
                     break;
                 case TextState.SMALL:
-                    toUpdate = "Credo sia importante agganciare i sostengi a qualcosa sul palo";
+                    toUpdate = "Bisogna però ancorarli al palo stesso tramite un piccolo, ma robusto, anello circolare";
                     savedState = state;
                     break;
                 case TextState.SMALL_DONE:
-                    toUpdate = "Questo piccolo cilindro è fondamentale per fissare i paletti all'albero e farlo girare";
+                    toUpdate = "Esatto! Solo così, infatti, i tiranti potranno muoversi insieme alla base principale, consentendo la rotazione dell’albero";
                     savedState = TextState.FABRIC;
                     timer.Elapsed += NextStep;
                     timer.Start();
@@ -126,17 +123,17 @@ public class LeoManager : MonoBehaviour
                     savedState = state;
                     break;
                 case TextState.FABRIC_DONE:
-                    toUpdate = "La tela tesa in cima all'albero farà sollevare la macchina: grazie alla sua forma 'a cavatappi', la rotazione spinge l'aria verso il basso facendo sollevare l'elicottero!";
+                    toUpdate = "La tela tesa in cima all'albero farà sollevare la macchina: grazie alla sua forma 'a cavatappi', la rotazione spingerá l'aria verso il basso facendo sollevare l'elicottero!";
                     savedState = TextState.HANDLE;
                     timer.Elapsed += NextStep;
                     timer.Start();
                     break;
                 case TextState.HANDLE:
-                    toUpdate = "C'è bisogno anche di qualcosa a cui aggrapparsi per non cadere giù mentre si aziona la macchina";
+                    toUpdate = "Ma come si aziona l’elicottero? Bisogna posizionare un appoggio sull’albero principale!";
                     savedState = state;
                     break;
                 case TextState.HANDLE_DONE:
-                    toUpdate = "Grazie a questa asta orizzontale i piloti potranno tenersi saldamente a qualcosa, riuscendo a dare più forza nella rotazione e riducendo il rischio di caduta";
+                    toUpdate = "Ben fatto! Su questa asta orizzontale, infatti, i piloti imprimono la loro forza muscolare, girando intorno all’albero e azionando la macchina";
                     savedState = TextState.TRIANGLE;
                     timer.Elapsed += NextStep;
                     timer.Start();
@@ -146,7 +143,7 @@ public class LeoManager : MonoBehaviour
                     savedState = state;
                     break;
                 case TextState.TRIANGLE_DONE:
-                    toUpdate = "Ce l'abbiamo fatta! Siamo riusciti ad assemblare il primo elicottero della storia";
+                    toUpdate = "Ce l’abbiamo fatta! Siamo riusciti a costruire il primo elicottero della storia. Passiamo alla seconda invenzione!";
                     updateSprite = HAPPY;
                     break;
                 case TextState.WRONG_POS:
@@ -175,9 +172,18 @@ public class LeoManager : MonoBehaviour
     void NextIntro(object o, System.EventArgs e)
     {
         timer.Stop();
+        toUpdate = "Per cominciare, ho bisogno di quattro giocatori che a turno, per ciascuna macchina volante, dovranno assemblarne i componenti.";
+        timer.Elapsed += FinalIntro;
+        timer.Start();
+    }
+
+    void FinalIntro(object o, System.EventArgs e)
+    {
+        timer.Stop();
         toUpdate = "Per afferrare un oggetto chiudi la mano a pugno davanti a quello. " +
-            "Tenendo il pugno chiuso trascinalo dove vuoi metterlo e riapri la mano per lasciarlo andare";
+        "Tenendo il pugno chiuso trascinalo dove vuoi metterlo e riapri la mano per lasciarlo andare";
         timer.Elapsed += BeginGame;
+        timer.Start();
     }
 
     void BeginGame(object o, System.EventArgs e)
