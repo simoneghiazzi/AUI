@@ -20,14 +20,18 @@ public class BirdObstacle : MonoBehaviour
 
     bool alreadyDoneStartBirds = false;
 
+    private int currentObstacle = 0;
+
 
     // Start is called before the first frame update
     public void BeforeStartBirds()
     {
       // INITIALIZATION OF THE SCENE
 
+      currentObstacle = WallStepManager.GetComponent<WallStepManager>().currentObstacle;
+
       WallStepManager.GetComponent<WallStepManager>().IntoObstacle = true;
-      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "How do you dodge the birds ?";
+      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacle].ObstacleQuestion;
 
       //Reset the Explosion
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(false);
@@ -47,7 +51,7 @@ public class BirdObstacle : MonoBehaviour
       //Warning sign and BlackCloud displaying + animating
       WallStepManager.GetComponent<WallStepManager>().WarningSign.SetActive(true);
       WallStepManager.GetComponent<WallStepManager>().BlackWarningCloud.SetActive(true);
-      WallStepManager.GetComponent<WallStepManager>().TextBlackCloud.text = "Birds on the way !";
+      WallStepManager.GetComponent<WallStepManager>().TextBlackCloud.text = "Uccelli in arrivo !";
 
       //GO TO NEXT FUNCTION
       StartCoroutine(StartBirds());

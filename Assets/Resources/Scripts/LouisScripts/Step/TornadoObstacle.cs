@@ -20,14 +20,18 @@ public class TornadoObstacle : MonoBehaviour
 
     bool alreadyDoneStartTornado = false;
 
+    private int currentObstacle = 0;
+
 
     // Start is called before the first frame update
     public void BeforeStartTornado()
     {
       // INITIALIZATION OF THE SCENE
 
+      currentObstacle = WallStepManager.GetComponent<WallStepManager>().currentObstacle;
+
       WallStepManager.GetComponent<WallStepManager>().IntoObstacle = true;
-      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "How do you dodge the tornado ?";
+      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacle].ObstacleQuestion;;
 
       //Reset the Explosion
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(false);
@@ -47,7 +51,7 @@ public class TornadoObstacle : MonoBehaviour
       //Warning sign and BlackCloud displaying + animating
       WallStepManager.GetComponent<WallStepManager>().WarningSign.SetActive(true);
       WallStepManager.GetComponent<WallStepManager>().BlackWarningCloud.SetActive(true);
-      WallStepManager.GetComponent<WallStepManager>().TextBlackCloud.text = "Tornado on the way !";
+      WallStepManager.GetComponent<WallStepManager>().TextBlackCloud.text = "Tornado in arrivo !";
 
       //GO TO NEXT FUNCTION
       StartCoroutine(StartTornado());

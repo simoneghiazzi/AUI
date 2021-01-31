@@ -58,7 +58,7 @@ public class FloorStepManager : MonoBehaviour
 
       //Leo text bubble
       WallStepManager.GetComponent<WallStepManager>().LeoBubble.SetActive(true);
-      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "Bravissimo !";
+      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].FeedbackText;
 
       //incrementing the obstacle variable to go on the next Obstacle
       WallStepManager.GetComponent<WallStepManager>().currentObstacle++;

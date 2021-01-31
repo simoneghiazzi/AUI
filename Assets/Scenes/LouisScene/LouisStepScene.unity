@@ -2209,7 +2209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860446272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.91, y: -0.12, z: 96.64}
+  m_LocalPosition: {x: 13.09, y: 0.86, z: 96.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440965137}
@@ -2461,36 +2461,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnA:
   - Obstacle: Birds
+    ObstacleQuestion: "Presto, uno stormo di uccelli sta per intercetterare l\u2019elicottero!
+      Cosa possiamo fare?"
     Answers:
-    - Go to right
-    - Go to left
-    - Go straight
-    - Try to land
-    CorrectAnswer: 1
+    - Proseguire dritto
+    - Volare verso sinistra
+    - Volare versa destra
+    - Atterare e ripartire
+    CorrectAnswer: 2
+    FeedbackText: "Bravo! L\u2019unico modo per evitare uno stormo di uccelli \xE8
+      virare in direzione opposta. Possiamo continuare il viaggio. "
   - Obstacle: Tornado
+    ObstacleQuestion: 
     Answers:
     - Go to right
     - Go to left
     - Go into tornado
     - Try to land
     CorrectAnswer: 2
+    FeedbackText: 
   - Obstacle: OtherMachine
+    ObstacleQuestion: 
     Answers:
     - Go to right
     - Go to left
     - Go straight
     - Try to land
     CorrectAnswer: 1
+    FeedbackText: 
   - Obstacle: ThunderCloud
+    ObstacleQuestion: 
     Answers:
     - Go to right
     - Go to left
     - Go into the cloud
     - Try to land
     CorrectAnswer: 1
+    FeedbackText: 
   Intro:
-  - IntroductionText: 'Welcome to this activity ! '
-  - IntroductionText: We will begin in few seconds...
+  - IntroductionText: Bravissimi, le mie invenzioni hanno finalmente preso forma!
+  - IntroductionText: We will Volete volare insieme a me? Passiamo al terzo livello!begin
+      in few seconds...
+  - IntroductionText: "Dobbiamo testare le mie invenzioni: io sono sicuro funzionino,
+      per\xF2 bisogna stare attenti agli ostacoli che si possono incontrare durante
+      il volo! Che ne dite di aiutarmi?"
+  - IntroductionText: "Ho bisogno di altri quattro giocatori: disponetevi in fila
+      indiana, ognuno di voi dovr\xE0 evitare un ostacolo che si presenter\xE0 davanti,
+      salvando la mia invenzione! "
+  - IntroductionText: 'Quando incontrerete un ostacolo, vi appariranno sul pavimento
+      diverse opzioni per evitarlo: posizionatevi su quella che ritenete migliore.'
+  - IntroductionText: 'Scegliete accuratamente, ma attenzione! Avete solo dieci secondi
+      di tempo: in queste situazioni bisogna infatti avere sangue freddo! Cominciamo.'
   LeoExplaining: {fileID: 169794961}
   LeoHappy: {fileID: 1788167494}
   LeoSad: {fileID: 336958829}

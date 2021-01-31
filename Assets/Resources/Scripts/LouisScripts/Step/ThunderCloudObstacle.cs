@@ -20,14 +20,18 @@ public class ThunderCloudObstacle : MonoBehaviour
 
     bool alreadyDoneStartThunderCloud = false;
 
+    private int currentObstacle = 0;
+
 
     // Start is called before the first frame update
     public void BeforeStartThunderCloud()
     {
       // INITIALIZATION OF THE SCENE
 
+      currentObstacle = WallStepManager.GetComponent<WallStepManager>().currentObstacle;
+
       WallStepManager.GetComponent<WallStepManager>().IntoObstacle = true;
-      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "How do you dodge the thunder cloud ?";
+      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacle].ObstacleQuestion;
 
       //Reset the Explosion
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(false);
@@ -47,7 +51,7 @@ public class ThunderCloudObstacle : MonoBehaviour
       //Warning sign and BlackCloud displaying + animating
       WallStepManager.GetComponent<WallStepManager>().WarningSign.SetActive(true);
       WallStepManager.GetComponent<WallStepManager>().BlackWarningCloud.SetActive(true);
-      WallStepManager.GetComponent<WallStepManager>().TextBlackCloud.text = "Thunder cloud on the way !";
+      WallStepManager.GetComponent<WallStepManager>().TextBlackCloud.text = "Temporale in arrivo !";
 
       //GO TO NEXT FUNCTION
       StartCoroutine(StartThunderCloud());

@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator anim;
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+      Player.SetActive(false);
     }
 
     public void VirtualTeamsPlay()
     {
-      anim.Play("Player2");
+      Player.SetActive(true);
     }
 
     public void VirtualTeamsStop()
     {
-
+      Player.SetActive(false);
     }
 }
