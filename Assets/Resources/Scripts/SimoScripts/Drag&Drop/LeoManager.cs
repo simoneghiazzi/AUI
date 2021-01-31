@@ -46,7 +46,7 @@ public class LeoManager : MonoBehaviour
         toUpdate = txt.text;
 
         leoSprite = GameObject.Find("leo");
-        NORMAL = Resources.Load<Sprite>("Leo_explaining");
+        NORMAL = Resources.Load<Sprite>("leo_explaining");
         HAPPY = Resources.Load<Sprite>("Leo_happy");
         THINK = Resources.Load<Sprite>("Leo_waiting");
         SAD = Resources.Load<Sprite>("Leo_sad");
@@ -165,7 +165,6 @@ public class LeoManager : MonoBehaviour
         }
         //For the bug explained at the beginning
         txt.text = toUpdate;
-
         leoSprite.GetComponent<Image>().sprite = updateSprite;
     }
 
