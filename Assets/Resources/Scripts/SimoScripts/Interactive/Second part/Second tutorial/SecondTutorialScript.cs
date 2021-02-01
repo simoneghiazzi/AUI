@@ -5,7 +5,7 @@ using System.Timers;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class FirstTutorialScript : MonoBehaviour
+public class SecondTutorialScript : MonoBehaviour
 {
     private Text txt;
 
@@ -18,14 +18,10 @@ public class FirstTutorialScript : MonoBehaviour
     private Timer timer = new Timer();
 
     //Leo's phrases
-    private string[] leoPhrases = { "Il sistema delle conche consente alle piccole imbarcazioni di percorrere lunghi corsi d’acqua caratterizzati da un dislivello del terreno",
-    "In questo livello parteciperete ad una gara tra barche all’ultimo secondo! Sono necessarie due squadre, ognuna costituita da due giocatori",
-    "Ora, disponetevi uno accanto all’altro in corrispondenza delle macchie colorate sul pavimento",
-    "Chi rema deve muovere il piú velocemente possibile le braccia in alto e in basso come se volasse, tenendole laterali al corpo",
-    "L’altro componente della squadra sarà al timone: ruotando in senso orario o antiorario il braccio, infatti, potrà direzionare la barca senza farla scontrare con i bordi della conca"};
-
-    //Index of the phrase to be said by Leo
-    private int index = 0;
+    private string[] leoPhrases = { "In questo secondo livello, ogni giocatore controllerá un cancello della conca",
+        "Il giocatore di sinistra controlla l'apertura e la chiusura del primo cancello, mentre quello di destra aprirá e chiuderá il secondo",
+        "Farlo è semplicissimo: ruotate il braccio in senso orario per aprire e in senso antiorario per chiudere. La barca si muoverá automaticamente!",
+        "Ma attenzione! Come avete visto nel video, l'ordine di apertura e chiusura è fondamentale", "Pronti a iniziare!"};
 
     // Start is called before the first frame update
     void Start()

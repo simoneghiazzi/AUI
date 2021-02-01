@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     //Check if both boats have reached the goal in the first level
     public bool firstDone, secondDone;
 
+    public bool firstComplete;
+
     void Awake()
     {
         MakeSingleton();
@@ -34,9 +36,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(firstDone && secondDone)
+        if(firstComplete)
         {
-            firstDone = secondDone = false;
+            firstComplete = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
