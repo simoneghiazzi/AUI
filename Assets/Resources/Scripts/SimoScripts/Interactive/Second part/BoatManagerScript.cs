@@ -92,10 +92,12 @@ public class BoatManagerScript : MonoBehaviour
             if (gameObject.name == "Lboat")
             {
                 GameManager.instance.score1 += timePassed;
+                GameManager.instance.firstDone = true;
             }
             else if (gameObject.name == "Rboat")
             {
                 GameManager.instance.score2 += timePassed;
+                GameManager.instance.secondDone = true;
             }
         }
     }

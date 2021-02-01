@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     //Check if both boats have reached the goal in the first level
     public bool firstDone, secondDone;
 
-    public bool firstComplete;
+    public bool firstComplete, secondComplete;
 
     void Awake()
     {
@@ -39,7 +39,14 @@ public class GameManager : MonoBehaviour
         if(firstComplete)
         {
             firstComplete = false;
+            firstDone = secondDone = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (secondComplete)
+        {
+            secondComplete = false;
+            firstDone = secondDone = false;
+            SceneManager.LoadScene(1);
         }
     }
 }

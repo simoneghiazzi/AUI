@@ -5,22 +5,21 @@ using System.Timers;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LeoTextScript : MonoBehaviour
+public class LeoTextSecond : MonoBehaviour
 {
     private Text txt;
 
     //To pick a random phrase
     private int rnd;
 
-    private string[] phrases = { "Vediamo chi arriva prima!", "Attenzione alla corrente, può essere davvero forte!",
-    "Cercate di non sbattere contro i bordi, altrimenti perderete velocità!", "È proprio una sfida all’ultimo secondo!",
+    private string[] phrases = { "Vediamo chi arriva prima!", "Ricordate: prima di aprire la seconda barriera bisogna chiudere la prima!", "È proprio una sfida all’ultimo secondo!",
     "Forza! Manca davvero poco al traguardo!"};
 
     //This is necessary to avoid a bug of Unity for which updating the text outside of the main Update() function doesn't work
     private string toUpdate;
 
     //Leo's different expressions. updateSprite used to avoid a bug for which the sprite is not updated outside of the Update() function
-    private Sprite NORMAL, THINK, updateSprite;
+    private Sprite NORMAL, THINK, HAPPY, updateSprite;
 
     private Timer timer = new Timer();
 
@@ -34,9 +33,10 @@ public class LeoTextScript : MonoBehaviour
         toUpdate = txt.text;
         NORMAL = Resources.Load<Sprite>("Leo_waiting");
         THINK = Resources.Load<Sprite>("leo_explaining");
+        HAPPY = Resources.Load<Sprite>("Leo_happy");
         updateSprite = THINK;
 
-        timer.Interval = 3000f;
+        timer.Interval = 5000f;
         timer.Elapsed += UpdateText;
         timer.Start();
     }
@@ -48,7 +48,7 @@ public class LeoTextScript : MonoBehaviour
         txt.text = toUpdate;
         gameObject.GetComponent<Image>().sprite = updateSprite;
 
-        if(GameManager.instance.firstDone && GameManager.instance.secondDone && toFinish)
+        if (GameManager.instance.firstDone && GameManager.instance.secondDone && toFinish)
         {
             toFinish = false;
             timer.Stop();
@@ -67,7 +67,7 @@ public class LeoTextScript : MonoBehaviour
 
         toUpdate = phrases[rnd];
 
-        if(rnd%2 == 0)
+        if (rnd % 2 == 0)
         {
             updateSprite = THINK;
         }
@@ -82,15 +82,15 @@ public class LeoTextScript : MonoBehaviour
     void finishLevel()
     {
         timer.Elapsed += IntroduceNext;
-        if(GameManager.instance.score1 < GameManager.instance.score2)
+        if (GameManager.instance.score1 < GameManager.instance.score2)
         {
-            toUpdate = "Wow che sfida! Per ora è in vantaggio la squadra di sinistra che ci ha messo "+ GameManager.instance.score1+" secondi. "
-                + GameManager.instance.score2+" per la squadra di destra!";
+            toUpdate = "Wow che sfida! Abbiamo un vincitore: é la squadra di sinistra che ci ha messo " + GameManager.instance.score1 + " secondi. "
+                + GameManager.instance.score2 + " per la squadra di destra che ha dato comunque il massimo!";
         }
         else
         {
-            toUpdate = "Wow che Sfida! Per ora è in vantaggio la squadra di destra che ci ha messo " + GameManager.instance.score2 + " secondi. "
-                + GameManager.instance.score1 + " per la squadra di sinistra!";
+            toUpdate = "Wow che sfida! Abbiamo un vincitore: é la squadra di destra che ci ha messo " + GameManager.instance.score2 + " secondi. "
+                + GameManager.instance.score1 + " per la squadra di sinistra che ha dato comunque il massimo!";
         }
         timer.Start();
     }
@@ -101,12 +101,12 @@ public class LeoTextScript : MonoBehaviour
         timer.Elapsed += ShowVideo;
         timer.Start();
 
-        toUpdate = "Guardiamo ora un video per capire come funzionano le conche dei navigli!";
+        toUpdate = "Purtroppo siamo giunti alla fine di questo incredibile viaggio! Spero abbiate imparato tante cose e vi siate divertiti nel farlo.";
     }
 
     void ShowVideo(object o, System.EventArgs e)
     {
         timer.Stop();
-        GameManager.instance.firstComplete = true;
+        GameManager.instance.secondComplete = true;
     }
 }

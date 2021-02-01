@@ -19,9 +19,10 @@ public class SecondTutorialScript : MonoBehaviour
 
     //Leo's phrases
     private string[] leoPhrases = { "In questo secondo livello, ogni giocatore controllerá un cancello della conca",
-        "Il giocatore di sinistra controlla l'apertura e la chiusura del primo cancello, mentre quello di destra aprirá e chiuderá il secondo",
+        "Se siete posizionati su “cancello inferiore”, vi occuperete dello sbarramento che serve ad entrare nella conca; se la vostra posizione è “cancello superiore”, vi occuperete dello sbarramento in uscita",
         "Farlo è semplicissimo: ruotate il braccio in senso orario per aprire e in senso antiorario per chiudere. La barca si muoverá automaticamente!",
-        "Ma attenzione! Come avete visto nel video, l'ordine di apertura e chiusura è fondamentale", "Pronti a iniziare!"};
+        "Ma attenzione! Come avete visto nel video, ffinché il meccanismo funzioni, prima di aprire lo sbarramento in uscita, quello in entrata deve essere chiuso!",
+        "Pronti a iniziare!" };
 
     //Index of the phrase to be said by Leo
     private int index = 0;
