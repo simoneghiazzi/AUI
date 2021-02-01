@@ -17,8 +17,11 @@ public class BoatManagerScript : MonoBehaviour
     //Boolean to check if we have closed the first door
     public bool secondStep = false;
 
-    //Last boolean, to check if the boat has reached the goal
+    //Boolean to check if the boat has reached the goal
     public bool thirdStep = false;
+
+    //Last boolean, to stop increasing the score
+    public bool fourthStep= false;
 
     //Variables used to keep track of the race time
     private Stopwatch stopwatch;
@@ -72,7 +75,7 @@ public class BoatManagerScript : MonoBehaviour
             }
         }
 
-        if(secondLeftDoor.rotation.eulerAngles.z >= 75 && secondStep && !thirdStep)
+        if(secondLeftDoor.rotation.eulerAngles.z >= 75 && secondStep && !thirdStep && !fourthStep)
         {
             water.GetComponent<AutomaticWaterScript>().enabled = true;
             secondDoor.GetComponent<DoorScript>().toOpen = false;
@@ -80,7 +83,7 @@ public class BoatManagerScript : MonoBehaviour
             secondDoor.GetComponent<DoorScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
         }
-        else if (secondLeftDoor.rotation.eulerAngles.z <= 76 && thirdStep)
+        else if (secondLeftDoor.rotation.eulerAngles.z <= 76 && thirdStep && !fourthStep)
         {
             water.GetComponent<AutomaticWaterScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
@@ -99,6 +102,8 @@ public class BoatManagerScript : MonoBehaviour
                 GameManager.instance.score2 += timePassed;
                 GameManager.instance.secondDone = true;
             }
+
+            fourthStep = true;
         }
     }
 }

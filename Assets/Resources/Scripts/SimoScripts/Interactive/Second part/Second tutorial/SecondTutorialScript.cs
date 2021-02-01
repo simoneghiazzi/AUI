@@ -36,7 +36,7 @@ public class SecondTutorialScript : MonoBehaviour
         HAPPY = Resources.Load<Sprite>("Leo_happy");
         updateSprite = HAPPY;
 
-        timer.Interval = 1000f;
+        timer.Interval = 3000f;
         timer.Elapsed += NextIntro;
         timer.Start();
     }

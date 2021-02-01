@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("PRIMO: " + score1);
+        Debug.Log("SECONDO: " + score2);
+
         if(firstComplete)
         {
             firstComplete = false;
