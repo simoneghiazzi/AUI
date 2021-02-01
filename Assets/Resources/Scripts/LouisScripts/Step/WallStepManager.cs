@@ -120,7 +120,7 @@ public class WallStepManager : MonoBehaviour
     for(int i = 0 ; i < sizeofIntro ; i++)
     {
       TextLeoBubble.text = Intro[i].IntroductionText;
-      yield return new WaitForSeconds(3);
+      yield return new WaitForSeconds(7);
     }
 
     Debug.Log("Finish Intro");
@@ -184,13 +184,13 @@ public class WallStepManager : MonoBehaviour
         Birds.GetComponent<BirdObstacle>().BeforeStartBirds();
 
         break;
-      case "Tornado":
-        Debug.Log("Tornado obstacle");
+      case "ThunderCloud":
+        Debug.Log("ThunderCloud obstacle");
 
         //To start the timer again
         TimeLeftStep.GetComponent<TimeLeftStep>().timerIsRunning = true;
 
-        Tornado.GetComponent<TornadoObstacle>().BeforeStartTornado();
+        ThunderCloud.GetComponent<ThunderCloudObstacle>().BeforeStartThunderCloud();
 
         break;
       case "OtherMachine":
@@ -202,13 +202,13 @@ public class WallStepManager : MonoBehaviour
         OtherMachine.GetComponent<OtherMachineObstacle>().BeforeStartOtherMachine();
 
         break;
-      case "ThunderCloud":
-        Debug.Log("ThunderCloud obstacle");
+      case "Tornado":
+        Debug.Log("Tornado obstacle");
 
         //To start the timer again
         TimeLeftStep.GetComponent<TimeLeftStep>().timerIsRunning = true;
 
-        ThunderCloud.GetComponent<ThunderCloudObstacle>().BeforeStartThunderCloud();
+        Tornado.GetComponent<TornadoObstacle>().BeforeStartTornado();
 
         break;
       default:
@@ -220,9 +220,9 @@ public class WallStepManager : MonoBehaviour
   public void StepTimeIsOut()
   {
     LeoBubble.SetActive(true);
-    TextLeoBubble.text = "Time is out !";
+    TextLeoBubble.text = "Il tempo è scaduto !";
 
-    StartCoroutine(waitForNextStepTimeIsOut(3));
+    StartCoroutine(waitForNextStepTimeIsOut(5));
   }
 
   IEnumerator waitForNextStepTimeIsOut(int time)
@@ -237,6 +237,25 @@ public class WallStepManager : MonoBehaviour
   {
     //Outro of the activity
     Debug.Log("Outro");
+
+    StartCoroutine(LeoEndGame());
+  }
+
+  IEnumerator LeoEndGame(){
+    yield return new WaitForSeconds(8);
+
+    LeoBubble.SetActive(true);
+    TextLeoBubble.text = "Grazie per aver volato con me! E ora passiamo alla prossima attività ...";
+
+    GameOver();
+  }
+
+  private void GameOver()
+  {
+    Debug.Log("Game Over, returning to menu");
+
+    //Put here function to go back to menu
+    SceneManager.LoadScene(0);
   }
 
 

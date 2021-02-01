@@ -69,7 +69,7 @@ public class FloorStepManager : MonoBehaviour
 
     IEnumerator waitForHappy()
     {
-      yield return new WaitForSeconds(3);
+      yield return new WaitForSeconds(8);
 
       if(WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Obstacle == "Birds")
       {
@@ -98,7 +98,7 @@ public class FloorStepManager : MonoBehaviour
 
       //Leo text bubble
       WallStepManager.GetComponent<WallStepManager>().LeoBubble.SetActive(true);
-      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = "Try again !";
+      WallStepManager.GetComponent<WallStepManager>().TextLeoBubble.text = WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].WrongAnswerFeedback;
 
       StartCoroutine(waitForCrash());
     }
@@ -109,7 +109,7 @@ public class FloorStepManager : MonoBehaviour
       //Explosion animation
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(true);
 
-      yield return new WaitForSeconds(3);
+      yield return new WaitForSeconds(5);
 
       //Go back to the top function to reset the obstacle
       WallStepManager.GetComponent<WallStepManager>().Obstacle();
