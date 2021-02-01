@@ -8,35 +8,24 @@ public class LeoPresentation : MonoBehaviour
   public GameObject MenuManager;
 
 
-  public void StartLeoPresentation()
+  public IEnumerator StartLeoPresentation()
   {
 
     for(int i = 0 ; i < 1 ; i++)
     {
       MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].LeoPresentationText[i];
 
-      StartCoroutine(waitLeoPresentation());
+      yield return new WaitForSeconds(1);
     }
 
-    StartCoroutine(waitEndLeoPresentation());
-  }
-
-  IEnumerator waitLeoPresentation()
-  {
-    yield return new WaitForSeconds(10);
-  }
-
-  IEnumerator waitEndLeoPresentation()
-  {
-    yield return new WaitForSeconds(2);
-
     EndLeoPresentation();
+
   }
+
 
   public void EndLeoPresentation()
   {
     MenuManager.GetComponent<MenuManager>().step++;
-
     MenuManager.GetComponent<MenuManager>().PanelManager();
   }
 

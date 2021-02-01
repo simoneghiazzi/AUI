@@ -9,25 +9,17 @@ public class FrontMuseum : MonoBehaviour
     public GameObject MenuManager;
 
 
-
-    public void StartFrontMuseum()
+    public IEnumerator StartFrontMuseum()
     {
       MenuManager.GetComponent<MenuManager>().LeoTextBubble.SetActive(true);
 
       for(int i = 0 ; i < 2 ; i++)
       {
         MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].FrontMuseumText[i];
-
-        StartCoroutine(waitFrontMuseum());
+        yield return new WaitForSeconds(1);
       }
 
       EndFrontMuseum();
-    }
-
-    IEnumerator waitFrontMuseum()
-    {
-      Debug.Log("Wait 10 seconds FrontMuseum");
-      yield return new WaitForSeconds(10);
     }
 
 
@@ -35,7 +27,6 @@ public class FrontMuseum : MonoBehaviour
     public void EndFrontMuseum()
     {
       MenuManager.GetComponent<MenuManager>().step++;
-
       MenuManager.GetComponent<MenuManager>().PanelManager();
     }
 

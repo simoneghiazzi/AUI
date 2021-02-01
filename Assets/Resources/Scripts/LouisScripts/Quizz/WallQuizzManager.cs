@@ -169,6 +169,10 @@ public class WallQuizzManager : MonoBehaviour
       QuestionTxt.text = EndGame[i].EndGameText;
       yield return new WaitForSeconds(8);
     }
+
+    Debug.Log("Game Over, going to next level");
+    
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
   }
 
 
@@ -288,7 +292,7 @@ public class WallQuizzManager : MonoBehaviour
     {
       Debug.Log("Intro Text n°" + i);
       QuestionTxt.text = IntroQuizz[i].IntroductionQuizzText;
-      yield return new WaitForSeconds(5);
+      yield return new WaitForSeconds(1);
     }
 
     Debug.Log("Finish Intro");

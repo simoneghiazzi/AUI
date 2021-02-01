@@ -7,62 +7,45 @@ public class Topics : MonoBehaviour
 {
     public GameObject MenuManager;
 
-    public Collider Invenzioni;
+    bool InvenzioniPressed = false;
+    bool IniziaPressed = false;
 
-    public Collider Inizia;
 
-
-    public void StartTopics()
+    public IEnumerator StartTopics()
     {
+      MenuManager.GetComponent<MenuManager>().Topics.SetActive(true);
       //Set the bubbles
-
       MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].DaVinciTopicsText[0];
+      yield return new WaitForSeconds(1);
     }
 
-    //INVENZIONI BUBBLE
-    public void OnTriggerEnterInvenzioni(Collider Invenzioni)
+    public void Update()
     {
-      Debug.Log(" Player : Invenzioni selected, wait 2 seconds for validation");
+      if(InvenzioniPressed == true)
+      {
+        if(IniziaPressed == true)
+        {
+          MenuManager.GetComponent<MenuManager>().step++;
 
-      StartCoroutine(waitForFirstValidation());
+          MenuManager.GetComponent<MenuManager>().PanelManager();
+        }
+      }
     }
-    IEnumerator waitForFirstValidation()
+
+    public void InvenzioniButton()
     {
-      yield return new WaitForSeconds(2);
-
-      Debug.Log("Answer validated");
-
+      InvenzioniPressed = true;
       MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].DaVinciTopicsText[1];
 
-      MenuManager.GetComponent<MenuManager>().Topics.SetActive(false);
       MenuManager.GetComponent<MenuManager>().IniziaButton.SetActive(true);
     }
-    public void OnTriggerExitInvenzioni(Collider Invenzioni)
+
+    public void IniziaBtn()
     {
-      Debug.Log("Invenzioni deselected");
+      IniziaPressed = true;
+
     }
 
-    //INIZIA BUTTON
-    public void OnTriggerEnterInizia(Collider Inizia)
-    {
-      Debug.Log(" Player : Inizia selected, wait 2 seconds for validation");
 
-      StartCoroutine(waitForSecondValidation());
-    }
-    IEnumerator waitForSecondValidation()
-    {
-      yield return new WaitForSeconds(2);
 
-      Debug.Log("Answer validated");
-
-      MenuManager.GetComponent<MenuManager>().IniziaButton.SetActive(false);
-
-      MenuManager.GetComponent<MenuManager>().step++;
-
-      MenuManager.GetComponent<MenuManager>().PanelManager();
-    }
-    public void OnTriggerExitInizia(Collider Inizia)
-    {
-      Debug.Log("Inizia deselected");
-    }
 }

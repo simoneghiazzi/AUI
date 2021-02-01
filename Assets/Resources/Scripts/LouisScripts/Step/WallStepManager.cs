@@ -120,7 +120,7 @@ public class WallStepManager : MonoBehaviour
     for(int i = 0 ; i < sizeofIntro ; i++)
     {
       TextLeoBubble.text = Intro[i].IntroductionText;
-      yield return new WaitForSeconds(7);
+      yield return new WaitForSeconds(1);
     }
 
     Debug.Log("Finish Intro");
@@ -252,10 +252,10 @@ public class WallStepManager : MonoBehaviour
 
   private void GameOver()
   {
-    Debug.Log("Game Over, returning to menu");
+    Debug.Log("Game Over, going to next level");
 
     //Put here function to go back to menu
-    SceneManager.LoadScene(0);
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
   }
 
 

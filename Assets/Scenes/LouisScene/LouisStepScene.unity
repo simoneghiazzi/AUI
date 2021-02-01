@@ -709,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.175, y: -0.04}
-  m_SizeDelta: {x: 417.98193, y: 98.53392}
+  m_AnchoredPosition: {x: 0.129, y: -0.04}
+  m_SizeDelta: {x: 472.36505, y: 128.74684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118529446
 MonoBehaviour:
@@ -732,17 +732,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 40
+    m_BestFit: 0
+    m_MinSize: 4
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &118529447
@@ -753,6 +753,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118529444}
   m_CullTransparentMesh: 0
+--- !u!1 &142687430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142687431}
+  m_Layer: 0
+  m_Name: ThunderCloud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &142687431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142687430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.62, y: 0.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1560041373}
+  m_Father: {fileID: 1954968697}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163102434
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +814,7 @@ Transform:
   m_LocalScale: {x: 0.50486, y: 0.50486, z: 0.50486}
   m_Children: []
   m_Father: {fileID: 1954968697}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &163102436
 SpriteRenderer:
@@ -1085,8 +1116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -220, y: 390.8}
-  m_SizeDelta: {x: -951.2328, y: -895.1426}
+  m_AnchoredPosition: {x: -238.8, y: 390.8}
+  m_SizeDelta: {x: -904.02893, y: -895.1426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235882312
 MonoBehaviour:
@@ -1108,17 +1139,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
-    m_FontSize: 52
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
+    m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 35
+    m_BestFit: 0
+    m_MinSize: 4
     m_MaxSize: 52
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Hello I''m Leo ! I will teach you how to fly in this awesome activity
     !! '
@@ -2240,7 +2271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860446272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.94, y: 5.15, z: 96.64}
+  m_LocalPosition: {x: 11.62, y: 4.58, z: 96.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440965137}
@@ -2336,7 +2367,7 @@ Transform:
   m_LocalScale: {x: 3.2193644, y: 3.2193644, z: 3.2193644}
   m_Children: []
   m_Father: {fileID: 1954968697}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &872142597
 Animator:
@@ -2501,7 +2532,7 @@ MonoBehaviour:
     - Volare verso sinistra
     - Volare versa destra
     - Atterare e ripartire
-    CorrectAnswer: 2
+    CorrectAnswer: 3
     FeedbackText: "Bravo! L\u2019unico modo per evitare uno stormo di uccelli \xE8
       virare in direzione opposta. Possiamo continuare il viaggio."
   - Obstacle: ThunderCloud
@@ -2527,7 +2558,7 @@ MonoBehaviour:
     - Volare verso sinistra
     - Volare verso destra
     - Atterare e ripartire
-    CorrectAnswer: 3
+    CorrectAnswer: 2
     FeedbackText: "C\u2019\xE8 mancato poco! Quando si \xE8 in volo bisogna evitare
       le collisioni con altri mezzi, le conseguenze potrebbero essere gravissime!
       Continuiamo la volata."
@@ -2960,8 +2991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.175, y: -0.04}
-  m_SizeDelta: {x: 417.98193, y: 98.53392}
+  m_AnchoredPosition: {x: 0.061, y: -0.017}
+  m_SizeDelta: {x: 457.25867, y: 119.68294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108024786
 MonoBehaviour:
@@ -2983,17 +3014,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 40
+    m_BestFit: 0
+    m_MinSize: 4
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &1108024787
@@ -3238,7 +3269,7 @@ Transform:
   m_Children:
   - {fileID: 406636077}
   m_Father: {fileID: 1954968697}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26.253002}
 --- !u!212 &1373085578
 SpriteRenderer:
@@ -3582,15 +3613,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560041372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.53, y: -0.03, z: 0.0011112}
-  m_LocalScale: {x: 0.69265723, y: 0.69265723, z: 0.69265723}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.57, y: 0.14, z: 0.0027580261}
+  m_LocalScale: {x: 0.54957503, y: 0.54957503, z: 0.54957503}
   m_Children:
   - {fileID: 112111735}
   - {fileID: 31833039}
   - {fileID: 1077197911}
-  m_Father: {fileID: 1954968697}
-  m_RootOrder: 2
+  m_Father: {fileID: 142687431}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1560041374
 SpriteRenderer:
@@ -3982,8 +4013,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.09, y: -0.05}
-  m_SizeDelta: {x: 406.17688, y: 104.29288}
+  m_AnchoredPosition: {x: 0.113, y: -0.05}
+  m_SizeDelta: {x: 463.58167, y: 122.420715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898545963
 MonoBehaviour:
@@ -4005,17 +4036,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 40
+    m_BestFit: 0
+    m_MinSize: 4
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &1898545964
@@ -4233,10 +4264,10 @@ Transform:
   m_Children:
   - {fileID: 1503812376}
   - {fileID: 669415789}
-  - {fileID: 1560041373}
   - {fileID: 1373085577}
   - {fileID: 872142596}
   - {fileID: 163102435}
+  - {fileID: 142687431}
   m_Father: {fileID: 1921389273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4297,7 +4328,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -4307,7 +4338,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Warning there's a danger !
 --- !u!222 &1964913080
@@ -4621,7 +4652,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
     m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
@@ -4694,8 +4725,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.175, y: -0.04}
-  m_SizeDelta: {x: 417.98193, y: 98.53392}
+  m_AnchoredPosition: {x: 0.129, y: -0.063}
+  m_SizeDelta: {x: 472.3653, y: 119.683014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110535253
 MonoBehaviour:
@@ -4717,17 +4748,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9e0aeca4999154dd6afde3b7eabc94a0, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 40
+    m_BestFit: 0
+    m_MinSize: 4
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &2110535254

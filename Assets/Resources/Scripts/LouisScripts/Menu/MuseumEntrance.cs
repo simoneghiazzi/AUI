@@ -8,30 +8,20 @@ public class MuseumEntrance : MonoBehaviour
     public GameObject MenuManager;
 
 
-    public void StartMuseumEntrance()
+    public IEnumerator StartMuseumEntrance()
     {
+      MenuManager.GetComponent<MenuManager>().LeoExplaining.SetActive(true);
+
       for(int i = 0 ; i < 3 ; i++)
       {
         MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].MuseumEntranceText[i];
 
-        StartCoroutine(waitMuseumEntrance());
+        yield return new WaitForSeconds(1);
       }
-
-      StartCoroutine(waitEndMuseumEntrance());
-    }
-
-    IEnumerator waitMuseumEntrance()
-    {
-      yield return new WaitForSeconds(10);
-
-    }
-
-    IEnumerator waitEndMuseumEntrance()
-    {
-      yield return new WaitForSeconds(2);
 
       EndMuseumEntrance();
     }
+
 
     //back to panel manager to go to the next step
     public void EndMuseumEntrance()

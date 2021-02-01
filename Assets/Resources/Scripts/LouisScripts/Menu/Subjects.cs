@@ -7,39 +7,32 @@ public class Subjects : MonoBehaviour
 {
     public GameObject MenuManager;
 
-    public Collider DaVinci;
+    bool buttonPressed = false;
 
 
-    public void StartSubjects()
+    public IEnumerator StartSubjects()
     {
-      //Set the bubbles
       MenuManager.GetComponent<MenuManager>().Subjects.SetActive(true);
 
       MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].SubjectText[0];
+      yield return new WaitForSeconds(1);
     }
 
-    //DA VINCI BUBBLE
-    public void OnTriggerEnter(Collider DaVinci)
+    public void Update()
     {
-      Debug.Log(" Player : Da Vinci selected, wait 2 seconds for validation");
+      if(buttonPressed == true)
+      {
+        MenuManager.GetComponent<MenuManager>().step++;
 
-      StartCoroutine(waitForValidation());
+        MenuManager.GetComponent<MenuManager>().PanelManager();
+      }
     }
-    IEnumerator waitForValidation()
+
+
+    public void DaVinciButton()
     {
-      yield return new WaitForSeconds(2);
+      buttonPressed = true;
 
-      Debug.Log("Answer validated");
-
-      MenuManager.GetComponent<MenuManager>().Subjects.SetActive(false);
-
-      MenuManager.GetComponent<MenuManager>().step++;
-
-      MenuManager.GetComponent<MenuManager>().PanelManager();
-    }
-    public void OnTriggerExit(Collider DaVinci)
-    {
-      Debug.Log("DaVinci deselected");
     }
 
 }

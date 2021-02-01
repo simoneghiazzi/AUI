@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class Modalities : MonoBehaviour
 {
     public GameObject MenuManager;
+    bool buttonPressed = false;
+    bool clickSingolaInfo = false;
+    bool clickMultiplaInfo = false;
 
-    public Collider Multipla;
 
-
-    public void StartModalities()
+    public IEnumerator StartModalities()
     {
+      Debug.Log("Start Modalities");
+
       //Set the bubbles
       MenuManager.GetComponent<MenuManager>().Singola.SetActive(true);
       MenuManager.GetComponent<MenuManager>().SingolaInfoBubble.SetActive(false);
@@ -20,31 +23,53 @@ public class Modalities : MonoBehaviour
 
       MenuManager.GetComponent<MenuManager>().LeoText.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].ModalitiesText[0];
 
+      yield return new WaitForSeconds(1);
+
     }
 
-    //MULTIPLA BUTTON
-    public void OnTriggerEnter(Collider Multipla)
+    public void Update()
     {
-      Debug.Log(" Player : Multipla selected, wait 2 seconds for validation");
+      if(buttonPressed == true)
+      {
+        MenuManager.GetComponent<MenuManager>().step++;
+        buttonPressed = false;
 
-      StartCoroutine(waitForValidation());
+        MenuManager.GetComponent<MenuManager>().PanelManager();
+      }
+      if(clickSingolaInfo == false){
+        MenuManager.GetComponent<MenuManager>().SingolaInfoBubble.SetActive(false);
+      }
+      if(clickMultiplaInfo == false){
+        MenuManager.GetComponent<MenuManager>().MultiplaInfoBubble.SetActive(false);
+      }
     }
-    IEnumerator waitForValidation()
+
+
+
+    public void SingolaInfoButton()
     {
-      yield return new WaitForSeconds(2);
+      clickSingolaInfo = true;
+      clickMultiplaInfo = false;
+      Debug.Log("Displaying Singola Info Bubble");
+      MenuManager.GetComponent<MenuManager>().SingolaInfoBubble.SetActive(true);
+      MenuManager.GetComponent<MenuManager>().SingolaTextInfoBubble.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].SingolaText[0];
 
-      Debug.Log("Answer validated");
+    }
 
+    public void MultiplaInfoButton()
+    {
+      clickMultiplaInfo = true;
+      clickSingolaInfo = false;
+      Debug.Log("Displaying Multiple Info Bubble");
+      MenuManager.GetComponent<MenuManager>().MultiplaInfoBubble.SetActive(true);
+      MenuManager.GetComponent<MenuManager>().MultiplaTextInfoBubble.text = MenuManager.GetComponent<MenuManager>().GetMenuText()[0].MultiplaText[0];
+    }
+
+    public void MultiplaButton()
+    {
+      buttonPressed = true;
       MenuManager.GetComponent<MenuManager>().Singola.SetActive(false);
       MenuManager.GetComponent<MenuManager>().Multipla.SetActive(false);
-
-      MenuManager.GetComponent<MenuManager>().step++;
-
-      MenuManager.GetComponent<MenuManager>().PanelManager();
-    }
-    public void OnTriggerExit(Collider Multipla)
-    {
-      Debug.Log("Multipla deselected");
     }
 
 

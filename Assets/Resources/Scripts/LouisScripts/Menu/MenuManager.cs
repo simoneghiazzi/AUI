@@ -73,29 +73,32 @@ public class MenuManager : MonoBehaviour
     {
       Debug.Log("Panel Manager Start");
 
+
       switch(step)
       {
         case 0:
           Debug.Log("Front of the Museum");
 
-          FrontMuseum.GetComponent<FrontMuseum>().StartFrontMuseum();
+          StartCoroutine(FrontMuseum.GetComponent<FrontMuseum>().StartFrontMuseum());
 
           break;
         case 1:
           Debug.Log("Leo presentation");
 
-          LeoCharacter.GetComponent<LeoPresentation>().StartLeoPresentation();
+          StartCoroutine(LeoCharacter.GetComponent<LeoPresentation>().StartLeoPresentation());
+
+
 
           break;
         case 2:
           Debug.Log("Museum Entrance");
 
           LeoHappy.SetActive(false);
-          LeoExplaining.SetActive(true);
           FrontMuseum.SetActive(false);
           MuseumEntrance.SetActive(true);
 
-          MuseumEntrance.GetComponent<MuseumEntrance>().StartMuseumEntrance();
+          StartCoroutine(MuseumEntrance.GetComponent<MuseumEntrance>().StartMuseumEntrance());
+
 
           break;
         case 3:
@@ -103,36 +106,36 @@ public class MenuManager : MonoBehaviour
 
           Modalities.SetActive(true);
 
-          Modalities.GetComponent<Modalities>().StartModalities();
+          StartCoroutine(Modalities.GetComponent<Modalities>().StartModalities());
 
           break;
         case 4:
           Debug.Log("Subjects");
 
-          Modalities.SetActive(false);
-          Subjects.SetActive(true);
 
-          Subjects.GetComponent<Subjects>().StartSubjects();
+
+          StartCoroutine(Subjects.GetComponent<Subjects>().StartSubjects());
 
           break;
         case 5:
           Debug.Log("Topics");
 
           Subjects.SetActive(false);
-          Topics.SetActive(true);
 
-          Topics.GetComponent<Topics>().StartTopics();
+          StartCoroutine(Topics.GetComponent<Topics>().StartTopics());
 
           break;
         default:
           break;
       }
 
+
       if(step >= 6)
       {
         EndMenu();
       }
     }
+
 
     public void EndMenu()
     {
