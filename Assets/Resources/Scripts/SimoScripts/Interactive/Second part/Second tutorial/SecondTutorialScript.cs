@@ -23,6 +23,9 @@ public class SecondTutorialScript : MonoBehaviour
         "Farlo è semplicissimo: ruotate il braccio in senso orario per aprire e in senso antiorario per chiudere. La barca si muoverá automaticamente!",
         "Ma attenzione! Come avete visto nel video, l'ordine di apertura e chiusura è fondamentale", "Pronti a iniziare!"};
 
+    //Index of the phrase to be said by Leo
+    private int index = 0;
+
     // Start is called before the first frame update
     void Start()
     {
