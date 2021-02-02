@@ -170,6 +170,8 @@ public class WallStepManager : MonoBehaviour
     //Leo waiting
     LeoWaiting.SetActive(true);
     LeoSad.SetActive(false);
+    LeoHappy.SetActive(false);
+    LeoExplaining.SetActive(false);
 
     switch(OnA[currentObstacle].Obstacle)
     {
@@ -245,6 +247,11 @@ public class WallStepManager : MonoBehaviour
     yield return new WaitForSeconds(8);
 
     LeoBubble.SetActive(true);
+    LeoWaiting.SetActive(false);
+    LeoSad.SetActive(false);
+    LeoHappy.SetActive(true);
+    LeoExplaining.SetActive(false);
+    
     TextLeoBubble.text = "Grazie per aver volato con me! E ora passiamo alla prossima attività ...";
 
     //Magic Room commands
