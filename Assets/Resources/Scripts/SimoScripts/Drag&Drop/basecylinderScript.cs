@@ -15,23 +15,33 @@ public class basecylinderScript : MonoBehaviour
 
     //public GameObject rightHand;
 
-    private Camera mainCamera;
+    private Camera wallCamera;
 
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
-
-    //Boolean to check if this is the correct object to drag and drop
-    private bool isCorrect;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
         leoManager = GameObject.Find("LeoManager");
-        mainCamera = GameObject.Find("WallCamera").GetComponent<Camera>();
+        wallCamera = GameObject.Find("WallCamera").GetComponent<Camera>();
         //rightHand.GetComponent<TrackerPlayerPosition>().HandState += CheckHandState;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = wallCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000.0f))
+            {
+                Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+            }
+        }
     }
 
     /*private void OnTriggerEnter2D(Collider2D other)
@@ -51,17 +61,8 @@ public class basecylinderScript : MonoBehaviour
     {
         //deltaX = rightHand.transform.position.x - transform.position.x;
         //deltaY = rightHand.transform.position.y - transform.position.y;
-        deltaX = mainCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-        deltaY = mainCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
-
-        if (leoManager.GetComponent<LeoManager>().state == TextState.BASE)
-        {
-            isCorrect = true;
-        }
-        else
-        {
-            isCorrect = false;
-        }
+        deltaX = wallCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        deltaY = wallCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
     private void OnMouseDrag()
@@ -69,7 +70,7 @@ public class basecylinderScript : MonoBehaviour
         if (leoManager.GetComponent<LeoManager>().state == TextState.BASE)
         {
             //mousePosition = rightHand.transform.position;
-            mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition = wallCamera.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
         }
         else
@@ -80,31 +81,23 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (isCorrect)
+        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 30.0f
+            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 80.0f)
         {
-            if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 30.0f
-                && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 80.0f)
-            {
-                transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
+            transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
 
-                gameObject.SetActive(false);
-                basecylinderObject.SetActive(false);
+            gameObject.SetActive(false);
+            basecylinderObject.SetActive(false);
 
-                sr = basecylinder_f.GetComponent<SpriteRenderer>();
-                sr.color = new Color(1f, 1f, 1f, 1f);
+            sr = basecylinder_f.GetComponent<SpriteRenderer>();
+            sr.color = new Color(1f, 1f, 1f, 1f);
 
-                leoManager.GetComponent<LeoManager>().state = TextState.BASE_DONE;
-            }
-            else
-            {
-                transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                leoManager.GetComponent<LeoManager>().WrongPosition();
-            }
+            leoManager.GetComponent<LeoManager>().state = TextState.BASE_DONE;
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            leoManager.GetComponent<LeoManager>().WrongObject();
+            leoManager.GetComponent<LeoManager>().WrongPosition();
         }
     }
 }

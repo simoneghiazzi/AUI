@@ -10,6 +10,8 @@ public class triangleScript : MonoBehaviour
     private Vector2 initialPosition;
     private Vector2 mousePosition;
 
+    private Camera wallCamera;
+
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
@@ -24,17 +26,18 @@ public class triangleScript : MonoBehaviour
         triangleObject = triangle_s.gameObject;
 
         leoManager = GameObject.Find("LeoManager");
+        wallCamera = GameObject.Find("WallCamera").GetComponent<Camera>();
     }
 
     private void onMouseDown()
     {
-        deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-        deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+        deltaX = wallCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        deltaY = wallCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
     private void OnMouseDrag()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = wallCamera.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
 
         if (leoManager.GetComponent<LeoManager>().state == TextState.TRIANGLE)
