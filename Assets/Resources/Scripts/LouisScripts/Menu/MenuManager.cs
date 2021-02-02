@@ -96,6 +96,7 @@ public class MenuManager : MonoBehaviour
           LeoHappy.SetActive(false);
           FrontMuseum.SetActive(false);
           MuseumEntrance.SetActive(true);
+          LeoTextBubble.SetActive(true);
 
           StartCoroutine(MuseumEntrance.GetComponent<MuseumEntrance>().StartMuseumEntrance());
 
@@ -104,7 +105,7 @@ public class MenuManager : MonoBehaviour
         case 3:
           Debug.Log("Modalities");
 
-          Modalities.SetActive(true);
+
 
           StartCoroutine(Modalities.GetComponent<Modalities>().StartModalities());
 
@@ -140,7 +141,9 @@ public class MenuManager : MonoBehaviour
     public void EndMenu()
     {
       Debug.Log("End of the menu, going to the next scene");
-      //SceneManager.LoadScene("LouisScene");
+
+      //Load next scene in build 
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public List<MenuText> GetMenuText()
