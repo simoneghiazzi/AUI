@@ -21,11 +21,13 @@ public class SecondTutorialScript : MonoBehaviour
     private string[] leoPhrases = { "In questo secondo livello, ogni giocatore controllerá un cancello della conca",
         "Se siete posizionati su “cancello inferiore”, vi occuperete dello sbarramento che serve ad entrare nella conca; se la vostra posizione è “cancello superiore”, vi occuperete dello sbarramento in uscita",
         "Farlo è semplicissimo: ruotate il braccio in senso orario per aprire e in senso antiorario per chiudere. La barca si muoverá automaticamente!",
-        "Ma attenzione! Come avete visto nel video, ffinché il meccanismo funzioni, prima di aprire lo sbarramento in uscita, quello in entrata deve essere chiuso!",
+        "Ma attenzione! Come avete visto nel video, affinché il meccanismo funzioni, prima di aprire lo sbarramento in uscita, quello in entrata deve essere chiuso!",
         "Pronti a iniziare!" };
 
     //Index of the phrase to be said by Leo
     private int index = 0;
+
+    public GameObject video;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,16 @@ public class SecondTutorialScript : MonoBehaviour
         txt.text = toUpdate;
         gameObject.GetComponent<Image>().sprite = updateSprite;
 
-        if (index == leoPhrases.Length)
+        if(index == 3)
+        {
+            video.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            video.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (index == leoPhrases.Length +1)
         {
             timer.Stop();
             StartLevel();
@@ -58,7 +69,10 @@ public class SecondTutorialScript : MonoBehaviour
     void NextIntro(object o, System.EventArgs e)
     {
         timer.Stop();
-        toUpdate = leoPhrases[index];
+        if(index < leoPhrases.Length)
+        {
+            toUpdate = leoPhrases[index];
+        }
         updateSprite = THINK;
         index++;
         timer.Start();
