@@ -35,9 +35,9 @@ public class basecylinderScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = wallCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 1000.0f))
+            RaycastHit2D hit;
+            Vector2 ray = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            if (Physics2D.Raycast(ray, out hit, 1000.0f))
             {
                 Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
             }
