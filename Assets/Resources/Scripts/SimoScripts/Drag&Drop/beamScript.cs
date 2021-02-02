@@ -12,6 +12,8 @@ public class beamScript : MonoBehaviour
 
     private Camera wallCamera;
 
+    private Transform components;
+
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
@@ -29,9 +31,53 @@ public class beamScript : MonoBehaviour
 
         leoManager = GameObject.Find("LeoManager");
         wallCamera = GameObject.Find("WallCamera").GetComponent<Camera>();
+        components = GameObject.Find("Components").transform;
     }
 
-    private void onMouseDown()
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
+            if (hitWall)
+            {
+                OnMouseDown();
+            }
+        }
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
+            if (hitWall && (hitWall.transform.name == "_beam" || hitWall.transform.name == "_beam (1)" || hitWall.transform.name == "_beam (2)"))
+            {
+                OnMouseDrag();
+                foreach (Transform child in components)
+                {
+                    if ((transform.name == "_beam" && child.name != "_beam") || (transform.name == "_beam (1)" && child.name != "_beam (1)") || (transform.name == "_beam (2)" && child.name != "_beam (2)"))
+                    {
+                        child.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+                    }
+                }
+            }
+
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
+            if (hitWall && (hitWall.transform.name == "_beam" || hitWall.transform.name == "_beam (1)" || hitWall.transform.name == "_beam (2)"))
+            {
+                OnMouseUp();
+                foreach (Transform child in components)
+                {
+                    child.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+                }
+            }
+        }
+    }
+
+    private void OnMouseDown()
     {
         deltaX = wallCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
         deltaY = wallCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;

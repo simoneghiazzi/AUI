@@ -17,6 +17,8 @@ public class basecylinderScript : MonoBehaviour
 
     private Camera wallCamera;
 
+    private Transform components;
+
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
@@ -28,6 +30,7 @@ public class basecylinderScript : MonoBehaviour
         basecylinderObject = basecylinder_s.gameObject;
         leoManager = GameObject.Find("LeoManager");
         wallCamera = GameObject.Find("WallCamera").GetComponent<Camera>();
+        components = GameObject.Find("Components").transform;
         //rightHand.GetComponent<TrackerPlayerPosition>().HandState += CheckHandState;
     }
 
@@ -35,11 +38,41 @@ public class basecylinderScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit;
-            Vector2 ray = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
-            if (Physics2D.Raycast(ray, out hit, 1000.0f))
+            Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
+            if (hitWall)
             {
-                Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                OnMouseDown();
+            }
+        }
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
+            if (hitWall && hitWall.transform.name == "_basecylinder") 
+            {
+                OnMouseDrag();
+                foreach (Transform child in components)
+                {
+                    if(child.name != "_basecylinder")
+                    {
+                        child.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+                    }
+                }
+            }
+
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
+            if (hitWall && hitWall.transform.name == "_basecylinder")
+            {
+                OnMouseUp();
+                foreach (Transform child in components)
+                {
+                    child.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+                }
             }
         }
     }
@@ -57,7 +90,7 @@ public class basecylinderScript : MonoBehaviour
 
     }*/
 
-    private void onMouseDown()
+    private void OnMouseDown()
     {
         //deltaX = rightHand.transform.position.x - transform.position.x;
         //deltaY = rightHand.transform.position.y - transform.position.y;
