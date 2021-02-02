@@ -20,14 +20,17 @@ public class basecylinderScript : MonoBehaviour
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
-    
+
+    //Boolean to check if this is the correct object to drag and drop
+    private bool isCorrect;
+
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
         basecylinderObject = basecylinder_s.gameObject;
         leoManager = GameObject.Find("LeoManager");
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        mainCamera = GameObject.Find("WallCamera").GetComponent<Camera>();
         //rightHand.GetComponent<TrackerPlayerPosition>().HandState += CheckHandState;
     }
 
@@ -50,6 +53,15 @@ public class basecylinderScript : MonoBehaviour
         //deltaY = rightHand.transform.position.y - transform.position.y;
         deltaX = mainCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
         deltaY = mainCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+
+        if (leoManager.GetComponent<LeoManager>().state == TextState.BASE)
+        {
+            isCorrect = true;
+        }
+        else
+        {
+            isCorrect = false;
+        }
     }
 
     private void OnMouseDrag()
@@ -68,23 +80,31 @@ public class basecylinderScript : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 30.0f
-            && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 80.0f)
+        if (isCorrect)
         {
-            transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
+            if (Mathf.Abs(transform.position.x - basecylinder_s.position.x) <= 30.0f
+                && Mathf.Abs(transform.position.y - basecylinder_s.position.y) <= 80.0f)
+            {
+                transform.position = new Vector2(basecylinder_s.position.x, basecylinder_s.position.y);
 
-            gameObject.SetActive(false);
-            basecylinderObject.SetActive(false);
+                gameObject.SetActive(false);
+                basecylinderObject.SetActive(false);
 
-            sr = basecylinder_f.GetComponent<SpriteRenderer>();
-            sr.color = new Color(1f, 1f, 1f, 1f);
+                sr = basecylinder_f.GetComponent<SpriteRenderer>();
+                sr.color = new Color(1f, 1f, 1f, 1f);
 
-            leoManager.GetComponent<LeoManager>().state = TextState.BASE_DONE;
+                leoManager.GetComponent<LeoManager>().state = TextState.BASE_DONE;
+            }
+            else
+            {
+                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+                leoManager.GetComponent<LeoManager>().WrongPosition();
+            }
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            leoManager.GetComponent<LeoManager>().WrongPosition();
+            leoManager.GetComponent<LeoManager>().WrongObject();
         }
     }
 }
