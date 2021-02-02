@@ -14,6 +14,9 @@ public class fabricScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    //Boolean to check if this is the correct object to drag and drop
+    private bool isCorrect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,38 +34,47 @@ public class fabricScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+
         if (leoManager.GetComponent<LeoManager>().state == TextState.FABRIC)
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            isCorrect = true;
         }
         else
         {
-            leoManager.GetComponent<LeoManager>().WrongObject();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            isCorrect = false;
         }
     }
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - fabric_s.position.x) <= 60.0f
-            && Mathf.Abs(transform.position.y - fabric_s.position.y) <= 80.0f)
+        if (isCorrect)
         {
-            transform.position = new Vector2(fabric_s.position.x, fabric_s.position.y);
+            if (Mathf.Abs(transform.position.x - fabric_s.position.x) <= 60.0f
+            && Mathf.Abs(transform.position.y - fabric_s.position.y) <= 80.0f)
+            {
+                transform.position = new Vector2(fabric_s.position.x, fabric_s.position.y);
 
-            gameObject.SetActive(false);
-            fabricObject.SetActive(false);
+                gameObject.SetActive(false);
+                fabricObject.SetActive(false);
 
-            sr = fabric_f.GetComponent<SpriteRenderer>();
-            sr.color = new Color(1f, 1f, 1f, 1f);
+                sr = fabric_f.GetComponent<SpriteRenderer>();
+                sr.color = new Color(1f, 1f, 1f, 1f);
 
-            leoManager.GetComponent<LeoManager>().state = TextState.FABRIC_DONE;
+                leoManager.GetComponent<LeoManager>().state = TextState.FABRIC_DONE;
+            }
+            else
+            {
+                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+                leoManager.GetComponent<LeoManager>().WrongPosition();
+                //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            }
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            leoManager.GetComponent<LeoManager>().WrongPosition();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            leoManager.GetComponent<LeoManager>().WrongObject();
         }
     }
 }

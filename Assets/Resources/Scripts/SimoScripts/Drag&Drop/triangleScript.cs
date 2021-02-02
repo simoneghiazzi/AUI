@@ -14,6 +14,9 @@ public class triangleScript : MonoBehaviour
 
     private float deltaX, deltaY;
 
+    //Boolean to check if this is the correct object to drag and drop
+    private bool isCorrect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,38 +34,47 @@ public class triangleScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+
         if (leoManager.GetComponent<LeoManager>().state == TextState.TRIANGLE)
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            isCorrect = true;
         }
         else
         {
-            leoManager.GetComponent<LeoManager>().WrongObject();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            isCorrect = false;
         }
     }
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - triangle_s.position.x) <= 30.0f
-            && Mathf.Abs(transform.position.y - triangle_s.position.y) <= 80.0f)
+        if (isCorrect)
         {
-            transform.position = new Vector2(triangle_s.position.x, triangle_s.position.y);
+            if (Mathf.Abs(transform.position.x - triangle_s.position.x) <= 30.0f
+            && Mathf.Abs(transform.position.y - triangle_s.position.y) <= 80.0f)
+            {
+                transform.position = new Vector2(triangle_s.position.x, triangle_s.position.y);
 
-            gameObject.SetActive(false);
-            triangleObject.SetActive(false);
+                gameObject.SetActive(false);
+                triangleObject.SetActive(false);
 
-            sr = triangle_f.GetComponent<SpriteRenderer>();
-            sr.color = new Color(1f, 1f, 1f, 1f);
+                sr = triangle_f.GetComponent<SpriteRenderer>();
+                sr.color = new Color(1f, 1f, 1f, 1f);
 
-            leoManager.GetComponent<LeoManager>().state = TextState.TRIANGLE_DONE;
+                leoManager.GetComponent<LeoManager>().state = TextState.TRIANGLE_DONE;
+            }
+            else
+            {
+                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+                leoManager.GetComponent<LeoManager>().WrongPosition();
+                //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            }
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            leoManager.GetComponent<LeoManager>().WrongPosition();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            leoManager.GetComponent<LeoManager>().WrongObject();
         }
     }
 }

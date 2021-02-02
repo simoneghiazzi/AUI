@@ -13,7 +13,10 @@ public class mainmastScript : MonoBehaviour
     private SpriteRenderer sr;
 
     private float deltaX, deltaY;
-    
+
+    //Boolean to check if this is the correct object to drag and drop
+    private bool isCorrect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,38 +34,47 @@ public class mainmastScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+
         if (leoManager.GetComponent<LeoManager>().state == TextState.MAST)
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+            isCorrect = true;
         }
         else
         {
-            leoManager.GetComponent<LeoManager>().WrongObject();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            isCorrect = false;
         }
     }
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - mainmast_s.position.x) <= 30.0f
-            && Mathf.Abs(transform.position.y - mainmast_s.position.y) <= 80.0f)
+        if (isCorrect)
         {
-            transform.position = new Vector2(mainmast_s.position.x, mainmast_s.position.y);
+            if (Mathf.Abs(transform.position.x - mainmast_s.position.x) <= 30.0f
+            && Mathf.Abs(transform.position.y - mainmast_s.position.y) <= 80.0f)
+            {
+                transform.position = new Vector2(mainmast_s.position.x, mainmast_s.position.y);
 
-            gameObject.SetActive(false);
-            mastObject.SetActive(false);
+                gameObject.SetActive(false);
+                mastObject.SetActive(false);
 
-            sr = mainmast_f.GetComponent<SpriteRenderer>();
-            sr.color = new Color(1f, 1f, 1f, 1f);
+                sr = mainmast_f.GetComponent<SpriteRenderer>();
+                sr.color = new Color(1f, 1f, 1f, 1f);
 
-            leoManager.GetComponent<LeoManager>().state = TextState.MAST_DONE;
+                leoManager.GetComponent<LeoManager>().state = TextState.MAST_DONE;
+            }
+            else
+            {
+                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+                leoManager.GetComponent<LeoManager>().WrongPosition();
+                //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            }
         }
         else
         {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
-            leoManager.GetComponent<LeoManager>().WrongPosition();
-            //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            leoManager.GetComponent<LeoManager>().WrongObject();
         }
     }
 }

@@ -39,7 +39,7 @@ public class LeoManager : MonoBehaviour
         state = TextState.INTRO;
         txt = GameObject.Find("TextLeo").GetComponent<Text>();
         objs = GameObject.Find("Components");
-        timer.Interval = 5000f;
+        timer.Interval = 2000f;
         timer.Elapsed += NextIntro;
         timer.Start();
 
@@ -156,7 +156,6 @@ public class LeoManager : MonoBehaviour
                     timer.Elapsed += WrongPick;
                     toUpdate = "Non sono sicuro che questo vada bene...prova a prendere un altro oggetto!";
                     updateSprite = SAD;
-                    Debug.Log(savedState);
                     timer.Start();
                     break;
                 default:
