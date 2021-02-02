@@ -178,8 +178,7 @@ public class LeoManager : MonoBehaviour
     void FinalIntro(object o, System.EventArgs e)
     {
         timer.Stop();
-        toUpdate = "Per afferrare un oggetto chiudi la mano a pugno davanti a quello. " +
-        "Tenendo il pugno chiuso trascinalo dove vuoi metterlo e riapri la mano per lasciarlo andare";
+        toUpdate = "Tocca un oggetto per afferrarlo e trascinalo dove vuoi metterlo! Alza poi il dito per rilasciarlo";
         timer.Elapsed += BeginGame;
         timer.Start();
     }
