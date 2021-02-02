@@ -16,9 +16,34 @@ public class AnswerScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider AnswerBubble) // method called when the player collides with the button
     {
-          Debug.Log(" Player 1 : Answer selected, wait 2 seconds for validation");
+      if(AnswerBubble.name == "Cube1")
+      {
+        Debug.Log(" Player 1 : Answer selected, wait 2 seconds for validation");
 
-          StartCoroutine(waitForValidation(2)); // Waiting 2 seconds on the button to validate the button
+        StartCoroutine(waitForValidation(2)); // Waiting 2 seconds on the button to validate the button
+
+      }
+      if(AnswerBubble.name == "Cube2")
+      {
+        Debug.Log(" Player 2 : Answer selected, wait 2 seconds for validation");
+
+        StartCoroutine(waitForValidation(2)); // Waiting 2 seconds on the button to validate the button
+
+      }
+      if(AnswerBubble.name == "Cube3")
+      {
+        Debug.Log(" Player 3 : Answer selected, wait 2 seconds for validation");
+
+        StartCoroutine(waitForValidation(2)); // Waiting 2 seconds on the button to validate the button
+
+      }
+      if(AnswerBubble.name == "Cube4")
+      {
+        Debug.Log(" Player 4 : Answer selected, wait 2 seconds for validation");
+
+        StartCoroutine(waitForValidation(2)); // Waiting 2 seconds on the button to validate the button
+
+      }
 
     }
 

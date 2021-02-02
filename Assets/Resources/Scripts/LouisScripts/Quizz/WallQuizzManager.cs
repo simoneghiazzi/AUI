@@ -170,8 +170,14 @@ public class WallQuizzManager : MonoBehaviour
       yield return new WaitForSeconds(8);
     }
 
+    //Magic Room commands
+    //MagicRoomManager.Instance.MagicRoomLightManager.SetColor(Color.green);
+    //MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "ON"); //turn on the bubble machine
+    //yield return new WaitForSeconds(5);
+    //MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "OFF"); //turn off the bubble machine
+
     Debug.Log("Game Over, going to next level");
-    
+
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
   }
 
