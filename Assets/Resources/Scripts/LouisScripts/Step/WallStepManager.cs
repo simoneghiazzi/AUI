@@ -247,12 +247,20 @@ public class WallStepManager : MonoBehaviour
     LeoBubble.SetActive(true);
     TextLeoBubble.text = "Grazie per aver volato con me! E ora passiamo alla prossima attività ...";
 
+    //Magic Room commands
+    //MagicRoomManager.Instance.MagicRoomLightManager.SetColor(Color.green);
+    //MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "ON"); //turn on the bubble machine
+
+
     GameOver();
   }
 
   private void GameOver()
   {
     Debug.Log("Game Over, going to next level");
+
+    //Magic Room commands
+    //MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "OFF"); //turn off the bubble machine
 
     //Put here function to go back to menu
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

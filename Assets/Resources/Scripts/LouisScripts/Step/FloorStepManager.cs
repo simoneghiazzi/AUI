@@ -71,6 +71,9 @@ public class FloorStepManager : MonoBehaviour
     {
       yield return new WaitForSeconds(8);
 
+      //Magic Room lights turn green
+      //MagicRoomManager.Instance.MagicRoomLightManager.SetColor(Color.green);
+
       if(WallStepManager.GetComponent<WallStepManager>().GetOnA()[currentObstacleFloor].Obstacle == "Birds")
       {
         BirdObstacle.GetComponent<BirdObstacle>().StopBirds();
@@ -108,6 +111,9 @@ public class FloorStepManager : MonoBehaviour
       Debug.Log("Crash !!");
       //Explosion animation
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(true);
+
+      //Magic Room commands
+      //MagicRoomManager.Instance.MagicRoomLightManager.SetColor(Color.red);
 
       yield return new WaitForSeconds(5);
 
