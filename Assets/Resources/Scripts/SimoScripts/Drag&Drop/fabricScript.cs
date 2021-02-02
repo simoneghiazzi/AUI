@@ -49,7 +49,6 @@ public class fabricScript : MonoBehaviour
             RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
             if (hitWall && hitWall.transform.name == "_fabric")
             {
-                Debug.Log("FLAG: " + isCorrect);
                 OnMouseDrag();
                 foreach (Transform child in components)
                 {
@@ -118,7 +117,6 @@ public class fabricScript : MonoBehaviour
             {
                 transform.position = new Vector2(initialPosition.x, initialPosition.y);
                 leoManager.GetComponent<LeoManager>().WrongPosition();
-                Debug.Log("SEI TU??");
                 //gameObject.GetComponent<PolygonCollider2D>().enabled = false;
             }
         }
