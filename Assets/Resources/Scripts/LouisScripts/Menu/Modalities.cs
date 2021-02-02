@@ -15,6 +15,8 @@ public class Modalities : MonoBehaviour
     {
       Debug.Log("Start Modalities");
 
+      MenuManager.GetComponent<MenuManager>().Modalities.SetActive(true);
+
       //Set the bubbles
       MenuManager.GetComponent<MenuManager>().Singola.SetActive(true);
       MenuManager.GetComponent<MenuManager>().SingolaInfoBubble.SetActive(false);
