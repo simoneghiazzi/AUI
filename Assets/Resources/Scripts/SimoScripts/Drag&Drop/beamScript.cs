@@ -47,8 +47,6 @@ public class beamScript : MonoBehaviour
         {
             isCorrect = false;
         }
-
-        Debug.Log("CORRETTO: " + isCorrect);
     }
 
     private void OnMouseUp()
