@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum TextState
 {
     INTRO, BASE, BASE_DONE, BIG, BIG_DONE, SMALL, SMALL_DONE, BEAM, BEAM_DONE, TRIANGLE,
-    TRIANGLE_DONE, MAST, MAST_DONE, FABRIC, FABRIC_DONE, HANDLE, HANDLE_DONE, WRONG_OBJ, WRONG_POS
+    TRIANGLE_DONE, MAST, MAST_DONE, FABRIC, FABRIC_DONE, HANDLE, HANDLE_DONE, WRONG_OBJ, WRONG_POS, COMPLETE
 }
 
 public class LeoManager : MonoBehaviour
@@ -145,6 +146,12 @@ public class LeoManager : MonoBehaviour
                 case TextState.TRIANGLE_DONE:
                     toUpdate = "Ce l’abbiamo fatta! Siamo riusciti a costruire il primo elicottero della storia. Passiamo alla seconda invenzione!";
                     updateSprite = HAPPY;
+                    savedState = TextState.COMPLETE;
+                    timer.Elapsed += NextStep;
+                    timer.Start();
+                    break;
+                case TextState.COMPLETE:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     break;
                 case TextState.WRONG_POS:
                     timer.Elapsed += WrongPick;
