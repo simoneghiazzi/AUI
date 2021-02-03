@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac742bf76ff95734cbe08883d2783a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateHandCloseEvents: 1
+  activateHandCloseEvents: 0
   activateGestureEvents: 0
   activeTrackAxis:
     X: 1
@@ -2508,7 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac742bf76ff95734cbe08883d2783a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateHandCloseEvents: 1
+  activateHandCloseEvents: 0
   activateGestureEvents: 0
   activeTrackAxis:
     X: 1
@@ -2620,7 +2620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac742bf76ff95734cbe08883d2783a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateHandCloseEvents: 1
+  activateHandCloseEvents: 0
   activateGestureEvents: 0
   activeTrackAxis:
     X: 1
@@ -2808,7 +2808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac742bf76ff95734cbe08883d2783a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateHandCloseEvents: 1
+  activateHandCloseEvents: 0
   activateGestureEvents: 0
   activeTrackAxis:
     X: 1
