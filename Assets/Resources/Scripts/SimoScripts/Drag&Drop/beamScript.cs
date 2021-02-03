@@ -49,12 +49,12 @@ public class beamScript : MonoBehaviour
         {
             Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
             RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
-            if (hitWall && (hitWall.transform.name == "_beam" || hitWall.transform.name == "_beam (1)" || hitWall.transform.name == "_beam (2)"))
+            if (hitWall && hitWall.transform.name == transform.name)
             {
                 OnMouseDrag();
                 foreach (Transform child in components)
                 {
-                    if ((transform.name == "_beam" && child.name != "_beam") || (transform.name == "_beam (1)" && child.name != "_beam (1)") || (transform.name == "_beam (2)" && child.name != "_beam (2)"))
+                    if (child.name != transform.name)
                     {
                         child.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                     }
@@ -66,7 +66,7 @@ public class beamScript : MonoBehaviour
         {
             Vector2 rayPosWall = new Vector2(wallCamera.ScreenToWorldPoint(Input.mousePosition).x, wallCamera.ScreenToWorldPoint(Input.mousePosition).y);
             RaycastHit2D hitWall = Physics2D.Raycast(rayPosWall, Vector2.zero, 0f);
-            if (hitWall && (hitWall.transform.name == "_beam" || hitWall.transform.name == "_beam (1)" || hitWall.transform.name == "_beam (2)"))
+            if (hitWall && hitWall.transform.name == transform.name)
             {
                 OnMouseUp();
                 foreach (Transform child in components)
