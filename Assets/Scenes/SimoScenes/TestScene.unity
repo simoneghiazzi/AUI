@@ -2938,8 +2938,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Possiamo passare alla seconda fase della competizione, in cui dovrete
-    occuparvi dell\u2019apertura e della chiusura degli sbarramenti delle conche!"
+  m_Text: "Possiamo passare alla seconda fase della competizione, in cui dovrete occuparvi
+    dell\u2019apertura e della chiusura degli sbarramenti delle conche!"
 --- !u!222 &1159823913
 CanvasRenderer:
   m_ObjectHideFlags: 0
