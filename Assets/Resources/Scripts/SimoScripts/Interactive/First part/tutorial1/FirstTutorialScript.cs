@@ -21,14 +21,11 @@ public class FirstTutorialScript : MonoBehaviour
     private string[] leoPhrases = { "Il sistema delle conche consente alle piccole imbarcazioni di percorrere lunghi corsi d’acqua caratterizzati da un dislivello del terreno",
     "In questo livello parteciperete ad una gara tra barche all’ultimo secondo! Sono necessarie due squadre, ognuna costituita da due giocatori",
     "Ora, disponetevi uno accanto all’altro in corrispondenza delle macchie colorate sul pavimento",
-    "Chi rema deve muovere il piú velocemente possibile le braccia in alto e in basso, tenendole laterali al corpo",
-    "L’altro componente della squadra sarà al timone: ruotando in senso orario o antiorario il braccio, infatti, potrà direzionare la barca senza farla scontrare con i bordi della conca",
-    "Siete pronti?"};
+    "Chi rema deve muovere il piú velocemente possibile le braccia in alto e in basso come se volasse, tenendole laterali al corpo",
+    "L’altro componente della squadra sarà al timone: ruotando in senso orario o antiorario il braccio, infatti, potrà direzionare la barca senza farla scontrare con i bordi della conca"};
 
     //Index of the phrase to be said by Leo
     private int index = 0;
-
-    public GameObject firstVideo, secondVideo;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +36,7 @@ public class FirstTutorialScript : MonoBehaviour
         HAPPY = Resources.Load<Sprite>("Leo_happy");
         updateSprite = HAPPY;
 
-        timer.Interval = 5000f;
+        timer.Interval = 3000f;
         timer.Elapsed += NextIntro;
         timer.Start();
     }
@@ -51,22 +48,7 @@ public class FirstTutorialScript : MonoBehaviour
         txt.text = toUpdate;
         gameObject.GetComponent<Image>().sprite = updateSprite;
 
-        if (index == 4)
-        {
-            firstVideo.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        else if (index == 5)
-        {
-            firstVideo.GetComponent<SpriteRenderer>().enabled = false;
-            secondVideo.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        else
-        {
-            firstVideo.GetComponent<SpriteRenderer>().enabled = false;
-            secondVideo.GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        if (index == leoPhrases.Length +1)
+        if (index == leoPhrases.Length)
         {
             timer.Stop();
             StartLevel();
@@ -76,10 +58,7 @@ public class FirstTutorialScript : MonoBehaviour
     void NextIntro(object o, System.EventArgs e)
     {
         timer.Stop();
-        if(index < leoPhrases.Length)
-        {
-            toUpdate = leoPhrases[index];
-        }
+        toUpdate = leoPhrases[index];
         updateSprite = THINK;
         index++;
         timer.Start();
