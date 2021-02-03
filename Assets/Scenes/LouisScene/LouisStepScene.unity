@@ -506,10 +506,10 @@ RectTransform:
   m_Father: {fileID: 81534813}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: -0.00012207031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &109979360
 GameObject:
@@ -1109,15 +1109,15 @@ RectTransform:
   m_GameObject: {fileID: 235882310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -149}
-  m_LocalScale: {x: 0.79630077, y: 0.79630077, z: 0.79630077}
+  m_LocalScale: {x: 0.4327337, y: 0.4327337, z: 0.4327337}
   m_Children: []
   m_Father: {fileID: 1112170144}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -238.80005, y: 390.8}
-  m_SizeDelta: {x: -904.02893, y: -895.1426}
+  m_AnchorMin: {x: 0.24300002, y: 0.23900001}
+  m_AnchorMax: {x: 0.75619733, y: 0.7624571}
+  m_AnchoredPosition: {x: -236.90002, y: 391.4}
+  m_SizeDelta: {x: -10.389893, y: -767.91077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235882312
 MonoBehaviour:
@@ -1140,11 +1140,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
-    m_FontSize: 40
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 52
+    m_MinSize: 0
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2271,7 +2271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860446272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.62, y: 4.58, z: 96.64}
+  m_LocalPosition: {x: 17.11, y: 9.25, z: 96.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440965137}
@@ -2532,7 +2532,7 @@ MonoBehaviour:
     - Volare verso sinistra
     - Volare versa destra
     - Atterare e ripartire
-    CorrectAnswer: 3
+    CorrectAnswer: 2
     FeedbackText: "Bravo! L\u2019unico modo per evitare uno stormo di uccelli \xE8
       virare in direzione opposta. Possiamo continuare il viaggio."
   - Obstacle: ThunderCloud
@@ -3069,7 +3069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5999985, y: -2.5999985}
+  m_AnchoredPosition: {x: 2.6000977, y: -2.5998535}
   m_SizeDelta: {x: 1817.4485, y: 979.0266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1134225852
@@ -3486,8 +3486,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1503812376
-Transform:
+--- !u!224 &1503812376
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3501,6 +3501,11 @@ Transform:
   m_Father: {fileID: 1954968697}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1520821119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3912,7 +3917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.120000005, y: 0.18}
+  m_AnchoredPosition: {x: -0.12011719, y: 0.17993164}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1805454057
@@ -4073,8 +4078,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1921389273
-Transform:
+--- !u!224 &1921389273
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4088,6 +4093,11 @@ Transform:
   m_Father: {fileID: 1162374667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1944427177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,15 +4308,15 @@ RectTransform:
   m_GameObject: {fileID: 1964913077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.018707605, y: 0.018707605, z: 0.018707605}
+  m_LocalScale: {x: 0.009900791, y: 0.009900791, z: 0.009900791}
   m_Children: []
   m_Father: {fileID: 34793631}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.108, y: -0.733}
-  m_SizeDelta: {x: 239.79626, y: 102.65396}
+  m_AnchoredPosition: {x: 0.076, y: -0.788}
+  m_SizeDelta: {x: 391.37305, y: 159.1714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964913079
 MonoBehaviour:
@@ -4329,11 +4339,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
-    m_FontSize: 32
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4622,15 +4632,15 @@ RectTransform:
   m_GameObject: {fileID: 2078091072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.020827455, y: 0.020827455, z: 0.020827455}
+  m_LocalScale: {x: 0.013436833, y: 0.013436833, z: 0.013436833}
   m_Children: []
   m_Father: {fileID: 960164690}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.120000005, y: -0.00000011920929}
-  m_SizeDelta: {x: 146.26315, y: 117.80786}
+  m_AnchoredPosition: {x: -0.078, y: -0.125}
+  m_SizeDelta: {x: 264.51562, y: 223.6146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2078091074
 MonoBehaviour:
@@ -4653,11 +4663,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4543653216a4c4378a5fcb3610165fe0, type: 3}
-    m_FontSize: 90
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 90
+    m_MinSize: 1
+    m_MaxSize: 120
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class FloorStepManager : MonoBehaviour
 {
     //VARIABLES INITIALIZATION
@@ -113,7 +114,7 @@ public class FloorStepManager : MonoBehaviour
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(true);
 
       //Magic Room commands
-      //MagicRoomManager.Instance.MagicRoomLightManager.SetColor(Color.red);
+      MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
 
       yield return new WaitForSeconds(5);
 
