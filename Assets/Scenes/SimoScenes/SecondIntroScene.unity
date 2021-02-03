@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -642, y: -151.39}
+  m_AnchoredPosition: {x: -688.2, y: -151.39}
   m_SizeDelta: {x: 233.69495, y: 269.56384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24730936
@@ -774,7 +774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 641, y: -151.39}
+  m_AnchoredPosition: {x: 679.8, y: -151.39}
   m_SizeDelta: {x: 233.69629, y: 269.5655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410948848
@@ -1360,7 +1360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727142280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.769, y: -4.588, z: -15}
+  m_LocalPosition: {x: -10.74, y: -4.76, z: -15}
   m_LocalScale: {x: 0.49743745, y: 0.38953406, z: 1}
   m_Children: []
   m_Father: {fileID: 696223258}
@@ -1401,7 +1401,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 314.28452
+  orthographic size: 288.2109
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2556,7 +2556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: 0}
+  m_AnchoredPosition: {x: 137.5, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1349387455
@@ -2864,8 +2864,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Possiamo passare alla seconda fase della competizione, in cui dovrete occuparvi
-    dell\u2019apertura e della chiusura degli sbarramenti delle conche!"
+  m_Text: "Possiamo passare alla seconda fase della competizione, in cui dovrete
+    occuparvi dell\u2019apertura e della chiusura degli sbarramenti delle conche!"
 --- !u!222 &1573273192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3593,7 +3593,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 302.7506
+  orthographic size: 289.7138
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4692,7 +4692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155, y: 0}
+  m_AnchoredPosition: {x: -132.6, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2146835197
