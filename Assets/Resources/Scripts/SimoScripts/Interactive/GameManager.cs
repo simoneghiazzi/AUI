@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         {
             secondComplete = false;
             firstDone = secondDone = false;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }
