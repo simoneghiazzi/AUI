@@ -132,7 +132,7 @@ public class WallQuizzManager : MonoBehaviour
     }
 
     // Wait for 10 seconds to display the scores
-    StartCoroutine(waitForNext(10));
+    StartCoroutine(waitForNext(2));
 
     // On to the next question (on the currentQuestion index)
     currentQuestion += 1;
@@ -332,7 +332,7 @@ public class WallQuizzManager : MonoBehaviour
     MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "ON"); //turn on the bubble machine
     MagicRoomManager.Instance.MagicRoomAppliancesManager.SendChangeCommand("Macchina delle Bolle", "OFF"); //turn off the bubble machine
 */
-    StartCoroutine(waitForNextTimeIsOut(5));
+    StartCoroutine(waitForNextTimeIsOut(1));
   }
 
   IEnumerator waitForNextTimeIsOut(int time)
@@ -345,7 +345,7 @@ public class WallQuizzManager : MonoBehaviour
   IEnumerator LeoFeedback()
   {
     QuestionTxt.text = Feedback[fb].FeedbackText;
-    yield return new WaitForSeconds(8);
+    yield return new WaitForSeconds(2);
 
     fb++;
 

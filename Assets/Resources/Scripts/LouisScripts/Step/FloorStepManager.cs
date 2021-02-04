@@ -114,7 +114,7 @@ public class FloorStepManager : MonoBehaviour
       WallStepManager.GetComponent<WallStepManager>().Explosion.SetActive(true);
 
       //Magic Room commands
-      MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+      //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
 
       yield return new WaitForSeconds(5);
 
