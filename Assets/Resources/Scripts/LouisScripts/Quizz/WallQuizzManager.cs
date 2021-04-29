@@ -287,8 +287,8 @@ public class WallQuizzManager : MonoBehaviour
       StartCoroutine(waitForNextIntro(5, state));
       state += 1;
       Debug.Log("Hello " + state);
-  }
-  */
+  }*/
+
   IEnumerator IntroductionQuizz()
   {
     Debug.Log("Start Intro");

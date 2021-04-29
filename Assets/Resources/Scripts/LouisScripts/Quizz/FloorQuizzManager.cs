@@ -26,8 +26,6 @@ public class FloorQuizzManager : MonoBehaviour
           optionsTeam[i] = Wall.options[i]; // make a copy
         }
         */
-
-
     }
 
 
