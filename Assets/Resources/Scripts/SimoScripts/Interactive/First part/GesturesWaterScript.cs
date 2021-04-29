@@ -42,17 +42,16 @@ public class GesturesWaterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This Translate used to automatically move the end if Magic room not accessible 
-        hand.Translate(0, handMovement, 0, Space.World);
+        //This Translate used to automatically move the hand if Magic room not accessible 
+        //hand.Translate(0, handMovement, 0, Space.World);
 
-        ///NOT A GOOD EFFECT FOR NOW
         //To simulate the natural water current
-        //transform.Translate(0, 0.03f, 0, Space.World);
+        transform.Translate(0, 0.05f, 0, Space.World);
 
         if (hand.position.y > (shoulder.position.y + threshold) && check == true)
         {
             //Still for the automatic movement of the hand
-            handMovement = -handMovement;
+            //handMovement = -handMovement;
 
             counter += 1;
             check = false;
@@ -60,7 +59,7 @@ public class GesturesWaterScript : MonoBehaviour
         else if (hand.position.y < (shoulder.position.y - threshold) && check == false)
         {
             //Still for the automatic movement of the hand
-            handMovement = -handMovement;
+            //handMovement = -handMovement;
 
             check = true;
         }
@@ -78,9 +77,9 @@ public class GesturesWaterScript : MonoBehaviour
     {
         timer.Stop();
 
-        Debug.Log("BASIC: " + basicSpeed);
+        /*Debug.Log("BASIC: " + basicSpeed);
         Debug.Log("COUNTER: " + counter);
-        Debug.Log("Speed: " + basicSpeed * counter);
+        Debug.Log("Speed: " + basicSpeed * counter);*/
 
         toUpdate = true;
 

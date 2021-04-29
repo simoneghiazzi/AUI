@@ -18,7 +18,7 @@ public class GesturesRudderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hand.Translate(-0.2f, -0.1f, 0, Space.World);
+        //hand.Translate(-0.2f, -0.1f, 0, Space.World);
 
         var tan = (hand.position.x - shoulder.position.x) / (hand.position.y - shoulder.position.y);
 
@@ -39,7 +39,7 @@ public class GesturesRudderScript : MonoBehaviour
         {
             wheelAngle = (float)(Math.Atan(tan) * (180 / Math.PI));
         }
-
+        
         gameObject.GetComponent<RudderScript>().wheelAngle = wheelAngle;
     }
 }

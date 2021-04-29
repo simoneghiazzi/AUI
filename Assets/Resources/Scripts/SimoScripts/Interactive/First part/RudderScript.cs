@@ -112,7 +112,7 @@ public class RudderScript : MonoBehaviour
 
         entry = new EventTrigger.Entry();
         callback = new EventTrigger.TriggerEvent();
-        functionCall = new UnityAction<BaseEventData>(ReleaseEvent);//
+        functionCall = new UnityAction<BaseEventData>(ReleaseEvent);
         callback.AddListener(functionCall);
         entry.eventID = EventTriggerType.PointerUp;
         entry.callback = callback;
