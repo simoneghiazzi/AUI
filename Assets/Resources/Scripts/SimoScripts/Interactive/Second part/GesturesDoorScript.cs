@@ -21,9 +21,9 @@ public class GesturesDoorScript : MonoBehaviour
     void Update()
     {
         //The following three lines (plus the declarations of the variables used for them) are just to simulate hand movement and check that code works
-        circularAngle += Time.deltaTime;
+        /*circularAngle += Time.deltaTime;
         var offset = new Vector2(Mathf.Sin(circularAngle), Mathf.Cos(circularAngle)) * radius;
-        hand.position = (Vector2)shoulder.position + offset;
+        hand.position = (Vector2)shoulder.position + offset;*/
 
         var tan = (hand.position.x - shoulder.position.x) / (hand.position.y - shoulder.position.y);
 

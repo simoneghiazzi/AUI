@@ -156,8 +156,10 @@ public class MagicRoomKinectV2Manager : MonoBehaviour
         {
             action = "getStatus"
         };
+        StatusKinectSensor = true;
         StartCoroutine(SendCommand(command, (body) => {
             dynamic payload = JObject.Parse(body);
+            Debug.LogWarning(payload);
             try
             {
                 StatusKinectSensor = (bool)payload.status;
