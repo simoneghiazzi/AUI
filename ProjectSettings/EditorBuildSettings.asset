@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MenuScene.unity
     guid: 85c43ce18c48c2e47ad559ca6581954d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Quiz scene.unity
     guid: 3f73fcb2a71ed2240a807c9bd1b9ae11
   - enabled: 0
@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Conche/Second tutorial.unity
     guid: 114e701fe23382f4f8a1d830e0a2efe2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Conche/Second level.unity
     guid: 2f0fe815343c17c4bb4334f0ca7e24be
   m_configObjects: {}
