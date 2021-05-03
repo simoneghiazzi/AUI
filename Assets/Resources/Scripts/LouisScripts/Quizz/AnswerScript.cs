@@ -16,6 +16,7 @@ public class AnswerScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider AnswerBubble) // method called when the player collides with the button
     {
+        Debug.Log(AnswerBubble.name);
       if(AnswerBubble.name == "Cube1")
       {
         Debug.Log(" Player 1 : Answer selected, wait 2 seconds for validation");

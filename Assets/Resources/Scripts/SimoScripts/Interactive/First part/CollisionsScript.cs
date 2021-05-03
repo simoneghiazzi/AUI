@@ -67,9 +67,9 @@ public class CollisionsScript : MonoBehaviour
         {
             gameObject.GetComponent<RudderScript>().wheelBeingHeld = true;
             gameObject.GetComponent<RudderScript>().enabled = true;
-            //gameObject.GetComponent<GesturesRudderScript>().enabled = true;
-            //gameObject.GetComponent<GesturesWaterScript>().enabled = true;
-            water.GetComponent<WaterScript>().enabled = true;
+            gameObject.GetComponent<GesturesRudderScript>().enabled = true;
+            water.GetComponent<GesturesWaterScript>().enabled = true;
+            //water.GetComponent<WaterScript>().enabled = true;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
         }
         else
@@ -77,8 +77,8 @@ public class CollisionsScript : MonoBehaviour
             gameObject.GetComponent<RudderScript>().enabled = false;
             gameObject.GetComponent<RudderScript>().CollisionReset();
             //gameObject.GetComponent<GesturesRudderScript>().enabled = false;
-            //gameObject.GetComponent<GesturesWaterScript>().enabled = false;
-            water.GetComponent<WaterScript>().enabled = false;
+            water.GetComponent<GesturesWaterScript>().enabled = false;
+            //water.GetComponent<WaterScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
         }
     }

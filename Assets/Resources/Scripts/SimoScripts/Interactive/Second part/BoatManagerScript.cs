@@ -60,11 +60,13 @@ public class BoatManagerScript : MonoBehaviour
             water.GetComponent<AutomaticWaterScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = false;
             firstDoor.GetComponent<DoorScript>().enabled = true;
+            firstDoor.GetComponent<GesturesDoorScript>().enabled = true;
         }
         else if (firstLeftDoor.rotation.eulerAngles.z >= 76 && firstStep) //The check on the angle is due to the fact that Euler Angles range from 0 to 360
         {
             firstDoor.GetComponent<DoorScript>().enabled = false;
             firstDoor.GetComponent<DoorScript>().closeDoors();
+            firstDoor.GetComponent<GesturesDoorScript>().enabled = false;
             deepWater.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
             alpha -= 0.002f;
             if (alpha <= 0.0)
@@ -72,6 +74,7 @@ public class BoatManagerScript : MonoBehaviour
                 firstStep = false;
                 secondStep = true;
                 secondDoor.GetComponent<DoorScript>().enabled = true;
+                firstDoor.GetComponent<GesturesDoorScript>().enabled = true;
             }
         }
 
@@ -81,6 +84,7 @@ public class BoatManagerScript : MonoBehaviour
             secondDoor.GetComponent<DoorScript>().toOpen = false;
             secondDoor.GetComponent<DoorScript>().wheelAngle = 0.0f;
             secondDoor.GetComponent<DoorScript>().enabled = false;
+            firstDoor.GetComponent<GesturesDoorScript>().enabled = false;
             gameObject.GetComponent<HollowsAnimationScript>().enabled = true;
         }
         else if (secondLeftDoor.rotation.eulerAngles.z <= 76 && thirdStep && !fourthStep)

@@ -69,7 +69,7 @@ public class TrackerPlayerPosition : MonoBehaviour
                     case PartToTrack.LeftHip: newposition = skelPosition.HipLeft; break;
                     case PartToTrack.RightHip: newposition = skelPosition.HipRight; break;
                     case PartToTrack.RightShoulder: newposition = skelPosition.ShoulderRight; break;
-                    case PartToTrack.LeftShoulder: newposition = skelPosition.ShoulderRight; break;
+                    case PartToTrack.LeftShoulder: newposition = skelPosition.ShoulderLeft; break;
                     case PartToTrack.LeftWrist: newposition = skelPosition.WristLeft; break;
                     case PartToTrack.RightWrist: newposition = skelPosition.WristRight; break;
                     case PartToTrack.SpineBase: newposition = skelPosition.SpineBase; break;

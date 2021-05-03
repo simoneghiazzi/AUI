@@ -5,34 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Magic room/Init.unity
     guid: 9862607496e42b54f98b18b2947bfee0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MenuScene.unity
     guid: 85c43ce18c48c2e47ad559ca6581954d
   - enabled: 1
     path: Assets/Scenes/Quiz scene.unity
     guid: 3f73fcb2a71ed2240a807c9bd1b9ae11
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DragDropScene.unity
     guid: 5d1019c49a936aa4abb2158192e49507
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Flying scene.unity
     guid: acba09aea751f724fa46274e6b1546af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Conche/First tutorial.unity
     guid: d99c4227cf58505499d92685c77ca5ed
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Conche/First level.unity
     guid: 83b7309e89862e844869aac7573f2d2c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Conche/Video scene.unity
     guid: b386c8865ca3a6d45becbcae8561cc61
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Conche/Second tutorial.unity
     guid: 114e701fe23382f4f8a1d830e0a2efe2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Conche/Second level.unity
     guid: 2f0fe815343c17c4bb4334f0ca7e24be
   m_configObjects: {}
